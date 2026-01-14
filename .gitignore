@@ -26,3 +26,4 @@ test-app/node_modules/
 .env
 .env.local
 .env.*.local
+node_modules
