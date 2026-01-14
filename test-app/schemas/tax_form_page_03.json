@@ -1,0 +1,452 @@
+[
+  {
+    "section_name": "Income",
+    "sub_sections": [
+      {
+        "sub_section_id": "salary_wages",
+        "sub_section_label": "SALARY OR WAGES",
+        "item_code": "1",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "main_occupation",
+              "label": "Your main salary and wage occupation",
+              "field_info": {
+                "field_type": "text",
+                      "text_align": "left"
+              },
+              "value": "Manager - financial administration"
+            },
+            {
+              "id": "occupation_code",
+              "label": "Occupation Code",
+              "field_info": {
+                "field_type": "text",
+                      "text_align": "left"
+              },
+              "value": "132211"
+            },
+            {
+              "id": "payer_table",
+              "label": "Payer Details",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "payer_abn",
+                    "label": "Payer's ABN",
+                    "field_info": {
+                      "field_type": "abn"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "payer_name",
+                    "label": "Name",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "40%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2,
+                      "badge": "C"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "income",
+                    "label": "Income",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "20%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 10
+              },
+              "value": [
+                {
+                  "payer_abn": "73081074160",
+                  "payer_name": "ENERGYAUSTRALIA SERVICES PTY LTD",
+                  "tax_withheld": 6478.00,
+                  "income": 18578.00,
+                  "doc_link": {
+                    "type": "pdf",
+                    "url": "/pubs 2024 - supporting - prefill.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "salary_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "abn"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "type",
+                    "label": "Type",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "25%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 10,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "abn": "73081074160",
+                  "tax_withheld": 6478.00,
+                  "gross": 18578.00,
+                  "type": "S"
+                }
+              ]
+            },
+            {
+              "id": "total_tax_withheld_salary",
+              "label": "TOTAL TAX WITHHELD",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 6478.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "gross_interest",
+        "sub_section_label": "GROSS INTEREST",
+        "item_code": "10",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "tfn_amounts_withheld_interest",
+              "label": "Tax file number amounts withheld from gross interest",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "M"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "gross_interest",
+              "label": "Gross interest",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "L"
+              },
+              "value": 1006.00
+            },
+            {
+              "id": "interest_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "financial_institution",
+                    "label": "Financial Institution",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "18%"
+                  },
+                  {
+                    "id": "num_account_holders",
+                    "label": "No. of Account Holders",
+                    "field_info": {
+                      "field_type": "number"
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "percent",
+                    "label": "Percent",
+                    "field_info": {
+                      "field_type": "percentage",
+                      "decimal_places": 0
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "gross_tax_withheld",
+                    "label": "Gross Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%",
+                    "subtotal": true
+                  },
+                  {
+                    "id": "gross_interest",
+                    "label": "Gross Interest",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%",
+                    "subtotal": true
+                  },
+                  {
+                    "id": "shared_tax_withheld",
+                    "label": "Shared Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "16%",
+                    "subtotal": true
+                  },
+                  {
+                    "id": "shared_interest",
+                    "label": "Shared Interest",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "16%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "financial_institution": "Raiz Invest Australia",
+                  "num_account_holders": 1,
+                  "percent": 100,
+                  "gross_tax_withheld": 0.00,
+                  "gross_interest": 1006.59,
+                  "shared_tax_withheld": 0.00,
+                  "shared_interest": 1006.59,
+                  "doc_link": {
+                    "type": "pdf",
+                    "url": "/pubs 2024 - supporting - fund.pdf"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "dividends",
+        "sub_section_label": "DIVIDENDS",
+        "item_code": "11",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "tfn_amounts_withheld_dividends",
+              "label": "Tax file number amounts withheld from dividends",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "V"
+              }
+            },
+            {
+              "id": "unfranked_amount",
+              "label": "Unfranked amount",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "S"
+              },
+              "value": 2280.00
+            },
+            {
+              "id": "franked_amount",
+              "label": "Franked amount",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "T"
+              }
+            },
+            {
+              "id": "franking_credit",
+              "label": "Franking credit",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "U"
+              }
+            },
+            {
+              "id": "dividends_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "company_or_trust",
+                    "label": "Company or trust",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "num_account_holders",
+                    "label": "No. of Account Holders",
+                    "field_info": {
+                      "field_type": "number"
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "percent",
+                    "label": "Percent",
+                    "field_info": {
+                      "field_type": "percentage",
+                      "decimal_places": 0
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "unfranked",
+                    "label": "Unfranked",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "franked",
+                    "label": "Franked",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "franking_credits",
+                    "label": "Franking Credits",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "tfn_withheld",
+                    "label": "TFN Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "company_or_trust": "Raiz Invest Australia",
+                  "num_account_holders": 1,
+                  "percent": 100,
+                  "unfranked": 2280.70,
+                  "franked": 0.00,
+                  "franking_credits": 0.00,
+                  "tfn_withheld": 0.00
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "income_totals",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "total_supplement_income",
+              "label": "TOTAL SUPPLEMENT INCOME",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 2376.00
+            },
+            {
+              "id": "total_income",
+              "label": "TOTAL INCOME",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 24240.00
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

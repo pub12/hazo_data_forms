@@ -1,0 +1,211 @@
+[
+  {
+    "section_name": "Personal Information",
+    "sub_sections": [
+      {
+        "sub_section_id": "your_name",
+        "sub_section_label": "YOUR NAME",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "title",
+              "label": "Title",
+              "field_info": {
+                "field_type": "option",
+                "required": true,
+                "options": [
+                  { "label": "MR", "value": "MR" },
+                  { "label": "MS", "value": "MS" }
+                ]
+              },
+              "value": "MR"
+            },
+            {
+              "id": "given_name",
+              "label": "Given Name",
+              "field_info": { "field_type": "text", "required": true },
+              "value": "Pubudu"
+            },
+            {
+              "id": "family_name",
+              "label": "Family Name",
+              "field_info": { "field_type": "text", "required": true },
+              "value": "Abayasiri"
+            },
+            {
+              "id": "other_name",
+              "label": "Other Name",
+              "field_info": { "field_type": "text" },
+              "value": ""
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "residency",
+        "sub_section_label": "RESIDENCY STATUS",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "is_resident",
+              "label": "Are you an Australian Resident?",
+              "field_info": { "field_type": "boolean", "required": true },
+              "value": true
+            },
+            {
+              "id": "residency_start",
+              "label": "Residency Start Date",
+              "field_info": { "field_type": "date" },
+              "value": "2024-05-16"
+            },
+            {
+              "id": "residency_end",
+              "label": "Residency End Date",
+              "field_info": { "field_type": "date" },
+              "value": "2024-06-30"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Addresses",
+    "sub_section_layout": "horizontal",
+    "sub_sections": [
+      {
+        "sub_section_id": "postal_address",
+        "sub_section_label": "YOUR POSTAL ADDRESS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "postal_address",
+              "label": "Street Address",
+              "field_info": { "field_type": "text" },
+              "value": "10 Daryl Avenue"
+            },
+            {
+              "id": "postal_suburb",
+              "label": "Suburb/City",
+              "field_info": { "field_type": "text" },
+              "value": "Glen Waverley"
+            },
+            {
+              "id": "postal_state",
+              "label": "State",
+              "field_info": { "field_type": "text" },
+              "value": "VIC"
+            },
+            {
+              "id": "postal_postcode",
+              "label": "Postcode",
+              "field_info": { "field_type": "number" },
+              "value": 3150
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "home_address",
+        "sub_section_label": "YOUR HOME ADDRESS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "home_address",
+              "label": "Street Address",
+              "field_info": { "field_type": "text" },
+              "value": "10 Daryl Avenue"
+            },
+            {
+              "id": "home_suburb",
+              "label": "Suburb/City",
+              "field_info": { "field_type": "text" },
+              "value": "Glen Waverley"
+            },
+            {
+              "id": "home_state",
+              "label": "State",
+              "field_info": { "field_type": "text" },
+              "value": "VIC"
+            },
+            {
+              "id": "home_postcode",
+              "label": "Postcode",
+              "field_info": { "field_type": "number" },
+              "value": 3150
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Contact & Banking",
+    "sub_sections": [
+      {
+        "sub_section_id": "contact",
+        "sub_section_label": "YOUR CONTACT DETAILS",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "mobile",
+              "label": "Mobile Number",
+              "field_info": { "field_type": "tel" },
+              "value": ""
+            },
+            {
+              "id": "daytime",
+              "label": "Day Time Contact",
+              "field_info": { "field_type": "tel" },
+              "value": "13 00762001"
+            },
+            {
+              "id": "email",
+              "label": "Email Address",
+              "field_info": { "field_type": "email" },
+              "value": ""
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "banking",
+        "sub_section_label": "YOUR BANKING INFORMATION (EFT DETAILS)",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "bsb",
+              "label": "BSB Number",
+              "field_info": { "field_type": "text" },
+              "value": "733289"
+            },
+            {
+              "id": "account_number",
+              "label": "Account Number",
+              "field_info": { "field_type": "text" },
+              "value": "525753"
+            },
+            {
+              "id": "account_name",
+              "label": "Account Name",
+              "field_info": { "field_type": "text" },
+              "value": "Pubudu Rakkhita Abayasiri"
+            },
+            {
+              "id": "bank_name",
+              "label": "Financial Institution",
+              "field_info": { "field_type": "text" },
+              "value": "Westpac Banking Corporation"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

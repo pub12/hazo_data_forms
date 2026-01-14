@@ -1,0 +1,195 @@
+[
+  {
+    "section_name": "Deductions",
+    "sub_sections": [
+      {
+        "sub_section_id": "gifts_donations",
+        "sub_section_label": "GIFTS OR DONATIONS",
+        "item_code": "D9",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "gifts_donations_total",
+              "label": "Payment Summary Worksheet Donations (Workplace Giving)",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "J"
+              },
+              "value": 2.00
+            },
+            {
+              "id": "gifts_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "50%"
+                  },
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "abn"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "claim_amount",
+                    "label": "Claim Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "25%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "ENERGYAUSTRALIA SERVICES PTY LTD",
+                  "abn": "73081074160",
+                  "claim_amount": 2.00
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "cost_managing_tax",
+        "sub_section_label": "COST OF MANAGING TAX AFFAIRS",
+        "item_code": "D10",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "other_expenses_tax_affairs",
+              "label": "Other expenses incurred in managing your tax affairs",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "M"
+              },
+              "value": 2452.00
+            },
+            {
+              "id": "tax_expenses_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "70%"
+                  },
+                  {
+                    "id": "amount",
+                    "label": "Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "30%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "Tax agent fee (Inv ETS-4145)",
+                  "amount": 895.00,
+                  "doc_link": {
+                    "type": "pdf",
+                    "url": "/pubs 2024 - supporting - fund.pdf"
+                  }
+                },
+                {
+                  "description": "Depreciation preparation expen",
+                  "amount": 750.00,
+                  "doc_link": {
+                    "type": "pdf",
+                    "url": "/pubs 2024 - supporting - fund.pdf"
+                  }
+                },
+                {
+                  "description": "Tax agent fee (Inv ETS-4629)",
+                  "amount": 807.00,
+                  "doc_link": {
+                    "type": "pdf",
+                    "url": "/pubs 2024 - supporting - fund.pdf"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "deduction_totals",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "total_supplement_deductions",
+              "label": "TOTAL SUPPLEMENT DEDUCTIONS",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2,
+                "summary_note": "Items D11 to D15"
+              },
+              "value": 367.00
+            },
+            {
+              "id": "total_deductions",
+              "label": "TOTAL DEDUCTIONS",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 2821.00
+            },
+            {
+              "id": "subtotal",
+              "label": "SUBTOTAL",
+              "row_variant": "subtotal",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2,
+                "summary_note": "TOTAL INCOME less TOTAL DEDUCTIONS"
+              },
+              "value": 21419.00
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

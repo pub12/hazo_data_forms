@@ -1,0 +1,246 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "name": "Default Theme",
+    "description": "Default styling for hazo_data_forms"
+  },
+  "tokens": {
+    "colors": {
+      "primary": "#1e3a5f",
+      "primary_foreground": "#ffffff",
+      "secondary": "#3b82f6",
+      "secondary_hover": "#1d4ed8",
+      "text_primary": "#111827",
+      "text_secondary": "#374151",
+      "text_muted": "#6b7280",
+      "text_disabled": "#9ca3af",
+      "background": "#ffffff",
+      "background_muted": "#f9fafb",
+      "background_subtle": "#f3f4f6",
+      "border": "#d1d5db",
+      "border_focus": "#3b82f6",
+      "error": "#dc2626",
+      "highlight": "#e0f2fe",
+      "transparent": "transparent"
+    },
+    "fonts": {
+      "sans": "system-ui, -apple-system, sans-serif",
+      "mono": "ui-monospace, SFMono-Regular, monospace"
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "24px",
+      "2xl": "32px"
+    }
+  },
+  "styles": {
+    "default": {
+      "font_family": "{fonts.sans}",
+      "font_size": "14px",
+      "font_weight": "400",
+      "color": "{colors.text_primary}",
+      "line_height": "1.5"
+    },
+    "label": {
+      "extends": "default",
+      "font_weight": "500",
+      "color": "{colors.text_secondary}"
+    },
+    "label_required": {
+      "extends": "label",
+      "color": "{colors.error}"
+    },
+    "field": {
+      "extends": "default",
+      "background_color": "{colors.background}",
+      "border_color": "{colors.border}",
+      "border_width": "1px",
+      "border_radius": "6px",
+      "padding_x": "{spacing.md}",
+      "padding_y": "{spacing.sm}"
+    },
+    "field_focus": {
+      "extends": "field",
+      "border_color": "{colors.border_focus}"
+    },
+    "field_disabled": {
+      "extends": "field",
+      "background_color": "{colors.background_subtle}",
+      "color": "{colors.text_muted}"
+    },
+    "field_error": {
+      "extends": "field",
+      "border_color": "{colors.error}"
+    },
+    "field_view": {
+      "extends": "field",
+      "background_color": "{colors.background_muted}",
+      "border_color": "{colors.transparent}"
+    },
+    "field_mono": {
+      "extends": "field",
+      "font_family": "{fonts.mono}",
+      "letter_spacing": "0.05em"
+    },
+    "error_message": {
+      "font_size": "12px",
+      "color": "{colors.error}",
+      "margin_top": "{spacing.xs}"
+    },
+    "section_header": {
+      "font_size": "18px",
+      "font_weight": "600",
+      "color": "{colors.text_primary}",
+      "background_color": "{colors.background_muted}"
+    },
+    "sub_section_header": {
+      "font_size": "16px",
+      "font_weight": "600",
+      "color": "{colors.text_secondary}"
+    },
+    "header_h1": {
+      "font_size": "20px",
+      "font_weight": "700",
+      "color": "{colors.primary_foreground}",
+      "background_color": "{colors.primary}",
+      "padding_x": "{spacing.lg}",
+      "padding_y": "{spacing.md}",
+      "border_radius": "6px",
+      "indent": "0px"
+    },
+    "header_h2": {
+      "font_size": "18px",
+      "font_weight": "600",
+      "color": "{colors.text_primary}",
+      "background_color": "{colors.background_subtle}",
+      "padding_x": "{spacing.md}",
+      "padding_y": "{spacing.sm}",
+      "indent": "0px"
+    },
+    "header_h3": {
+      "font_size": "16px",
+      "font_weight": "600",
+      "color": "{colors.text_secondary}",
+      "background_color": "{colors.transparent}",
+      "indent": "0px"
+    },
+    "header_h4": {
+      "font_size": "14px",
+      "font_weight": "600",
+      "color": "{colors.text_secondary}",
+      "background_color": "{colors.transparent}",
+      "indent": "{spacing.sm}"
+    },
+    "header_h5": {
+      "font_size": "14px",
+      "font_weight": "500",
+      "color": "{colors.text_muted}",
+      "background_color": "{colors.transparent}",
+      "indent": "{spacing.lg}"
+    },
+    "header_h6": {
+      "font_size": "12px",
+      "font_weight": "500",
+      "color": "{colors.text_disabled}",
+      "background_color": "{colors.transparent}",
+      "indent": "{spacing.xl}"
+    },
+    "total_h1": {
+      "font_size": "18px",
+      "font_weight": "700",
+      "color": "{colors.text_primary}",
+      "background_color": "{colors.highlight}",
+      "padding_x": "{spacing.lg}",
+      "padding_y": "{spacing.md}",
+      "indent": "0px"
+    },
+    "total_h2": {
+      "font_size": "16px",
+      "font_weight": "600",
+      "color": "{colors.text_primary}",
+      "background_color": "{colors.background_subtle}",
+      "padding_x": "{spacing.md}",
+      "padding_y": "{spacing.sm}",
+      "indent": "0px"
+    },
+    "total_h3": {
+      "font_size": "14px",
+      "font_weight": "600",
+      "color": "{colors.text_secondary}",
+      "background_color": "{colors.background_muted}",
+      "indent": "0px"
+    },
+    "total_h4": {
+      "font_size": "14px",
+      "font_weight": "500",
+      "color": "{colors.text_secondary}",
+      "background_color": "{colors.transparent}",
+      "indent": "{spacing.sm}"
+    },
+    "total_h5": {
+      "font_size": "14px",
+      "font_weight": "500",
+      "color": "{colors.text_muted}",
+      "background_color": "{colors.transparent}",
+      "indent": "{spacing.lg}"
+    },
+    "total_h6": {
+      "font_size": "12px",
+      "font_weight": "500",
+      "color": "{colors.text_disabled}",
+      "background_color": "{colors.transparent}",
+      "indent": "{spacing.xl}"
+    },
+    "badge": {
+      "font_size": "12px",
+      "font_weight": "700",
+      "color": "{colors.primary_foreground}",
+      "background_color": "{colors.text_primary}",
+      "padding_x": "{spacing.sm}",
+      "padding_y": "2px",
+      "border_radius": "4px",
+      "min_width": "24px",
+      "text_align": "center"
+    },
+    "item_code": {
+      "font_family": "{fonts.mono}",
+      "font_size": "12px",
+      "color": "{colors.text_primary}",
+      "background_color": "{colors.background}",
+      "border_color": "{colors.text_primary}",
+      "border_width": "1px",
+      "padding_x": "6px",
+      "padding_y": "2px"
+    },
+    "highlight_row": {
+      "background_color": "{colors.highlight}",
+      "padding_x": "{spacing.md}",
+      "padding_y": "{spacing.sm}",
+      "border_radius": "4px"
+    },
+    "doc_link": {
+      "color": "{colors.secondary}",
+      "min_width": "32px"
+    },
+    "doc_link_hover": {
+      "extends": "doc_link",
+      "color": "{colors.secondary_hover}"
+    },
+    "worksheet": {
+      "margin_left": "{spacing.xl}",
+      "font_weight": "600"
+    },
+    "summary_note": {
+      "font_size": "12px",
+      "color": "{colors.text_muted}",
+      "opacity": 0.8
+    },
+    "formula_label": {
+      "font_size": "14px",
+      "color": "{colors.text_muted}"
+    }
+  }
+}

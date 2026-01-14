@@ -1,0 +1,201 @@
+[
+  {
+    "section_name": "Income tests",
+    "sub_sections": [
+      {
+        "sub_section_id": "total_reportable_fringe_benefits",
+        "sub_section_label": "TOTAL REPORTABLE FRINGE BENEFITS",
+        "item_code": "IT1",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "employers_exempt_fbt",
+              "label": "Employers exempt from FBT under section 57A of the FBTAA 1986",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "N"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "employers_not_exempt_fbt",
+              "label": "Employers not exempt from FBT under section 57A of the FBTAA 1986",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "W"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "reportable_employer_super",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "reportable_employer_super",
+              "label": "REPORTABLE EMPLOYER SUPERANNUATION",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "item_code": "IT2",
+                "badge": "T"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "tax_free_govt_pensions",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "tax_free_govt_pensions",
+              "label": "TAX-FREE GOVERNMENT PENSIONS",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "item_code": "IT3",
+                "badge": "U"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "target_foreign_income",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "target_foreign_income",
+              "label": "TARGET FOREIGN INCOME",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "item_code": "IT4",
+                "badge": "V"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "net_financial_investment_loss",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "net_financial_investment_loss",
+              "label": "NET FINANCIAL INVESTMENT LOSS",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "item_code": "IT5",
+                "badge": "X"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "net_rental_property_loss",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "net_rental_property_loss",
+              "label": "NET RENTAL PROPERTY LOSS",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "item_code": "IT6",
+                "badge": "Y"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "child_support_paid",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "child_support_paid",
+              "label": "CHILD SUPPORT YOU PAID",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "item_code": "IT7",
+                "badge": "Z"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "num_dependent_children",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "60px",
+          "fields": [
+            {
+              "id": "num_dependent_children",
+              "label": "NUMBER OF DEPENDENT CHILDREN",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "item_code": "IT8",
+                "badge": "D"
+              },
+              "value": 2
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

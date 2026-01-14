@@ -1,0 +1,137 @@
+[
+  {
+    "section_name": "File Upload Demo",
+    "sub_sections": [
+      {
+        "sub_section_id": "personal_info",
+        "sub_section_label": "Personal Information",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "full_name",
+              "label": "Full Name",
+              "field_info": {
+                "field_type": "text",
+                "required": true,
+                "placeholder": "Enter your full name"
+              }
+            },
+            {
+              "id": "email",
+              "label": "Email Address",
+              "field_info": {
+                "field_type": "email",
+                "required": true,
+                "placeholder": "email@example.com"
+              }
+            },
+            {
+              "id": "phone",
+              "label": "Phone Number",
+              "field_info": {
+                "field_type": "tel",
+                "placeholder": "+1 (555) 000-0000"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "documents",
+        "sub_section_label": "Supporting Documents",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "id_number",
+              "label": "ID Number",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Enter your ID number"
+              }
+            },
+            {
+              "id": "issue_date",
+              "label": "Issue Date",
+              "field_info": {
+                "field_type": "date"
+              }
+            },
+            {
+              "id": "expiry_date",
+              "label": "Expiry Date",
+              "field_info": {
+                "field_type": "date"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "financial",
+        "sub_section_label": "Financial Information",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "annual_income",
+              "label": "Annual Income",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "tax_rate",
+              "label": "Tax Rate",
+              "field_info": {
+                "field_type": "percentage",
+                "min": 0,
+                "max": 100,
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "notes",
+              "label": "Additional Notes",
+              "field_info": {
+                "field_type": "textarea",
+                "rows": 3,
+                "placeholder": "Enter any additional notes or comments..."
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Field with Existing Doc Link",
+    "sub_sections": [
+      {
+        "sub_section_id": "doc_link_example",
+        "sub_section_label": "Document Link Example",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "contract_value",
+              "label": "Contract Value (with doc_link - upload icon hidden)",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              },
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 1
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

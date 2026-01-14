@@ -1,0 +1,487 @@
+[
+  {
+    "section_name": "Capital Gains Tax Schedule",
+    "sub_sections": [
+      {
+        "sub_section_id": "current_year_cgt",
+        "sub_section_label": "CURRENT YEAR CAPITAL GAINS AND CAPITAL LOSSES",
+        "item_code": "1",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "column_headers": [
+            { "label": "Capital gains", "width": "160px" },
+            { "label": "Capital losses", "width": "160px" }
+          ],
+          "fields": [
+            {
+              "id": "cgt_shares_listed_gains",
+              "label": "Shares in companies listed on an Australian securities exchange",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              },
+              "paired_field": {
+                "id": "cgt_shares_listed_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "K"
+                }
+              }
+            },
+            {
+              "id": "cgt_other_shares_gains",
+              "label": "Other shares",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "B"
+              },
+              "paired_field": {
+                "id": "cgt_other_shares_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "L"
+                }
+              },
+              "value": 680.00
+            },
+            {
+              "id": "cgt_units_listed_gains",
+              "label": "Units in unit trusts listed on an Australian securities exchange",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "C"
+              },
+              "paired_field": {
+                "id": "cgt_units_listed_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "M"
+                }
+              }
+            },
+            {
+              "id": "cgt_other_units_gains",
+              "label": "Other units",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "D"
+              },
+              "paired_field": {
+                "id": "cgt_other_units_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "N"
+                }
+              }
+            },
+            {
+              "id": "cgt_real_estate_australia_gains",
+              "label": "Real estate situated in Australia",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "E"
+              },
+              "paired_field": {
+                "id": "cgt_real_estate_australia_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "O"
+                }
+              }
+            },
+            {
+              "id": "cgt_other_real_estate_gains",
+              "label": "Other real estate",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "F"
+              },
+              "paired_field": {
+                "id": "cgt_other_real_estate_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "P"
+                }
+              }
+            },
+            {
+              "id": "cgt_trust_gains",
+              "label": "Amount of capital gains from a trust (including a managed fund)",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "G"
+              }
+            },
+            {
+              "id": "cgt_collectables_gains",
+              "label": "Collectables",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "H"
+              },
+              "paired_field": {
+                "id": "cgt_collectables_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "Q"
+                }
+              }
+            },
+            {
+              "id": "cgt_other_assets_gains",
+              "label": "Other CGT assets and any other CGT events",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "I"
+              },
+              "paired_field": {
+                "id": "cgt_other_assets_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "R"
+                }
+              }
+            },
+            {
+              "id": "cgt_deferred_super_gains",
+              "label": "Amount of capital gain previously deferred under transitional CGT relief for superannuation funds",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "S"
+              }
+            },
+            {
+              "id": "cgt_total_current_year",
+              "label": "Total current year",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "J"
+              },
+              "paired_field": {
+                "id": "cgt_total_current_year_losses",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "badge": "A"
+                }
+              },
+              "value": 680.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "capital_losses",
+        "sub_section_label": "CAPITAL LOSSES",
+        "item_code": "2",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "fields": [
+            {
+              "id": "capital_losses_current_year_applied",
+              "label": "Total current year capital losses applied",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "B"
+              }
+            },
+            {
+              "id": "capital_losses_prior_year_applied",
+              "label": "Total prior year net capital losses applied",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "C"
+              }
+            },
+            {
+              "id": "capital_losses_transferred_applied",
+              "label": "Total capital losses transferred in applied (only for transfers involving a foreign bank branch or permanent establishment of a foreign financial entity)",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "D"
+              }
+            },
+            {
+              "id": "capital_losses_total_applied",
+              "label": "Total capital losses applied",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "E"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "unapplied_losses_carried_forward",
+        "sub_section_label": "UNAPPLIED NET CAPITAL LOSSES CARRIED FORWARD",
+        "item_code": "3",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "fields": [
+            {
+              "id": "unapplied_losses_collectables",
+              "label": "Net capital losses from collectables carried forward to later income years",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              }
+            },
+            {
+              "id": "unapplied_losses_other",
+              "label": "Other net capital losses carried forward to later income years",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "B"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "cgt_discount",
+        "sub_section_label": "CGT DISCOUNT",
+        "item_code": "4",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "fields": [
+            {
+              "id": "cgt_discount_applied",
+              "label": "Total CGT discount applied",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "cgt_small_business_concessions",
+        "sub_section_label": "CGT CONCESSIONS FOR SMALL BUSINESS",
+        "item_code": "5",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "fields": [
+            {
+              "id": "small_business_active_asset_reduction",
+              "label": "Small business active asset reduction",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              }
+            },
+            {
+              "id": "small_business_retirement_exemption",
+              "label": "Small business retirement exemption",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "B"
+              }
+            },
+            {
+              "id": "small_business_rollover",
+              "label": "Small business rollover",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "C"
+              }
+            },
+            {
+              "id": "small_business_total_concessions",
+              "label": "Total small business concessions applied",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "D"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "net_capital_gain",
+        "sub_section_label": "NET CAPITAL GAIN",
+        "item_code": "6",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "fields": [
+            {
+              "id": "net_capital_gain_total",
+              "label": "Net capital gain",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A",
+                "formula_label": "1J less 2E less 4A less 5D (cannot be less than zero). Amount will appear at label A, Net capital gain on your tax return"
+              },
+              "value": 680.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "earnout_arrangements",
+        "sub_section_label": "EARNOUT ARRANGEMENTS",
+        "item_code": "7",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "fields": [
+            {
+              "id": "earnout_right_created",
+              "label": "Income year earnout right created",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "F"
+              }
+            },
+            {
+              "id": "earnout_amended_gain_loss",
+              "label": "Amended net capital gain or capital losses carried forward",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "G"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "other_cgt_info",
+        "sub_section_label": "OTHER CGT INFORMATION REQUIRED (IF APPLICABLE)",
+        "item_code": "8",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "fields": [
+            {
+              "id": "small_business_15yr_exemption",
+              "label": "Small business 15 year exemption – exempt capital gains",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              }
+            },
+            {
+              "id": "foreign_resident_disregarded",
+              "label": "Capital gains disregarded by a foreign resident",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "B"
+              }
+            },
+            {
+              "id": "scrip_rollover_disregarded",
+              "label": "Capital gains disregarded as a result of a scrip for scrip rollover",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "C"
+              }
+            },
+            {
+              "id": "intercompany_rollover_disregarded",
+              "label": "Capital gains disregarded as a result of an inter-company asset rollover",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "D"
+              }
+            },
+            {
+              "id": "demerging_entity_disregarded",
+              "label": "Capital gains disregarded by a demerging entity",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "E"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

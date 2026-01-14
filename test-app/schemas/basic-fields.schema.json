@@ -1,0 +1,179 @@
+[
+  {
+    "section_name": "Personal Information",
+    "sub_sections": [
+      {
+        "sub_section_id": "name_details",
+        "sub_section_label": "YOUR NAME",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "title",
+              "label": "Title",
+              "field_info": {
+                "field_type": "option",
+                "required": true,
+                "options": [
+                  { "label": "MR", "value": "MR" },
+                  { "label": "MS", "value": "MS" },
+                  { "label": "MRS", "value": "MRS" },
+                  { "label": "DR", "value": "DR" }
+                ]
+              },
+              "value": "MR"
+            },
+            {
+              "id": "first_name",
+              "label": "First Name",
+              "field_info": {
+                "field_type": "text",
+                "required": true,
+                "min_length": 2,
+                "max_length": 50,
+                "placeholder": "Enter first name"
+              },
+              "value": "John"
+            },
+            {
+              "id": "last_name",
+              "label": "Last Name",
+              "field_info": {
+                "field_type": "text",
+                "required": true
+              },
+              "value": "Smith"
+            },
+            {
+              "id": "date_of_birth",
+              "label": "Date of Birth",
+              "field_info": {
+                "field_type": "date",
+                "required": true
+              },
+              "value": "1990-05-15"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "contact_details",
+        "sub_section_label": "CONTACT DETAILS",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "email",
+              "label": "Email Address",
+              "field_info": {
+                "field_type": "email",
+                "required": true,
+                "placeholder": "email@example.com"
+              },
+              "value": "john.smith@example.com"
+            },
+            {
+              "id": "phone",
+              "label": "Phone Number",
+              "field_info": {
+                "field_type": "tel",
+                "placeholder": "+61 400 000 000"
+              },
+              "value": "0412 345 678"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Additional Information",
+    "sub_sections": [
+      {
+        "sub_section_id": "numeric_fields",
+        "sub_section_label": "NUMERIC FIELDS",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "age",
+              "label": "Age",
+              "field_info": {
+                "field_type": "number",
+                "min": 0,
+                "max": 150
+              },
+              "value": 34
+            },
+            {
+              "id": "salary",
+              "label": "Annual Salary",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 85000
+            },
+            {
+              "id": "tax_rate",
+              "label": "Tax Rate",
+              "field_info": {
+                "field_type": "percentage",
+                "min": 0,
+                "max": 100,
+                "decimal_places": 1
+              },
+              "value": 32.5
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "boolean_fields",
+        "sub_section_label": "PREFERENCES",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "is_resident",
+              "label": "Are you an Australian Resident?",
+              "field_info": {
+                "field_type": "boolean",
+                "required": true
+              },
+              "value": true
+            },
+            {
+              "id": "receive_newsletter",
+              "label": "Receive Newsletter",
+              "field_info": {
+                "field_type": "boolean"
+              },
+              "value": false
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "notes",
+        "sub_section_label": "NOTES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "comments",
+              "label": "Additional Comments",
+              "field_info": {
+                "field_type": "textarea",
+                "rows": 4,
+                "placeholder": "Enter any additional comments..."
+              },
+              "value": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

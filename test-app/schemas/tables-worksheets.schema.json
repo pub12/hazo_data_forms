@@ -1,0 +1,193 @@
+[
+  {
+    "section_name": "Income",
+    "sub_sections": [
+      {
+        "sub_section_id": "salary",
+        "sub_section_label": "SALARY OR WAGES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "occupation",
+              "label": "Your main occupation",
+              "field_info": { "field_type": "text" },
+              "value": "Manager - financial administration"
+            },
+            {
+              "id": "salary_worksheet",
+              "label": "Salary Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "payer_abn",
+                    "label": "Payer's ABN",
+                    "field_info": { "field_type": "text" },
+                    "width": "150px"
+                  },
+                  {
+                    "id": "payer_name",
+                    "label": "Name",
+                    "field_info": { "field_type": "text" },
+                    "width": "200px"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": { "field_type": "currency", "currency_symbol": "$" },
+                    "width": "120px"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": { "field_type": "currency", "currency_symbol": "$" },
+                    "width": "120px"
+                  },
+                  {
+                    "id": "type",
+                    "label": "Type",
+                    "field_info": {
+                      "field_type": "option",
+                      "options": [
+                        { "label": "S - Salary", "value": "S" },
+                        { "label": "W - Wages", "value": "W" },
+                        { "label": "O - Other", "value": "O" }
+                      ]
+                    },
+                    "width": "120px"
+                  }
+                ],
+                "table_min_rows": 1
+              },
+              "value": [
+                {
+                  "payer_abn": "73081074160",
+                  "payer_name": "ENERGYAUSTRALIA SERVICES PTY LTD",
+                  "tax_withheld": 6478,
+                  "gross": 18578,
+                  "type": "S"
+                }
+              ]
+            },
+            {
+              "id": "total_tax_withheld",
+              "label": "Total Tax Withheld",
+              "field_info": {
+                "field_type": "computed",
+                "currency_symbol": "$",
+                "computed_formula": "salary_worksheet_total_tax"
+              },
+              "value": 6478
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "interest",
+        "sub_section_label": "GROSS INTEREST",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "interest_worksheet",
+              "label": "Interest Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "institution",
+                    "label": "Financial Institution",
+                    "field_info": { "field_type": "text" },
+                    "width": "180px"
+                  },
+                  {
+                    "id": "holders",
+                    "label": "No. of Account Holders",
+                    "field_info": { "field_type": "number" },
+                    "width": "80px"
+                  },
+                  {
+                    "id": "percent",
+                    "label": "Percent",
+                    "field_info": { "field_type": "percentage" },
+                    "width": "80px"
+                  },
+                  {
+                    "id": "gross_tax",
+                    "label": "Gross Tax Withheld",
+                    "field_info": { "field_type": "currency", "currency_symbol": "$" },
+                    "width": "120px"
+                  },
+                  {
+                    "id": "gross_interest",
+                    "label": "Gross Interest",
+                    "field_info": { "field_type": "currency", "currency_symbol": "$" },
+                    "width": "120px"
+                  }
+                ]
+              },
+              "value": [
+                {
+                  "institution": "Raiz Invest Australia",
+                  "holders": 1,
+                  "percent": 100,
+                  "gross_tax": 0,
+                  "gross_interest": 1006.59
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Deductions",
+    "sub_sections": [
+      {
+        "sub_section_id": "donations",
+        "sub_section_label": "GIFTS OR DONATIONS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "donations_worksheet",
+              "label": "Donations Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": { "field_type": "text" },
+                    "width": "250px"
+                  },
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": { "field_type": "text" },
+                    "width": "150px"
+                  },
+                  {
+                    "id": "amount",
+                    "label": "Claim Amount",
+                    "field_info": { "field_type": "currency", "currency_symbol": "$" },
+                    "width": "120px"
+                  }
+                ]
+              },
+              "value": [
+                {
+                  "description": "ENERGYAUSTRALIA SERVICES PTY LTD",
+                  "abn": "73081074160",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,915 @@
+[
+  {
+    "section_name": "Supplementary section",
+    "sub_sections": [
+      {
+        "sub_section_id": "partnerships_trusts_primary",
+        "sub_section_label": "PARTNERSHIPS AND TRUSTS",
+        "item_code": "13",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "primary_production_header",
+              "label": "Primary production",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "header_h4"
+            },
+            {
+              "id": "share_net_income_trusts_primary",
+              "label": "Share of net income from trusts",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "L"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "net_primary_production_amount",
+              "label": "Net primary production amount",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "non_primary_production_header",
+              "label": "Non-primary production",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "header_h4"
+            },
+            {
+              "id": "share_net_income_trusts_non_primary",
+              "label": "Share of net income from trusts less capital gains, foreign income and franked distributions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "U"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "franked_distributions_trusts",
+              "label": "Franked distributions from trusts",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "C"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "other_deductions_ouc",
+              "label": "Other deductions relating to amounts shown at O, U and C",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "Y"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "net_non_primary_production_amount",
+              "label": "Net non-primary production amount",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "partnerships_trusts_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "name",
+                    "label": "Name",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "40%"
+                  },
+                  {
+                    "id": "credit_offset",
+                    "label": "Credit / Offset",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "pp_amount",
+                    "label": "PP Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "npp_amount",
+                    "label": "NPP amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "20%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "capital_gains",
+        "sub_section_label": "CAPITAL GAINS",
+        "item_code": "18",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "capital_gains_event",
+              "label": "Did you have a capital gains tax event during the year?",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ],
+                "badge": "G"
+              },
+              "value": "yes"
+            },
+            {
+              "id": "prior_year_losses_header",
+              "label": "Prior year losses brought forward",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "header_h4"
+            },
+            {
+              "id": "other_net_capital_losses",
+              "label": "Other net capital losses",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "prior_year_losses_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "70%"
+                  },
+                  {
+                    "id": "amount",
+                    "label": "Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "30%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "Prior year losses brought forward",
+                  "amount": 0.00
+                }
+              ]
+            },
+            {
+              "id": "net_capital_gain",
+              "label": "Net capital gain",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              },
+              "value": 680.00
+            },
+            {
+              "id": "total_current_year_capital_gains",
+              "label": "Total current year capital gains",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "H"
+              },
+              "value": 680.00
+            },
+            {
+              "id": "credit_foreign_resident_withholding",
+              "label": "Credit for foreign resident capital gains withholding amounts",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "X"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "capital_gains_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "70%"
+                  },
+                  {
+                    "id": "amount",
+                    "label": "Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "30%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "Distributed from: VVLU - Vanguard Global Value Equity Active ETF",
+                  "amount": 0.00
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "foreign_entities",
+        "sub_section_label": "FOREIGN ENTITIES",
+        "item_code": "19",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "direct_indirect_interest_cfc",
+              "label": "Did you have either a direct or indirect interest in a controlled foreign company CFC?",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ],
+                "badge": "I"
+              },
+              "value": "no"
+            },
+            {
+              "id": "transfer_property_non_resident_trust",
+              "label": "Have you ever, either directly or indirectly, caused the transfer of property—including money—or services to a non-resident trust estate?",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ],
+                "badge": "W"
+              },
+              "value": "no"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "foreign_source_income",
+        "sub_section_label": "FOREIGN SOURCE INCOME AND FOREIGN ASSETS OR PROPERTY",
+        "item_code": "20",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "assessable_foreign_source_income",
+              "label": "Assessable foreign source income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "E"
+              },
+              "value": 1286.00
+            },
+            {
+              "id": "total_assessable_foreign_income_managed_fund",
+              "label": "Total assessable foreign income from managed fund",
+              "label_position": "inline",
+              "style_variant": "indented",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 632.25
+            },
+            {
+              "id": "other_foreign_source_income_gross",
+              "label": "20M Other foreign source income gross amounts",
+              "label_position": "inline",
+              "style_variant": "indented",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 654.47
+            },
+            {
+              "id": "net_foreign_rent",
+              "label": "Net foreign rent",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "R"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "foreign_rent_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "foreign_tax_paid",
+                    "label": "Foreign tax paid",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "17%"
+                  },
+                  {
+                    "id": "deductible_expenses",
+                    "label": "Deductible expenses",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "18%"
+                  },
+                  {
+                    "id": "gross_amount",
+                    "label": "Gross Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "17%"
+                  },
+                  {
+                    "id": "net_amount",
+                    "label": "Net Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "18%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "Distributed from: VVLU - Vanguard Global Value Equity Active ETF",
+                  "foreign_tax_paid": 0.00,
+                  "deductible_expenses": 0.00,
+                  "gross_amount": 0.00,
+                  "net_amount": 0.00
+                }
+              ]
+            },
+            {
+              "id": "total_other_net_foreign_source_income",
+              "label": "Total other net foreign source income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "M"
+              },
+              "value": 593.00
+            },
+            {
+              "id": "other_net_foreign_source_income",
+              "label": "Other net foreign source income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 593.00
+            },
+            {
+              "id": "other_foreign_income_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "deductible_expenses",
+                    "label": "Deductible expenses",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "foreign_tax_paid",
+                    "label": "Foreign tax paid",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "amount",
+                    "label": "Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "17%"
+                  },
+                  {
+                    "id": "net_amount",
+                    "label": "Net Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "18%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "US Shares",
+                  "deductible_expenses": 61.29,
+                  "foreign_tax_paid": 196.33,
+                  "amount": 654.47,
+                  "net_amount": 0.00
+                }
+              ]
+            },
+            {
+              "id": "dividend_income_foreign_companies",
+              "label": "Other net foreign source income – dividend income or managed investment scheme income from foreign companies – including from foreign partnerships",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "from_worksheets",
+              "label": "From Worksheets",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "dividend_foreign_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "70%"
+                  },
+                  {
+                    "id": "amount",
+                    "label": "Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "30%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "Distributed from: VVLU - Vanguard Global Value Equity Active ETF",
+                  "amount": 0.00
+                }
+              ]
+            },
+            {
+              "id": "australian_franking_credits_nz",
+              "label": "Australian franking credits from a New Zealand franking company",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "F"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "franking_credits_nz_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "70%"
+                  },
+                  {
+                    "id": "amount",
+                    "label": "Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "30%",
+                    "subtotal": true
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "description": "Distributed from Managed Fund worksheet: VVLU - Vanguard Global Value Equity Active ETF",
+                  "amount": 0.00
+                }
+              ]
+            },
+            {
+              "id": "foreign_income_tax_offset",
+              "label": "Foreign income tax offset",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "O"
+              },
+              "value": 196.33
+            },
+            {
+              "id": "foreign_income_tax_offset_adjustment",
+              "label": "Foreign income tax offset adjustment",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "assets_outside_australia",
+              "label": "During the year did you own, or have an interest in, assets located outside Australia which had a total value of AUD$50,000 or more?",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ],
+                "badge": "P"
+              },
+              "value": "no"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "rent",
+        "sub_section_label": "RENT",
+        "item_code": "21",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "gross_rent",
+              "label": "Gross rent",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "P"
+              },
+              "value": 6430.00
+            },
+            {
+              "id": "interest_deductions",
+              "label": "Interest deductions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "Q"
+              },
+              "value": 10.00
+            },
+            {
+              "id": "capital_works_deductions",
+              "label": "Capital works deductions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "F"
+              },
+              "value": 2522.00
+            },
+            {
+              "id": "other_rental_deductions",
+              "label": "Other rental deductions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "U"
+              },
+              "value": 2795.00
+            },
+            {
+              "id": "net_rent",
+              "label": "Net rent",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "formula_label": "P less (Q + F + U)"
+              },
+              "value": 1103.00
+            },
+            {
+              "id": "rent_worksheet",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_title": "WORKSHEET",
+                "table_columns": [
+                  {
+                    "id": "address",
+                    "label": "Address",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "gross_rent",
+                    "label": "Gross rent",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "interest",
+                    "label": "Interest",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "capital_works",
+                    "label": "Capital works",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "other_deductions",
+                    "label": "Other Deductions",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "net_rent",
+                    "label": "Net rent",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 20,
+                "is_worksheet": true
+              },
+              "value": [
+                {
+                  "address": "10 Daryl Avenue",
+                  "gross_rent": 6430.00,
+                  "interest": 10.65,
+                  "capital_works": 2522.00,
+                  "other_deductions": 2795.74,
+                  "net_rent": 1101.61
+                }
+              ]
+            },
+            {
+              "id": "total_supplement_income",
+              "label": "TOTAL SUPPLEMENT INCOME",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2,
+                "summary_note": "Items 13 to 24"
+              },
+              "value": 2376.00
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Deductions",
+    "sub_sections": [
+      {
+        "sub_section_id": "other_deductions",
+        "sub_section_label": "OTHER DEDUCTIONS",
+        "item_code": "D15",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "other_deductions_d15",
+              "label": "Other deductions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "J"
+              },
+              "value": 367.00
+            },
+            {
+              "id": "total_supplement_deductions",
+              "label": "TOTAL SUPPLEMENT DEDUCTIONS",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2,
+                "summary_note": "Items D11 to D15"
+              },
+              "value": 367.00
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Tax offsets",
+    "sub_sections": [
+      {
+        "sub_section_id": "total_tax_offsets",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "total_supplement_tax_offsets",
+              "label": "TOTAL SUPPLEMENT TAX OFFSETS",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2,
+                "summary_note": "Items T3, T4, T6, T7, T8 and T9"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

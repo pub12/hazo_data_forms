@@ -1,0 +1,222 @@
+[
+  {
+    "section_name": "Income Summary",
+    "style_variant": "header_h1",
+    "sub_sections": [
+      {
+        "sub_section_id": "income_summary",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "total_income",
+              "label": "Total income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 24240.00
+            },
+            {
+              "id": "less_total_deductions",
+              "label": "Less total deductions and applied losses (L1)",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 2821.00
+            },
+            {
+              "id": "taxable_income",
+              "label": "Taxable income",
+              "label_position": "inline",
+              "style_variant": "total_h2",
+              "help_tooltip": {
+                "message": "Your taxable income is calculated by subtracting your total deductions from your total income.",
+                "show_formula": true,
+                "formula_display": "Total Income - Total Deductions"
+              },
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2,
+                "computed_formula": "total_income - less_total_deductions",
+                "computed_dependencies": ["total_income", "less_total_deductions"]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Tax Calculation",
+    "style_variant": "header_h1",
+    "sub_sections": [
+      {
+        "sub_section_id": "tax_calculation",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "tax_on_taxable_income",
+              "label": "Tax on taxable income",
+              "label_position": "inline",
+              "style_variant": "total_h2",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 1361.35
+            },
+            {
+              "id": "less_non_refundable_tax_offsets",
+              "label": "Less non-refundable tax offsets used",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 896.33
+            },
+            {
+              "id": "assessed_tax_payable",
+              "label": "Assessed tax payable",
+              "label_position": "inline",
+              "style_variant": "total_h2",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 465.02
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Plus Other Liabilities",
+    "style_variant": "header_h1",
+    "sub_sections": [
+      {
+        "sub_section_id": "other_liabilities",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "total_other_liabilities",
+              "label": "Total other liabilities",
+              "label_position": "inline",
+              "style_variant": "total_h2",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "assessed_tax_payable_with_liabilities",
+              "label": "Assessed tax payable (includes other liabilities)",
+              "label_position": "inline",
+              "style_variant": "total_h2",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 465.02
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Less PAYG credits and other entitlements",
+    "style_variant": "header_h1",
+    "sub_sections": [
+      {
+        "sub_section_id": "payg_credits",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "tax_withheld",
+              "label": "Tax withheld",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 6478.00
+            },
+            {
+              "id": "payg_instalments",
+              "label": "PAYG instalments paid or payable",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 3089.00
+            },
+            {
+              "id": "total_payg_credits",
+              "label": "Total PAYG credits and other entitlements",
+              "label_position": "inline",
+              "style_variant": "total_h2",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 9567.00
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Result",
+    "style_variant": "header_h1",
+    "sub_sections": [
+      {
+        "sub_section_id": "refund_result",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "amount_refundable",
+              "label": "Amount refundable",
+              "label_position": "inline",
+              "style_variant": "total_h1",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$",
+                "decimal_places": 2
+              },
+              "value": 9101.98
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

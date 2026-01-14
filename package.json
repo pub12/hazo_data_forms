@@ -1,0 +1,93 @@
+{
+  "name": "hazo_data_forms",
+  "version": "1.0.0",
+  "description": "Dynamic form rendering from JSON schema with document link support and PDF viewer integration",
+  "keywords": [
+    "forms",
+    "dynamic-forms",
+    "json-schema",
+    "react",
+    "react-hook-form",
+    "pdf-viewer",
+    "hazo"
+  ],
+  "homepage": "https://github.com/pub12/hazo_data_forms#readme",
+  "bugs": {
+    "url": "https://github.com/pub12/hazo_data_forms/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pub12/hazo_data_forms.git"
+  },
+  "license": "MIT",
+  "author": "Pubs Abayasiri",
+  "sideEffects": [
+    "dist/index.js",
+    "dist/index.cjs",
+    "src/components/field_renderers/index.tsx",
+    "./src/components/field_renderers/index.tsx"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "config"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "dev": "tsup --watch",
+    "dev:test-app": "npm run dev --prefix test-app",
+    "lint": "eslint src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.1.15",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "clsx": "^2.1.1",
+    "react-resizable-panels": "^4.3.2",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "react-icons": "^5.5.0",
+    "tailwindcss": "^3.4.17",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "hazo_config": "^1.0.0",
+    "hazo_pdf": "^1.0.0",
+    "lucide-react": ">=0.400.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "react-hook-form": "^7.0.0",
+    "react-icons": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "hazo_pdf": {
+      "optional": true
+    }
+  }
+}

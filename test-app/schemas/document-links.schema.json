@@ -1,0 +1,116 @@
+[
+  {
+    "section_name": "Income with Source Documents",
+    "sub_sections": [
+      {
+        "sub_section_id": "salary_docs",
+        "sub_section_label": "SALARY OR WAGES",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "employer_name",
+              "label": "Employer Name",
+              "field_info": { "field_type": "text" },
+              "value": "ENERGYAUSTRALIA SERVICES PTY LTD",
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 1
+              }
+            },
+            {
+              "id": "tax_withheld",
+              "label": "Tax Withheld",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 6478,
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 2
+              }
+            },
+            {
+              "id": "gross_income",
+              "label": "Gross Income",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 18578,
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "interest_docs",
+        "sub_section_label": "INTEREST INCOME",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "bank_name",
+              "label": "Financial Institution",
+              "field_info": { "field_type": "text" },
+              "value": "Raiz Invest Australia",
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 3
+              }
+            },
+            {
+              "id": "interest_amount",
+              "label": "Gross Interest",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 1006.59,
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 3
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Deductions with Source Documents",
+    "sub_sections": [
+      {
+        "sub_section_id": "tax_agent_docs",
+        "sub_section_label": "COST OF MANAGING TAX AFFAIRS",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "tax_agent_fee_1",
+              "label": "Tax Agent Fee (Invoice 1)",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 895,
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 4
+              }
+            },
+            {
+              "id": "tax_agent_fee_2",
+              "label": "Tax Agent Fee (Invoice 2)",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 807,
+              "doc_link": {
+                "type": "pdf",
+                "url": "/sample.pdf",
+                "page": 4
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

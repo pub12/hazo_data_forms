@@ -1,0 +1,382 @@
+[
+  {
+    "section_name": "Spouse details – married or de facto",
+    "sub_sections": [
+      {
+        "sub_section_id": "spouse_name",
+        "sub_section_label": "YOUR SPOUSE'S NAME",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "spouse_first_given_name",
+              "label": "First given name",
+              "label_position": "inline",
+              "value_width": "150px",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Wan Chi"
+            },
+            {
+              "id": "spouse_other_given_names",
+              "label": "Other given names",
+              "label_position": "inline",
+              "value_width": "150px",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              }
+            },
+            {
+              "id": "spouse_surname_or_family_name",
+              "label": "Surname or family name",
+              "label_position": "inline",
+              "value_width": "150px",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Lam"
+            },
+            {
+              "id": "spouse_date_of_birth",
+              "label": "Date of birth",
+              "label_position": "inline",
+              "value_width": "150px",
+              "field_info": {
+                "field_type": "date",
+                "badge": "K"
+              },
+              "value": "1978-10-23"
+            },
+            {
+              "id": "spouse_gender",
+              "label": "Your spouse's gender",
+              "label_position": "inline",
+              "value_width": "150px",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Male", "value": "male" },
+                  { "label": "Female", "value": "female" }
+                ]
+              },
+              "value": "female"
+            },
+            {
+              "id": "spouse_has_residency",
+              "label": "Your spouse has residency",
+              "label_position": "inline",
+              "value_width": "150px",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              },
+              "value": "no"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "spouse_period",
+        "sub_section_label": "PERIOD YOU HAD A SPOUSE – MARRIED OR DE FACTO",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "spouse_full_year",
+              "label": "Did you have a spouse for the full year",
+              "label_position": "inline",
+              "value_width": "100px",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ],
+                "badge": "L"
+              },
+              "value": "yes"
+            },
+            {
+              "id": "spouse_died_during_year",
+              "label": "Did your spouse die during the year?",
+              "label_position": "inline",
+              "value_width": "100px",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              },
+              "value": "no"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "spouse_income",
+        "sub_section_label": "THIS INFORMATION RELATES TO YOUR SPOUSE'S INCOME",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "spouse_taxable_income_excl_fhss",
+              "label": "Your spouse's taxable income (excluding FHSS released amounts)",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "O"
+              },
+              "value": 0.00
+            },
+            {
+              "id": "spouse_taxable_income",
+              "label": "Your spouse's taxable income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "spouse_assessable_fhss_released_amounts",
+              "label": "Your spouse's assessable FHSS released amounts",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_section_98_trust_income",
+              "label": "Your spouse's section 98 trust income – not included in spouse's taxable income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "T"
+              }
+            },
+            {
+              "id": "spouse_family_trust_distribution",
+              "label": "Distributions to your spouse on which family trust distribution tax has been paid",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "U"
+              }
+            },
+            {
+              "id": "spouse_total_reportable_fringe_benefits",
+              "label": "Your spouse's total reportable fringe benefits amount",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_fbt_exempt_employers",
+              "label": "Employers exempt from FBT under section 57A of the FBTAA 1986",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "R"
+              }
+            },
+            {
+              "id": "spouse_fbt_non_exempt_employers",
+              "label": "Employers not exempt from FBT under section 57A of the FBTAA 1986",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "S"
+              }
+            },
+            {
+              "id": "spouse_govt_pensions_allowances",
+              "label": "Amount of any Australian Government pensions and allowances received by your spouse in the year of the return",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "P"
+              }
+            },
+            {
+              "id": "spouse_exempt_pension_income",
+              "label": "Amount of any exempt pension income received by your spouse in the year of the return",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "Q"
+              }
+            },
+            {
+              "id": "spouse_reportable_super_contributions",
+              "label": "Spouse reportable superannuation contributions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              }
+            },
+            {
+              "id": "spouse_reportable_employer_super_contributions",
+              "label": "Spouse reportable employer superannuation contributions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_deductible_personal_super_contributions",
+              "label": "Spouse deductible personal superannuation contributions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_tax_free_govt_pensions",
+              "label": "Your spouse's tax-free government pensions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "B"
+              }
+            },
+            {
+              "id": "spouse_target_foreign_income",
+              "label": "Your spouse's target foreign income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "C"
+              }
+            },
+            {
+              "id": "spouse_foreign_income",
+              "label": "Your spouse's foreign income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_exempt_foreign_employment_income",
+              "label": "Your spouse's exempt foreign employment income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_net_investment_loss",
+              "label": "Your spouse's net investment loss",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "D"
+              }
+            },
+            {
+              "id": "spouse_net_financial_investment_loss",
+              "label": "Your spouse's net financial investment loss",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_net_rental_property_loss",
+              "label": "Your spouse's net rental property loss",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "child_support_spouse_paid",
+              "label": "Child support your spouse paid",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "E"
+              }
+            },
+            {
+              "id": "spouse_taxed_element_sls_zero_rate",
+              "label": "Your spouse's taxed element of a SLS zero tax rate",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "F"
+              }
+            },
+            {
+              "id": "spouse_total_ati_amount",
+              "label": "Your spouse's total ATI amount",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "spouse_rebate_income",
+              "label": "Your spouse's rebate income",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "spouse_assessable_income",
+              "label": "Your spouse's assessable income",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
