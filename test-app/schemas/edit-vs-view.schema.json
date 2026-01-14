@@ -1,0 +1,173 @@
+[
+  {
+    "section_name": "Personal Information",
+    "sub_sections": [
+      {
+        "sub_section_id": "name",
+        "sub_section_label": "YOUR NAME",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "title",
+              "label": "Title",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "MR", "value": "MR" },
+                  { "label": "MS", "value": "MS" }
+                ]
+              },
+              "value": "MR"
+            },
+            {
+              "id": "given_name",
+              "label": "Given Name",
+              "field_info": { "field_type": "text", "required": true },
+              "value": "Pubudu"
+            },
+            {
+              "id": "family_name",
+              "label": "Family Name",
+              "field_info": { "field_type": "text", "required": true },
+              "value": "Abayasiri"
+            },
+            {
+              "id": "date_of_birth",
+              "label": "Date of Birth",
+              "field_info": { "field_type": "date" },
+              "value": "1979-10-19"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "residency",
+        "sub_section_label": "RESIDENCY STATUS",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "is_resident",
+              "label": "Australian Resident?",
+              "field_info": { "field_type": "boolean" },
+              "value": true
+            },
+            {
+              "id": "start_date",
+              "label": "Residency Start",
+              "field_info": { "field_type": "date" },
+              "value": "2024-05-16"
+            },
+            {
+              "id": "end_date",
+              "label": "Residency End",
+              "field_info": { "field_type": "date" },
+              "value": "2024-06-30"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Financial Details",
+    "sub_sections": [
+      {
+        "sub_section_id": "income",
+        "sub_section_label": "INCOME SUMMARY",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "gross_salary",
+              "label": "Gross Salary",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 18578
+            },
+            {
+              "id": "tax_withheld",
+              "label": "Tax Withheld",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 6478
+            },
+            {
+              "id": "net_income",
+              "label": "Net Income",
+              "field_info": { "field_type": "currency", "currency_symbol": "$" },
+              "value": 12100
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "banking",
+        "sub_section_label": "BANKING DETAILS",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "bsb",
+              "label": "BSB Number",
+              "field_info": { "field_type": "text" },
+              "value": "733289"
+            },
+            {
+              "id": "account",
+              "label": "Account Number",
+              "field_info": { "field_type": "text" },
+              "value": "525753"
+            },
+            {
+              "id": "bank",
+              "label": "Bank Name",
+              "field_info": { "field_type": "text" },
+              "value": "Westpac Banking Corporation"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "Additional Information",
+    "sub_sections": [
+      {
+        "sub_section_id": "contact",
+        "sub_section_label": "CONTACT",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "email",
+              "label": "Email",
+              "field_info": { "field_type": "email" },
+              "value": "pubudu@example.com"
+            },
+            {
+              "id": "phone",
+              "label": "Phone",
+              "field_info": { "field_type": "tel" },
+              "value": "1300762001"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "notes",
+        "sub_section_label": "NOTES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "notes",
+              "label": "Additional Notes",
+              "field_info": { "field_type": "textarea", "rows": 3 },
+              "value": "This is a sample form demonstrating the difference between edit and view modes."
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

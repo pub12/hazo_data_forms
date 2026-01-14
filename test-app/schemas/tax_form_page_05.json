@@ -1,0 +1,61 @@
+[
+  {
+    "section_name": "Losses",
+    "sub_sections": [
+      {
+        "sub_section_id": "tax_losses_earlier_years",
+        "sub_section_label": "TAX LOSSES OF EARLIER INCOME YEARS",
+        "item_code": "L1",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "primary_production_losses",
+              "label": "Primary production losses claimed this income year",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "F"
+              },
+              "value": 0.00,
+              "doc_link": {
+                "type": "pdf",
+                "url": "/pubs 2024 - supporting - fund.pdf"
+              }
+            },
+            {
+              "id": "non_primary_production_losses",
+              "label": "Non-primary production losses claimed this income year",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "Z"
+              },
+              "value": 0.00
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "losses_totals",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "taxable_income",
+              "label": "Taxable income",
+              "field_info": {
+                "field_type": "summary_row",
+                "decimal_places": 2
+              },
+              "value": 21419.00
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

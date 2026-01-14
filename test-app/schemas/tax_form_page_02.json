@@ -1,0 +1,448 @@
+[
+  {
+    "section_name": "YOUR NAME",
+    "sub_sections": [
+      {
+        "sub_section_id": "name_details",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "title",
+              "label": "Title",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "MR"
+            },
+            {
+              "id": "given_name",
+              "label": "Given Name",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left",
+                "required": true
+              },
+              "value": "Pubudu"
+            },
+            {
+              "id": "family_name",
+              "label": "Family Name",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left",
+                "required": true
+              },
+              "value": "Abayasiri"
+            },
+            {
+              "id": "other_name",
+              "label": "Other Name",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "suffix_dob",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "suffix",
+              "label": "Suffix",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              }
+            },
+            {
+              "id": "date_of_birth",
+              "label": "Date of Birth",
+              "field_info": {
+                "field_type": "date",
+                "required": true
+              },
+              "value": "1979-10-19"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "residency_info",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "is_australian_resident",
+              "label": "Are you an Australian Resident?",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              },
+              "value": "yes"
+            },
+            {
+              "id": "australian_residency_start_date",
+              "label": "Australian residency start date",
+              "field_info": {
+                "field_type": "date"
+              },
+              "value": "2024-05-16"
+            },
+            {
+              "id": "australian_residency_end_date",
+              "label": "Australian residency end date",
+              "field_info": {
+                "field_type": "date"
+              },
+              "value": "2024-06-30"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "name_changed",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "name_changed_since_last_return",
+              "label": "Has part of your name changed since completing your last tax return?",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              },
+              "value": "no"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "YOUR ADDRESSES",
+    "sub_section_layout": "horizontal",
+    "sub_sections": [
+      {
+        "sub_section_id": "postal_address",
+        "sub_section_label": "YOUR POSTAL ADDRESS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "postal_address_line_1",
+              "label": "",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "10 Daryl Avenue"
+            },
+            {
+              "id": "postal_address_line_2",
+              "label": "",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Glen Waverley"
+            },
+            {
+              "id": "postal_state",
+              "label": "State",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left",
+                "width": "50%"
+              },
+              "value": "VIC"
+            },
+            {
+              "id": "postal_postcode",
+              "label": "Postcode",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left",
+                "width": "50%"
+              },
+              "value": "3150"
+            },
+            {
+              "id": "postal_country",
+              "label": "Country — if not Australia",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "home_address",
+        "sub_section_label": "YOUR HOME ADDRESS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "home_address_line_1",
+              "label": "",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "10 Daryl Avenue"
+            },
+            {
+              "id": "home_address_line_2",
+              "label": "",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Glen Waverley"
+            },
+            {
+              "id": "home_state",
+              "label": "State",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left",
+                "width": "50%"
+              },
+              "value": "VIC"
+            },
+            {
+              "id": "home_postcode",
+              "label": "Postcode",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left",
+                "width": "50%"
+              },
+              "value": "3150"
+            },
+            {
+              "id": "home_country",
+              "label": "Country — if not Australia",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "ADDRESS CHANGE",
+    "sub_sections": [
+      {
+        "sub_section_id": "postal_address_changed",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "postal_address_changed_since_last_return",
+              "label": "Has your postal address changed since completing your last tax return?",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "YOUR CONTACT DETAILS",
+    "sub_sections": [
+      {
+        "sub_section_id": "contact_details",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "mobile_number",
+              "label": "Mobile number",
+              "field_info": {
+                "field_type": "tel"
+              }
+            },
+            {
+              "id": "day_time_contact_number",
+              "label": "Day time contact number",
+              "field_info": {
+                "field_type": "tel"
+              },
+              "value": "13 00762001"
+            },
+            {
+              "id": "email_address",
+              "label": "Email address",
+              "field_info": {
+                "field_type": "email"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "YOUR BANKING INFORMATION (EFT DETAILS)",
+    "sub_sections": [
+      {
+        "sub_section_id": "deduct_fee",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "deduct_fee_from_refund",
+              "label": "Deduct fee from refund",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              },
+              "value": "no"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "bank_details",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "bsb_number",
+              "label": "BSB Number",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "733289"
+            },
+            {
+              "id": "account_number",
+              "label": "Account Number",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "525753"
+            },
+            {
+              "id": "account_name",
+              "label": "Account Name",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Pubudu Rakkhita Abayasiri"
+            },
+            {
+              "id": "financial_institution_name",
+              "label": "Financial Institution Name",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Westpac Banking Corporation"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "CONTACT NAME",
+    "sub_sections": [
+      {
+        "sub_section_id": "contact_name",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "full_name",
+              "label": "Full Name",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Shane Macfarlane"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "TAX AGENT CONTACT DETAILS",
+    "sub_sections": [
+      {
+        "sub_section_id": "tax_agent_details",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "tax_contact",
+              "label": "Tax Contact",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "Shane Macfarlane"
+            },
+            {
+              "id": "agent_ref_number",
+              "label": "Agent Ref Number",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left"
+              },
+              "value": "25220543"
+            },
+            {
+              "id": "contact_number",
+              "label": "Contact Number",
+              "field_info": {
+                "field_type": "tel"
+              },
+              "value": "1300762001"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

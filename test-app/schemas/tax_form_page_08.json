@@ -1,0 +1,104 @@
+[
+  {
+    "section_name": "Medicare levy related items",
+    "sub_section_layout": "horizontal",
+    "sub_sections": [
+      {
+        "sub_section_id": "medicare_levy_reduction_exemption",
+        "sub_section_label": "MEDICARE LEVY REDUCTION OR EXEMPTION",
+        "item_code": "M1",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "80px",
+          "fields": [
+            {
+              "id": "reduction_based_on_family_income_header",
+              "label": "Reduction based on family income",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "header_h4"
+            },
+            {
+              "id": "num_dependent_children_students",
+              "label": "Number of dependent children and students",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "min": 0,
+                "badge": "Y"
+              },
+              "value": 2
+            },
+            {
+              "id": "exemption_categories_header",
+              "label": "Exemption categories",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "header_h4"
+            },
+            {
+              "id": "full_levy_exemption_days",
+              "label": "Full 2.0% levy exemption – number of days",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "min": 0,
+                "max": 366,
+                "badge": "V"
+              },
+              "value": 366
+            },
+            {
+              "id": "half_levy_exemption_days",
+              "label": "Half 2.0% levy exemption – number of days",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "min": 0,
+                "max": 366,
+                "badge": "W"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "medicare_levy_surcharge",
+        "sub_section_label": "MEDICARE LEVY SURCHARGE",
+        "item_code": "M2",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "80px",
+          "fields": [
+            {
+              "id": "private_hospital_cover",
+              "label": "For the whole period 1 July 2023 to 30 June 2024, were you and all your dependents including your spouse—if you had any—covered by private patient HOSPITAL cover?",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "boolean",
+                "badge": "E"
+              },
+              "value": false
+            },
+            {
+              "id": "days_not_liable_surcharge",
+              "label": "Number of days NOT liable for surcharge",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "min": 0,
+                "max": 366,
+                "badge": "A"
+              },
+              "value": 366
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

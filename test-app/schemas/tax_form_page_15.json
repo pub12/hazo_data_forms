@@ -1,0 +1,139 @@
+[
+  {
+    "section_name": "Managed Fund Worksheet - Individual",
+    "sub_sections": [
+      {
+        "sub_section_id": "fund_1_header",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "250px",
+          "fields": [
+            {
+              "id": "fund_1_name",
+              "label": "Managed fund name",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "Raiz Invest Australia"
+            },
+            {
+              "id": "fund_1_investor_name",
+              "label": "Client / Investor name",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "Pubudu Abayasiri"
+            },
+            {
+              "id": "fund_1_account_holders",
+              "label": "Number of Account Holders",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "decimal_places": 0
+              },
+              "value": 1
+            },
+            {
+              "id": "fund_1_share_percentage",
+              "label": "Share percentage (%)",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "percentage",
+                "decimal_places": 0
+              },
+              "value": 100
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "fund_1_foreign_income",
+        "sub_section_label": "Foreign source income",
+        "style_variant": "header_h3",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "column_headers": [
+            { "label": "Total", "width": "120px" },
+            { "label": "My share", "width": "120px" }
+          ],
+          "fields": [
+            {
+              "id": "fund_1_assessable_foreign_source_income_total",
+              "label": "Assessable foreign source income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "20E"
+              },
+              "paired_field": {
+                "id": "fund_1_assessable_foreign_source_income_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2
+                }
+              },
+              "value": 632.25
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "fund_2_header",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "350px",
+          "fields": [
+            {
+              "id": "fund_2_name",
+              "label": "Managed fund name",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "VVLU - Vanguard Global Value Equity Active ETF"
+            },
+            {
+              "id": "fund_2_investor_name",
+              "label": "Client / Investor name",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "Pubudu Abayasiri"
+            },
+            {
+              "id": "fund_2_account_holders",
+              "label": "Number of Account Holders",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "decimal_places": 0
+              },
+              "value": 1
+            },
+            {
+              "id": "fund_2_share_percentage",
+              "label": "Share percentage (%)",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "percentage",
+                "decimal_places": 0
+              },
+              "value": 100
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

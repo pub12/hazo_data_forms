@@ -1,0 +1,477 @@
+[
+  {
+    "section_name": "Rental Schedule — 10 Daryl Avenue, GLEN WAVERLEY VIC 3150",
+    "sub_sections": [
+      {
+        "sub_section_id": "property_address",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "rental_address",
+              "label": "Address",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "10 Daryl Avenue"
+            },
+            {
+              "id": "rental_town_city",
+              "label": "Town/City",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "GLEN WAVERLEY"
+            },
+            {
+              "id": "rental_state",
+              "label": "State",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "VIC"
+            },
+            {
+              "id": "rental_postcode",
+              "label": "Postcode",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "3150"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "property_details",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "rental_property_name",
+              "label": "Name of property",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "text"
+              }
+            },
+            {
+              "id": "rental_first_income_date",
+              "label": "Date property first earned rental income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "value": "2019-01-24"
+            },
+            {
+              "id": "rental_weeks_rented",
+              "label": "Number of weeks property was rented this year",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "decimal_places": 0
+              },
+              "value": 13
+            },
+            {
+              "id": "rental_weeks_available",
+              "label": "The number of weeks the property was available for rent this year",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "decimal_places": 0
+              },
+              "value": 13
+            },
+            {
+              "id": "rental_ownership_percent",
+              "label": "Entity's % ownership",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "decimal_places": 0
+              },
+              "value": 100
+            },
+            {
+              "id": "rental_loan_renegotiated",
+              "label": "Has the loan for the property been renegotiated this year?",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              },
+              "value": "no"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "acquisitions_disposal",
+        "sub_section_label": "Acquisitions and Disposal",
+        "style_variant": "header_h3",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "column_headers": [
+            { "label": "Date", "width": "150px" },
+            { "label": "Amount", "width": "150px" }
+          ],
+          "fields": [
+            {
+              "id": "rental_acquisition_date",
+              "label": "Acquisition",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "paired_field": {
+                "id": "rental_acquisition_amount",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2
+                }
+              }
+            },
+            {
+              "id": "rental_disposal_date",
+              "label": "Disposal",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "paired_field": {
+                "id": "rental_disposal_amount",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2
+                }
+              }
+            },
+            {
+              "id": "rental_capital_gain_loss_date",
+              "label": "Capital gain/loss on sale of this property",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "paired_field": {
+                "id": "rental_capital_gain_loss_amount",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2
+                }
+              }
+            },
+            {
+              "id": "rental_depreciation_recouped_date",
+              "label": "Value of capital allowances (depreciation on plant) recouped on the sale of the property",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "paired_field": {
+                "id": "rental_depreciation_recouped_amount",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2
+                }
+              }
+            },
+            {
+              "id": "rental_capital_works_recouped_date",
+              "label": "Value of capital works deductions (special building write-off) recouped on the sale of the property",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "paired_field": {
+                "id": "rental_capital_works_recouped_amount",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "owners",
+        "sub_section_label": "Owners",
+        "style_variant": "header_h3",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "rental_owners_table",
+              "label": "",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "owner_name",
+                    "label": "Name",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "left"
+                    },
+                    "width": "40%"
+                  },
+                  {
+                    "id": "owner_tfn",
+                    "label": "TFN",
+                    "field_info": {
+                      "field_type": "text",
+                      "text_align": "center"
+                    },
+                    "width": "20%",
+                    "default_value": "TFN Recorded"
+                  },
+                  {
+                    "id": "owner_percentage",
+                    "label": "Percentage",
+                    "field_info": {
+                      "field_type": "percentage",
+                      "decimal_places": 0
+                    },
+                    "width": "20%",
+                    "subtotal": true,
+                    "default_value": 100
+                  },
+                  {
+                    "id": "owner_this_tax_return",
+                    "label": "This Tax Return",
+                    "field_info": {
+                      "field_type": "option",
+                      "options": [
+                        { "label": "Yes", "value": "yes" },
+                        { "label": "No", "value": "no" }
+                      ]
+                    },
+                    "width": "20%",
+                    "default_value": "no"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 10
+              },
+              "value": [
+                {
+                  "owner_name": "Abayasiri, Pubudu",
+                  "owner_tfn": "TFN Recorded",
+                  "owner_percentage": 100,
+                  "owner_this_tax_return": "yes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "income_expenses",
+        "sub_section_label": "Income / Expenses",
+        "style_variant": "header_h3",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "120px",
+          "column_headers": [
+            { "label": "Gross", "width": "120px" },
+            { "label": "My share", "width": "120px" }
+          ],
+          "fields": [
+            {
+              "id": "income_header",
+              "label": "Income",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "header_h4"
+            },
+            {
+              "id": "rental_income_gross",
+              "label": "Rental income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "A"
+              },
+              "paired_field": {
+                "id": "rental_income_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * rental_income_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 6430.00
+            },
+            {
+              "id": "gross_rent_gross",
+              "label": "Gross rent",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "C"
+              },
+              "paired_field": {
+                "id": "gross_rent_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * gross_rent_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 6430.00
+            },
+            {
+              "id": "expenses_header",
+              "label": "Expenses",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "header_h4"
+            },
+            {
+              "id": "council_rates_gross",
+              "label": "Council rates",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "H"
+              },
+              "paired_field": {
+                "id": "council_rates_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * council_rates_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 815.60
+            },
+            {
+              "id": "insurance_gross",
+              "label": "Insurance",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "K"
+              },
+              "paired_field": {
+                "id": "insurance_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * insurance_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 1980.14
+            },
+            {
+              "id": "interest_gross",
+              "label": "Interest",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "L"
+              },
+              "paired_field": {
+                "id": "interest_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * interest_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 10.65
+            },
+            {
+              "id": "capital_works_deductions_gross",
+              "label": "Capital works deductions",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "R"
+              },
+              "paired_field": {
+                "id": "capital_works_deductions_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * capital_works_deductions_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 2522.00
+            },
+            {
+              "id": "total_expenses_gross",
+              "label": "Total expenses",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "W"
+              },
+              "paired_field": {
+                "id": "total_expenses_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * total_expenses_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 5328.39
+            },
+            {
+              "id": "total_net_rent_gross",
+              "label": "Total net rent",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "X"
+              },
+              "paired_field": {
+                "id": "total_net_rent_my_share",
+                "field_info": {
+                  "field_type": "currency",
+                  "decimal_places": 2,
+                  "computed_formula": "TABLE_SUM(rental_owners_table, owner_percentage, owner_this_tax_return, yes) * total_net_rent_gross / 100",
+                  "disabled": true
+                }
+              },
+              "value": 1101.61
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

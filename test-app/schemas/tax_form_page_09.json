@@ -1,0 +1,154 @@
+[
+  {
+    "section_name": "Adjustments",
+    "sub_sections": [
+      {
+        "sub_section_id": "under_18_excepted_net_income",
+        "sub_section_label": "UNDER 18 EXCEPTED NET INCOME",
+        "item_code": "A1",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "under_18_info",
+              "label": "If you were under 18 years of age on 30 June 2024 you must complete this item or you may be taxed at a higher rate",
+              "field_info": {
+                "field_type": "static_text"
+              },
+              "style_variant": "info"
+            },
+            {
+              "id": "under_18_excepted_net_income",
+              "label": "Under 18 excepted net income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "J"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "part_year_tax_free_threshold",
+        "sub_section_label": "PART-YEAR TAX-FREE THRESHOLD",
+        "item_code": "A2",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "60px",
+          "fields": [
+            {
+              "id": "months_eligible_for_threshold",
+              "label": "Months eligible for threshold",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "number",
+                "min": 0,
+                "max": 12,
+                "badge": "N"
+              },
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "government_super_contributions",
+        "sub_section_label": "GOVERNMENT SUPER CONTRIBUTIONS",
+        "item_code": "A3",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "income_investment_partnership_other",
+              "label": "Income from investment, partnership and other sources",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "F"
+              }
+            },
+            {
+              "id": "other_income_employment_business",
+              "label": "Other income from employment and business",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "G"
+              }
+            },
+            {
+              "id": "other_deductions_business_income",
+              "label": "Other deductions from business income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "H"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "working_holiday_maker_net_income",
+        "sub_section_label": "WORKING HOLIDAY MAKER NET INCOME",
+        "item_code": "A4",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "100px",
+          "fields": [
+            {
+              "id": "working_holiday_maker_net_income",
+              "label": "Working holiday maker net income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2,
+                "badge": "D"
+              }
+            },
+            {
+              "id": "working_holiday_maker_gross_income",
+              "label": "Working holiday maker gross income",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "working_holiday_maker_deductions_losses",
+              "label": "Working holiday maker related deductions and business losses",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "home_country",
+              "label": "Home Country",
+              "label_position": "inline",
+              "value_width": "200px",
+              "field_info": {
+                "field_type": "text",
+                "text_align": "left",
+                "text_align": "left"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

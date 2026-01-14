@@ -1,0 +1,221 @@
+[
+  {
+    "section_name": "Capital gains tax worksheet",
+    "sub_sections": [
+      {
+        "sub_section_id": "cgt_asset_header",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "cgt_asset_type",
+              "label": "Asset Type",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "Other shares"
+            },
+            {
+              "id": "cgt_description",
+              "label": "Description",
+              "field_info": {
+                "field_type": "text"
+              },
+              "value": "Crowdstrike shares"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "cgt_details",
+        "sub_section_label": "",
+        "field_group": {
+          "orientation": "vertical",
+          "badge_column_width": "40px",
+          "value_column_width": "150px",
+          "fields": [
+            {
+              "id": "cgt_exemption_rollover",
+              "label": "Have you applied an exemption or roll over?",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "boolean",
+                "badge": "M"
+              },
+              "value": false
+            },
+            {
+              "id": "cgt_date_acquisition",
+              "label": "Date of acquisition",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "value": "2024-05-16"
+            },
+            {
+              "id": "cgt_date_disposal",
+              "label": "Date of disposal",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "date"
+              },
+              "value": "2024-05-16"
+            },
+            {
+              "id": "cgt_method",
+              "label": "CGT Method",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Indexation", "value": "indexation" },
+                  { "label": "Discount", "value": "discount" },
+                  { "label": "Other", "value": "other" }
+                ]
+              },
+              "value": "other"
+            },
+            {
+              "id": "cgt_capital_proceeds",
+              "label": "Capital proceeds",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 389392.57
+            },
+            {
+              "id": "cgt_ownership_percent",
+              "label": "Ownership %",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "percentage",
+                "decimal_places": 0
+              },
+              "value": 100
+            },
+            {
+              "id": "cgt_share_capital_proceeds",
+              "label": "Share of Capital Proceeds",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 389392.57
+            },
+            {
+              "id": "cgt_less_total_costs",
+              "label": "Less Total Costs",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 388712.60
+            },
+            {
+              "id": "cgt_gross_capital_gain",
+              "label": "Gross Capital Gain",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 679.97
+            },
+            {
+              "id": "cgt_prior_year_losses",
+              "label": "Prior Year losses available to apply",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "cgt_current_year_losses",
+              "label": "Current Year losses available to apply",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "cgt_apply_losses_manually",
+              "label": "Apply losses manually",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "label": "Yes", "value": "yes" },
+                  { "label": "No", "value": "no" }
+                ]
+              },
+              "value": "no"
+            },
+            {
+              "id": "cgt_losses_applied",
+              "label": "Losses Applied",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "cgt_subtotal_1",
+              "label": "Subtotal",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 679.97
+            },
+            {
+              "id": "cgt_discount_applied",
+              "label": "Discount applied",
+              "label_position": "inline",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "cgt_subtotal_2",
+              "label": "Subtotal",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 679.97
+            },
+            {
+              "id": "cgt_net_capital_gain",
+              "label": "Net Capital Gain",
+              "label_position": "inline",
+              "row_variant": "highlight",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 679.97
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
