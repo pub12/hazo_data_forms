@@ -29,6 +29,9 @@ export function FileManagerDialog({
   on_popout,
   class_name,
   title,
+  // hazo_pdf 1.3.2 features
+  enable_file_conversion,
+  on_file_convert,
 }: FileManagerDialogProps) {
   const fm_config = config.file_manager;
 
@@ -67,6 +70,8 @@ export function FileManagerDialog({
           on_delete={on_delete}
           on_popout={on_popout}
           class_name={class_name}
+          enable_file_conversion={enable_file_conversion}
+          on_file_convert={on_file_convert}
         />
       </DialogContent>
     </Dialog>

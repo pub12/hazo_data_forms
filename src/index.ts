@@ -2,7 +2,24 @@
 
 // Main component
 export { HazoDataForm } from "./components/hazo_data_form";
-export type { HazoDataFormProps, PdfViewerProps } from "./components/hazo_data_form/types";
+export type {
+  HazoDataFormProps,
+  PdfViewerProps,
+  // hazo_pdf type aliases (for consumers who don't import hazo_pdf directly)
+  HazoPdfFileItem,
+  HazoPdfUploadResult,
+  HazoPdfFileManagerDisplayMode,
+  HazoPdfPopoutContext,
+} from "./components/hazo_data_form/types";
+
+// hazo_pdf conversion utilities (async loader)
+export {
+  get_hazo_pdf_conversion_utils,
+  is_hazo_pdf_available,
+  is_potentially_convertible,
+  CONVERTIBLE_MIME_TYPES,
+} from "./lib/hazo_pdf_exports";
+export type { HazoPdfConversionUtils } from "./lib/hazo_pdf_exports";
 
 // Field renderers
 export {

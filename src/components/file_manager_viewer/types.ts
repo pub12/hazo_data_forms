@@ -98,6 +98,12 @@ export interface FileManagerProps {
 
   /** Optional className */
   class_name?: string;
+
+  // File conversion support (new in hazo_pdf 1.3.2)
+  /** Enable file conversion to PDF for supported types */
+  enable_file_conversion?: boolean;
+  /** Callback when a file is converted to PDF */
+  on_file_convert?: (converted_pdf: Uint8Array, original_filename: string) => void;
 }
 
 /**
@@ -187,6 +193,15 @@ export interface FileViewerProps {
   deletable?: boolean;
   /** Delete handler */
   on_delete?: () => void;
+
+  // File conversion support (new in hazo_pdf 1.3.2)
+  /** Enable file conversion to PDF for supported types (images, text, Excel) */
+  enable_file_conversion?: boolean;
+  /**
+   * Callback when a file is converted to PDF
+   * The caller should handle storing/displaying the converted PDF
+   */
+  on_convert_to_pdf?: (converted_pdf: Uint8Array, original_filename: string) => void;
 }
 
 /**

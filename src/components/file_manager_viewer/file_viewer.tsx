@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { FaDownload, FaExternalLinkAlt } from "react-icons/fa";
+import { FaDownload, FaExternalLinkAlt, FaFilePdf, FaSpinner } from "react-icons/fa";
 import { Button } from "../ui/button";
 import type { FileViewerProps, FileItem } from "./types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
+import { is_potentially_convertible, get_hazo_pdf_conversion_utils } from "../../lib/hazo_pdf_exports";
 
 /**
  * Empty state when no files
@@ -97,9 +98,19 @@ function ErrorState({
 }
 
 /**
- * Image preview component
+ * Image preview component with optional PDF conversion
  */
-function ImageViewer({ file }: { file: FileItem }) {
+function ImageViewer({
+  file,
+  enable_conversion,
+  on_convert_to_pdf,
+  is_converting,
+}: {
+  file: FileItem;
+  enable_conversion?: boolean;
+  on_convert_to_pdf?: () => void;
+  is_converting?: boolean;
+}) {
   const handle_open = () => {
     window.open(file.url, "_blank");
   };
@@ -116,15 +127,44 @@ function ImageViewer({ file }: { file: FileItem }) {
           <FaExternalLinkAlt className="mr-2" size={14} />
           Open in New Tab
         </Button>
+        {enable_conversion && on_convert_to_pdf && (
+          <Button
+            variant="outline"
+            onClick={on_convert_to_pdf}
+            disabled={is_converting}
+          >
+            {is_converting ? (
+              <>
+                <FaSpinner className="mr-2 animate-spin" size={14} />
+                Converting...
+              </>
+            ) : (
+              <>
+                <FaFilePdf className="mr-2" size={14} />
+                Convert to PDF
+              </>
+            )}
+          </Button>
+        )}
       </div>
     </div>
   );
 }
 
 /**
- * Download prompt for non-viewable files
+ * Download prompt for non-viewable files with optional PDF conversion
  */
-function DownloadViewer({ file }: { file: FileItem }) {
+function DownloadViewer({
+  file,
+  enable_conversion,
+  on_convert_to_pdf,
+  is_converting,
+}: {
+  file: FileItem;
+  enable_conversion?: boolean;
+  on_convert_to_pdf?: () => void;
+  is_converting?: boolean;
+}) {
   const handle_download = () => {
     window.open(file.url, "_blank");
   };
@@ -136,14 +176,82 @@ function DownloadViewer({ file }: { file: FileItem }) {
       </div>
       <h3 className="text-lg font-medium text-gray-900 mb-2">{file.filename}</h3>
       <p className="text-sm text-gray-500 mb-6">
-        This file type cannot be previewed. Click below to download or open.
+        {enable_conversion
+          ? "This file can be converted to PDF for viewing, or downloaded directly."
+          : "This file type cannot be previewed. Click below to download or open."}
       </p>
-      <Button onClick={handle_download}>
-        <FaDownload className="mr-2" size={14} />
-        Download File
-      </Button>
+      <div className="flex gap-2">
+        {enable_conversion && on_convert_to_pdf && (
+          <Button
+            onClick={on_convert_to_pdf}
+            disabled={is_converting}
+          >
+            {is_converting ? (
+              <>
+                <FaSpinner className="mr-2 animate-spin" size={14} />
+                Converting...
+              </>
+            ) : (
+              <>
+                <FaFilePdf className="mr-2" size={14} />
+                Convert to PDF
+              </>
+            )}
+          </Button>
+        )}
+        <Button variant={enable_conversion ? "outline" : "default"} onClick={handle_download}>
+          <FaDownload className="mr-2" size={14} />
+          Download File
+        </Button>
+      </div>
     </div>
   );
+}
+
+/**
+ * Get MIME type string for file type detection
+ */
+function get_mime_type_for_file(file: FileItem): string | null {
+  // Check URL extension for common types
+  const url = file.url.toLowerCase();
+  const extension = url.split(".").pop()?.split("?")[0];
+
+  switch (extension) {
+    // Images
+    case "jpg":
+    case "jpeg":
+      return "image/jpeg";
+    case "png":
+      return "image/png";
+    case "gif":
+      return "image/gif";
+    case "webp":
+      return "image/webp";
+    case "bmp":
+      return "image/bmp";
+    case "tiff":
+    case "tif":
+      return "image/tiff";
+    // Text files
+    case "txt":
+      return "text/plain";
+    case "md":
+      return "text/markdown";
+    case "csv":
+      return "text/csv";
+    case "html":
+    case "htm":
+      return "text/html";
+    case "json":
+      return "application/json";
+    // Excel files
+    case "xlsx":
+      return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    case "xls":
+      return "application/vnd.ms-excel";
+    default:
+      return null;
+  }
 }
 
 /**
@@ -157,6 +265,8 @@ export function FileViewer({
   on_pdf_save,
   deletable,
   on_delete,
+  enable_file_conversion = false,
+  on_convert_to_pdf,
 }: FileViewerProps) {
   // Dynamic PDF viewer loading
   const [DynamicPdfViewer, set_dynamic_pdf_viewer] =
@@ -164,7 +274,20 @@ export function FileViewer({
   const [hazo_pdf_error, set_hazo_pdf_error] = React.useState<string | null>(null);
   const [file_error, set_file_error] = React.useState<string | null>(null);
 
+  // Conversion state
+  const [is_converting, set_is_converting] = React.useState(false);
+  const [conversion_error, set_conversion_error] = React.useState<string | null>(null);
+
   const PdfViewerComponent = pdf_viewer_component || DynamicPdfViewer;
+
+  // Check if current file is convertible
+  const file_mime_type = file ? get_mime_type_for_file(file) : null;
+  const is_file_convertible = Boolean(
+    enable_file_conversion &&
+    on_convert_to_pdf &&
+    file_mime_type &&
+    is_potentially_convertible(file_mime_type)
+  );
 
   // Load PDF viewer dynamically
   React.useEffect(() => {
@@ -188,10 +311,52 @@ export function FileViewer({
     }
   }, [file, pdf_viewer_component, DynamicPdfViewer]);
 
-  // Reset file error when file changes
+  // Reset errors when file changes
   React.useEffect(() => {
     set_file_error(null);
+    set_conversion_error(null);
   }, [file?.url]);
+
+  // Handle conversion to PDF
+  const handle_convert_to_pdf = React.useCallback(async () => {
+    if (!file || !on_convert_to_pdf || !file_mime_type) return;
+
+    set_is_converting(true);
+    set_conversion_error(null);
+
+    try {
+      // Fetch the file content
+      const response = await fetch(file.url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch file: ${response.statusText}`);
+      }
+      const blob = await response.blob();
+
+      // Create a File object with proper MIME type
+      const file_obj = new File([blob], file.filename, { type: file_mime_type });
+
+      // Get conversion utilities
+      const utils = await get_hazo_pdf_conversion_utils();
+
+      // Check if conversion is supported
+      if (!utils.can_convert_to_pdf(file_obj)) {
+        throw new Error(`File type "${file_mime_type}" cannot be converted to PDF`);
+      }
+
+      // Convert to PDF
+      const pdf_bytes = await utils.convert_to_pdf(file_obj);
+
+      // Call the callback with the converted PDF
+      on_convert_to_pdf(pdf_bytes, file.filename);
+    } catch (error) {
+      console.error("Conversion failed:", error);
+      set_conversion_error(
+        error instanceof Error ? error.message : "Conversion failed"
+      );
+    } finally {
+      set_is_converting(false);
+    }
+  }, [file, on_convert_to_pdf, file_mime_type]);
 
   // Empty state
   if (!file) {
@@ -273,11 +438,38 @@ export function FileViewer({
     );
   }
 
+  // Show conversion error if any
+  const conversion_error_display = conversion_error && (
+    <div className="absolute bottom-4 left-4 right-4 bg-red-100 text-red-700 p-2 rounded text-sm">
+      {conversion_error}
+    </div>
+  );
+
   // Image file
   if (file.type === "image") {
-    return <ImageViewer file={file} />;
+    return (
+      <div className="relative h-full">
+        <ImageViewer
+          file={file}
+          enable_conversion={is_file_convertible}
+          on_convert_to_pdf={handle_convert_to_pdf}
+          is_converting={is_converting}
+        />
+        {conversion_error_display}
+      </div>
+    );
   }
 
-  // Other file types - download prompt
-  return <DownloadViewer file={file} />;
+  // Other file types - download prompt (with conversion for supported types)
+  return (
+    <div className="relative h-full">
+      <DownloadViewer
+        file={file}
+        enable_conversion={is_file_convertible}
+        on_convert_to_pdf={handle_convert_to_pdf}
+        is_converting={is_converting}
+      />
+      {conversion_error_display}
+    </div>
+  );
 }
