@@ -104,12 +104,12 @@ export function DocPanel({
       const load_pdf_viewer = async () => {
         try {
           // Dynamic import of hazo_pdf (optional peer dependency)
-          // @ts-expect-error - hazo_pdf is an optional peer dependency
           const module = await import(/* webpackChunkName: "hazo_pdf" */ "hazo_pdf");
-          // Load CSS
-          // @ts-expect-error - hazo_pdf is an optional peer dependency
+          // Load CSS (no type declarations for CSS files)
+          // @ts-ignore - CSS import has no type declarations
           await import(/* webpackChunkName: "hazo_pdf_styles" */ "hazo_pdf/styles.css");
-          set_dynamic_pdf_viewer(() => module.PdfViewer);
+          // Cast to ComponentType since PdfViewer is a ForwardRefExoticComponent
+          set_dynamic_pdf_viewer(() => module.PdfViewer as React.ComponentType<PdfViewerProps>);
           set_hazo_pdf_error(null);
         } catch (err) {
           console.error("Failed to load hazo_pdf:", err);
