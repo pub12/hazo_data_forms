@@ -28,6 +28,9 @@ export function FileManager({
   on_delete,
   on_popout,
   class_name,
+  // hazo_pdf 1.3.2 features
+  enable_file_conversion,
+  on_file_convert,
 }: FileManagerProps) {
   // Selected file state - defaults to first file
   const [selected_index, set_selected_index] = React.useState(0);
@@ -258,6 +261,8 @@ export function FileManager({
           on_pdf_save={on_pdf_save}
           deletable={selected_deletable}
           on_delete={handle_delete_selected}
+          enable_file_conversion={enable_file_conversion}
+          on_convert_to_pdf={on_file_convert}
         />
       </div>
     </div>

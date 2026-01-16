@@ -73,6 +73,12 @@ export function HazoDataForm({
   on_file_delete,
   on_file_view,
   on_file_popout,
+  // hazo_pdf 1.3.2 features
+  enable_file_conversion = false,
+  on_file_convert,
+  enable_pdf_popout = false,
+  pdf_popout_route,
+  on_pdf_popout,
 }: HazoDataFormProps) {
   // Load config from INI file
   const config = useFormConfig(config_path, config_override);
@@ -463,6 +469,8 @@ export function HazoDataForm({
                   on_upload={is_upload_enabled ? handle_panel_upload : undefined}
                   on_delete={is_upload_enabled ? handle_panel_delete : undefined}
                   on_popout={on_file_popout}
+                  enable_file_conversion={enable_file_conversion}
+                  on_file_convert={on_file_convert}
                 />
               </ResizablePanel>
               <ResizableHandle withHandle={pdf_panel_resizable} />
@@ -502,6 +510,8 @@ export function HazoDataForm({
                   on_upload={is_upload_enabled ? handle_panel_upload : undefined}
                   on_delete={is_upload_enabled ? handle_panel_delete : undefined}
                   on_popout={on_file_popout}
+                  enable_file_conversion={enable_file_conversion}
+                  on_file_convert={on_file_convert}
                 />
               </ResizablePanel>
             </>
@@ -532,6 +542,8 @@ export function HazoDataForm({
           on_upload={is_upload_enabled ? handle_panel_upload : undefined}
           on_delete={is_upload_enabled ? handle_panel_delete : undefined}
           on_popout={on_file_popout}
+          enable_file_conversion={enable_file_conversion}
+          on_file_convert={on_file_convert}
         />
       )}
     </div>

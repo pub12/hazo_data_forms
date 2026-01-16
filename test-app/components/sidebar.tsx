@@ -11,6 +11,7 @@ import {
   Eye,
   Calculator,
   Upload,
+  Files,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +21,7 @@ const nav_items = [
   { href: "/nested-sections", label: "Nested Sections", icon: Layers },
   { href: "/tables-worksheets", label: "Tables & Worksheets", icon: Table2 },
   { href: "/document-links", label: "Document Links", icon: FileText },
+  { href: "/multi-file-conversion", label: "Multi-File & Conversion", icon: Files },
   { href: "/edit-vs-view", label: "Edit vs View Mode", icon: Eye },
   { href: "/tax-forms", label: "Tax Forms", icon: Calculator },
   { href: "/file-upload", label: "File Upload", icon: Upload },
