@@ -9,43 +9,130 @@
  */
 
 /**
+ * Supported image MIME types for conversion
+ */
+export type SupportedImageType = 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
+
+/**
+ * Supported text MIME types for conversion
+ */
+export type SupportedTextType = 'text/plain' | 'text/markdown' | 'text/csv';
+
+/**
+ * Supported Excel MIME types for conversion
+ */
+export type SupportedExcelType =
+  | 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  | 'application/vnd.ms-excel'
+  | 'application/vnd.google-apps.spreadsheet';
+
+/**
+ * All supported MIME types for conversion
+ */
+export type SupportedConversionType = SupportedImageType | SupportedTextType | SupportedExcelType;
+
+/**
+ * PDF conversion options
+ */
+export interface PdfConversionOptions {
+  /** Page size: 'letter' (612x792), 'a4' (595x842), 'legal' (612x1008) */
+  page_size?: 'letter' | 'a4' | 'legal';
+  /** Image quality 0.0-1.0 for lossy compression (default: 0.85) */
+  image_quality?: number;
+  /** How image fits on page: 'fit' (preserve aspect), 'fill' (crop), 'stretch' */
+  image_fit?: 'fit' | 'fill' | 'stretch';
+  /** Margin in points (72 points = 1 inch, default: 36) */
+  margin?: number;
+  /** Font size for text files in points (default: 12) */
+  font_size?: number;
+  /** Line height multiplier for text files (default: 1.4) */
+  line_height?: number;
+}
+
+/**
+ * Result from PDF conversion operations
+ */
+export interface ConversionResult {
+  /** Whether conversion succeeded */
+  success: boolean;
+  /** Converted PDF as Uint8Array (if success) */
+  pdf_bytes?: Uint8Array;
+  /** Original filename without extension */
+  original_name?: string;
+  /** Generated PDF filename */
+  pdf_filename?: string;
+  /** Original file type that was converted */
+  source_type?: 'image' | 'text' | 'excel';
+  /** Number of pages in the resulting PDF */
+  page_count?: number;
+  /** Error message (if !success) */
+  error?: string;
+}
+
+/**
  * Conversion utilities from hazo_pdf
  */
 export interface HazoPdfConversionUtils {
   /**
    * Convert a file to PDF (auto-detects type)
    * @param file - The file to convert
-   * @returns Promise<Uint8Array> - The PDF bytes
+   * @param filename - Original filename (used for output naming)
+   * @param options - Conversion options
+   * @returns Promise<ConversionResult>
    */
-  convert_to_pdf: (file: File) => Promise<Uint8Array>;
+  convert_to_pdf: (
+    file: File | Blob,
+    filename: string,
+    options?: PdfConversionOptions
+  ) => Promise<ConversionResult>;
 
   /**
-   * Convert an image file to PDF
-   * @param file - Image file (JPEG, PNG, GIF, WebP, etc.)
-   * @returns Promise<Uint8Array> - The PDF bytes
+   * Convert image bytes to PDF
+   * @param image_bytes - Raw image data as Uint8Array
+   * @param mime_type - Image MIME type
+   * @param filename - Original filename
+   * @param options - Conversion options
+   * @returns Promise<ConversionResult>
    */
-  convert_image_to_pdf: (file: File) => Promise<Uint8Array>;
+  convert_image_to_pdf: (
+    image_bytes: Uint8Array,
+    mime_type: SupportedImageType,
+    filename: string,
+    options?: PdfConversionOptions
+  ) => Promise<ConversionResult>;
 
   /**
-   * Convert a text file to PDF
-   * @param file - Text file (.txt, .md, .csv, etc.)
-   * @returns Promise<Uint8Array> - The PDF bytes
+   * Convert text content to PDF
+   * @param text_content - Text string to convert
+   * @param filename - Original filename
+   * @param options - Conversion options
+   * @returns Promise<ConversionResult>
    */
-  convert_text_to_pdf: (file: File) => Promise<Uint8Array>;
+  convert_text_to_pdf: (
+    text_content: string,
+    filename: string,
+    options?: PdfConversionOptions
+  ) => Promise<ConversionResult>;
 
   /**
-   * Convert an Excel file to PDF
-   * @param file - Excel file (.xlsx, .xls)
-   * @returns Promise<Uint8Array> - The PDF bytes
+   * Convert Excel spreadsheet to PDF
+   * @param excel_bytes - Raw Excel data as Uint8Array
+   * @param filename - Original filename
+   * @param options - Conversion options
+   * @returns Promise<ConversionResult>
    */
-  convert_excel_to_pdf: (file: File) => Promise<Uint8Array>;
+  convert_excel_to_pdf: (
+    excel_bytes: Uint8Array,
+    filename: string,
+    options?: PdfConversionOptions
+  ) => Promise<ConversionResult>;
 
   /**
-   * Check if a file can be converted to PDF
-   * @param file - The file or MIME type to check
+   * Check if a MIME type can be converted to PDF
+   * @param mime_type - The MIME type to check
    * @returns boolean - Whether conversion is supported
    */
-  can_convert_to_pdf: (file: File | string) => boolean;
+  can_convert_to_pdf: (mime_type: string) => boolean;
 
   /**
    * Check if a MIME type is an image type
@@ -70,14 +157,9 @@ export interface HazoPdfConversionUtils {
 
   /**
    * Get all supported MIME types for conversion
-   * @returns object with arrays of supported types
+   * @returns Array of supported MIME types
    */
-  get_supported_types: () => {
-    image: string[];
-    text: string[];
-    excel: string[];
-    all: string[];
-  };
+  get_supported_types: () => string[];
 }
 
 /**
@@ -86,8 +168,11 @@ export interface HazoPdfConversionUtils {
  * @example
  * ```typescript
  * const utils = await get_hazo_pdf_conversion_utils();
- * if (utils.can_convert_to_pdf(file)) {
- *   const pdf_bytes = await utils.convert_to_pdf(file);
+ * if (utils.can_convert_to_pdf(file.type)) {
+ *   const result = await utils.convert_to_pdf(file, file.name);
+ *   if (result.success && result.pdf_bytes) {
+ *     // Use result.pdf_bytes
+ *   }
  * }
  * ```
  *
@@ -96,7 +181,6 @@ export interface HazoPdfConversionUtils {
  */
 export async function get_hazo_pdf_conversion_utils(): Promise<HazoPdfConversionUtils> {
   try {
-    // @ts-expect-error - hazo_pdf is an optional peer dependency
     const hazo_pdf = await import(/* webpackChunkName: "hazo_pdf" */ "hazo_pdf");
 
     return {
@@ -132,7 +216,6 @@ export async function get_hazo_pdf_conversion_utils(): Promise<HazoPdfConversion
  */
 export async function is_hazo_pdf_available(): Promise<boolean> {
   try {
-    // @ts-expect-error - hazo_pdf is an optional peer dependency
     await import(/* webpackChunkName: "hazo_pdf" */ "hazo_pdf");
     return true;
   } catch {
@@ -142,7 +225,7 @@ export async function is_hazo_pdf_available(): Promise<boolean> {
 
 /**
  * Supported MIME types for conversion (static list for quick checks)
- * These match the types supported by hazo_pdf v1.3.2
+ * These match the types supported by hazo_pdf v1.4.0
  */
 export const CONVERTIBLE_MIME_TYPES = {
   image: [
@@ -150,19 +233,16 @@ export const CONVERTIBLE_MIME_TYPES = {
     "image/png",
     "image/gif",
     "image/webp",
-    "image/bmp",
-    "image/tiff",
   ],
   text: [
     "text/plain",
     "text/markdown",
     "text/csv",
-    "text/html",
-    "application/json",
   ],
   excel: [
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     "application/vnd.ms-excel",
+    "application/vnd.google-apps.spreadsheet",
   ],
 } as const;
 

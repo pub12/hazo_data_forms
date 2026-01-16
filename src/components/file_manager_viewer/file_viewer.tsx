@@ -294,11 +294,11 @@ export function FileViewer({
     if (file?.type === "pdf" && !pdf_viewer_component && !DynamicPdfViewer) {
       const load_pdf_viewer = async () => {
         try {
-          // @ts-expect-error - hazo_pdf is an optional peer dependency
           const module = await import(/* webpackChunkName: "hazo_pdf" */ "hazo_pdf");
-          // @ts-expect-error - hazo_pdf is an optional peer dependency
+          // @ts-ignore - CSS import has no type declarations
           await import(/* webpackChunkName: "hazo_pdf_styles" */ "hazo_pdf/styles.css");
-          set_dynamic_pdf_viewer(() => module.PdfViewer);
+          // Cast to ComponentType since PdfViewer is a ForwardRefExoticComponent
+          set_dynamic_pdf_viewer(() => module.PdfViewer as React.ComponentType<PdfViewerProps>);
           set_hazo_pdf_error(null);
         } catch (err) {
           console.error("Failed to load hazo_pdf:", err);
@@ -338,16 +338,21 @@ export function FileViewer({
       // Get conversion utilities
       const utils = await get_hazo_pdf_conversion_utils();
 
-      // Check if conversion is supported
-      if (!utils.can_convert_to_pdf(file_obj)) {
+      // Check if conversion is supported (pass MIME type string)
+      if (!utils.can_convert_to_pdf(file_mime_type)) {
         throw new Error(`File type "${file_mime_type}" cannot be converted to PDF`);
       }
 
-      // Convert to PDF
-      const pdf_bytes = await utils.convert_to_pdf(file_obj);
+      // Convert to PDF (pass file and filename)
+      const result = await utils.convert_to_pdf(file_obj, file.filename);
 
-      // Call the callback with the converted PDF
-      on_convert_to_pdf(pdf_bytes, file.filename);
+      // Check conversion result
+      if (!result.success || !result.pdf_bytes) {
+        throw new Error(result.error || "Conversion failed");
+      }
+
+      // Call the callback with the converted PDF bytes
+      on_convert_to_pdf(result.pdf_bytes, file.filename);
     } catch (error) {
       console.error("Conversion failed:", error);
       set_conversion_error(
