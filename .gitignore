@@ -9,6 +9,7 @@ dist/
 .idea/
 *.swp
 *.swo
+*.pdf
 
 # OS files
 .DS_Store
@@ -21,6 +22,7 @@ npm-debug.log*
 # Test app build
 test-app/.next/
 test-app/node_modules/
+test-app/pubilc/uploads/
 
 # Environment files
 .env

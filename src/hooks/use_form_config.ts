@@ -34,38 +34,20 @@ export function useFormConfig(
       let ini_config: PartialFormConfig = {};
 
       if (config_path) {
-        try {
-          // Try to load config using hazo_config if available
-          if (typeof window === "undefined") {
-            // Server-side: try to use hazo_config directly
-            try {
-              // @ts-ignore - hazo_config is a peer dependency
-              const { HazoConfig } = await import("hazo_config");
-              const config = new HazoConfig({ filePath: config_path });
-              ini_config = parse_ini_config(config);
+        // Client-side: fetch the INI file
+        if (typeof window !== "undefined") {
+          try {
+            const response = await fetch(config_path);
+            if (response.ok) {
+              const text = await response.text();
+              ini_config = parse_ini_text(text);
               set_loaded_config(ini_config);
-            } catch {
-              console.warn(
-                "hazo_config not available, using default configuration"
-              );
             }
-          } else {
-            // Client-side: fetch the INI file
-            try {
-              const response = await fetch(config_path);
-              if (response.ok) {
-                const text = await response.text();
-                ini_config = parse_ini_text(text);
-                set_loaded_config(ini_config);
-              }
-            } catch {
-              console.warn(
-                `Failed to load config from ${config_path}, using defaults`
-              );
-            }
+          } catch {
+            console.warn(
+              `Failed to load config from ${config_path}, using defaults`
+            );
           }
-        } catch (error) {
-          console.warn("Config loading error:", error);
         }
       }
 
@@ -205,183 +187,7 @@ function merge_field_types_config(
 }
 
 /**
- * Parse INI config from HazoConfig instance
- */
-function parse_ini_config(config: {
-  get: (section: string, key: string) => string | undefined;
-}): PartialFormConfig {
-  const result: PartialFormConfig = {};
-
-  // Paths
-  result.styles_path = config.get("paths", "styles_path");
-  result.field_types_path = config.get("paths", "field_types_path");
-
-  // Doc link
-  result.doc_link_icon_size = config.get("doc_link", "doc_link_icon_size");
-  const doc_link_icon_style = config.get("doc_link", "doc_link_icon_style");
-  if (doc_link_icon_style === "solid" || doc_link_icon_style === "outline") {
-    result.doc_link_icon_style = doc_link_icon_style;
-  }
-  result.doc_link_column_width = config.get("doc_link", "doc_link_column_width");
-
-  // PDF Panel
-  result.pdf_panel_width = config.get("pdf_panel", "pdf_panel_width");
-  result.pdf_panel_min_width = config.get("pdf_panel", "pdf_panel_min_width");
-  result.pdf_panel_max_width = config.get("pdf_panel", "pdf_panel_max_width");
-
-  // Formatting
-  result.default_currency_symbol = config.get("formatting", "default_currency_symbol");
-  result.date_format = config.get("formatting", "date_format");
-  result.percentage_suffix = config.get("formatting", "percentage_suffix");
-
-  const decimal_places = config.get("formatting", "default_decimal_places");
-  if (decimal_places) {
-    result.default_decimal_places = parse_number(decimal_places, 2);
-  }
-
-  // Feature flags
-  const enable_pdf_panel = config.get("features", "enable_pdf_panel");
-  if (enable_pdf_panel) {
-    result.enable_pdf_panel = enable_pdf_panel === "true";
-  }
-
-  const collapsible_sections = config.get("features", "collapsible_sections");
-  if (collapsible_sections) {
-    result.collapsible_sections = collapsible_sections === "true";
-  }
-
-  const validate_on_blur = config.get("features", "validate_on_blur");
-  if (validate_on_blur) {
-    result.validate_on_blur = validate_on_blur === "true";
-  }
-
-  const validate_on_change = config.get("features", "validate_on_change");
-  if (validate_on_change) {
-    result.validate_on_change = validate_on_change === "true";
-  }
-
-  // File manager settings
-  const fm_display_mode = config.get("file_manager", "display_mode");
-  const fm_icon_size = config.get("file_manager", "icon_size");
-  const fm_icon_color = config.get("file_manager", "icon_color");
-  const fm_icon_color_hover = config.get("file_manager", "icon_color_hover");
-  const fm_icon_color_with_files = config.get("file_manager", "icon_color_with_files");
-  const fm_badge_background = config.get("file_manager", "badge_background");
-  const fm_badge_text_color = config.get("file_manager", "badge_text_color");
-  const fm_dialog_width = config.get("file_manager", "dialog_width");
-  const fm_dialog_max_height = config.get("file_manager", "dialog_max_height");
-  const fm_button_column_width = config.get("file_manager", "button_column_width");
-
-  if (fm_display_mode || fm_icon_size || fm_icon_color || fm_icon_color_hover ||
-      fm_icon_color_with_files || fm_badge_background || fm_badge_text_color ||
-      fm_dialog_width || fm_dialog_max_height || fm_button_column_width) {
-    result.file_manager = {
-      ...DEFAULT_FORM_CONFIG.file_manager,
-      ...(fm_display_mode === "sidebar" || fm_display_mode === "dialog" ? { display_mode: fm_display_mode } : {}),
-      ...(fm_icon_size ? { icon_size: fm_icon_size } : {}),
-      ...(fm_icon_color ? { icon_color: fm_icon_color } : {}),
-      ...(fm_icon_color_hover ? { icon_color_hover: fm_icon_color_hover } : {}),
-      ...(fm_icon_color_with_files ? { icon_color_with_files: fm_icon_color_with_files } : {}),
-      ...(fm_badge_background ? { badge_background: fm_badge_background } : {}),
-      ...(fm_badge_text_color ? { badge_text_color: fm_badge_text_color } : {}),
-      ...(fm_dialog_width ? { dialog_width: fm_dialog_width } : {}),
-      ...(fm_dialog_max_height ? { dialog_max_height: fm_dialog_max_height } : {}),
-      ...(fm_button_column_width ? { button_column_width: fm_button_column_width } : {}),
-    };
-  }
-
-  // Legacy support: Colors (deprecated - for backward compatibility)
-  result.label_color = config.get("colors", "label_color");
-  result.label_color_required = config.get("colors", "label_color_required");
-  result.field_border_color = config.get("colors", "field_border_color");
-  result.field_border_color_focus = config.get("colors", "field_border_color_focus");
-  result.field_background_color = config.get("colors", "field_background_color");
-  result.field_background_color_disabled = config.get("colors", "field_background_color_disabled");
-  result.section_header_color = config.get("colors", "section_header_color");
-  result.section_header_background = config.get("colors", "section_header_background");
-  result.sub_section_header_color = config.get("colors", "sub_section_header_color");
-  result.error_color = config.get("colors", "error_color");
-  result.doc_link_icon_color = config.get("colors", "doc_link_icon_color");
-  result.doc_link_hover_color = config.get("colors", "doc_link_hover_color");
-  result.view_mode_background = config.get("colors", "view_mode_background");
-  result.view_mode_border = config.get("colors", "view_mode_border");
-
-  // Legacy support: Fonts (deprecated)
-  result.label_font_family = config.get("fonts", "label_font_family");
-  result.label_font_size = config.get("fonts", "label_font_size");
-  result.label_font_weight = config.get("fonts", "label_font_weight");
-  result.field_font_family = config.get("fonts", "field_font_family");
-  result.field_font_size = config.get("fonts", "field_font_size");
-  result.section_header_font_size = config.get("fonts", "section_header_font_size");
-  result.sub_section_header_font_size = config.get("fonts", "sub_section_header_font_size");
-
-  // Legacy support: Spacing (deprecated)
-  result.section_spacing = config.get("spacing", "section_spacing");
-  result.sub_section_spacing = config.get("spacing", "sub_section_spacing");
-  result.field_spacing = config.get("spacing", "field_spacing");
-  result.field_gap_horizontal = config.get("spacing", "field_gap_horizontal");
-  result.field_gap_vertical = config.get("spacing", "field_gap_vertical");
-  result.label_field_gap = config.get("spacing", "label_field_gap");
-
-  // Legacy support: Item code styling (deprecated)
-  result.item_code_border_color = config.get("item_code", "item_code_border_color");
-  result.item_code_background = config.get("item_code", "item_code_background");
-  result.item_code_font_size = config.get("item_code", "item_code_font_size");
-
-  // Legacy support: Worksheet styling (deprecated)
-  result.worksheet_indent = config.get("worksheet", "worksheet_indent");
-  result.worksheet_label_font_weight = config.get("worksheet", "worksheet_label_font_weight");
-
-  // Legacy support: Highlight row styling (deprecated)
-  result.highlight_row_background = config.get("highlight_row", "highlight_row_background");
-
-  // Legacy support: Badge styling (deprecated)
-  result.badge_background = config.get("badge", "badge_background");
-  result.badge_text_color = config.get("badge", "badge_text_color");
-
-  // Legacy support: Hierarchical styles (deprecated)
-  const style_variants: StyleVariant[] = [
-    "header_h1", "header_h2", "header_h3", "header_h4", "header_h5", "header_h6",
-    "total_h1", "total_h2", "total_h3", "total_h4", "total_h5", "total_h6",
-  ];
-
-  const parsed_styles: Partial<HierarchicalStyleConfig> = {};
-  let has_any_style = false;
-
-  for (const variant of style_variants) {
-    const font_size = config.get(variant, "font_size");
-    const font_weight = config.get(variant, "font_weight");
-    const font_color = config.get(variant, "font_color");
-    const background_color = config.get(variant, "background_color");
-    const indent = config.get(variant, "indent");
-
-    if (font_size || font_weight || font_color || background_color || indent) {
-      has_any_style = true;
-      parsed_styles[variant] = {
-        font_size: font_size || DEFAULT_FORM_CONFIG.styles[variant].font_size,
-        font_weight: font_weight || DEFAULT_FORM_CONFIG.styles[variant].font_weight,
-        font_color: font_color || DEFAULT_FORM_CONFIG.styles[variant].font_color,
-        background_color: background_color || DEFAULT_FORM_CONFIG.styles[variant].background_color,
-        indent: indent || DEFAULT_FORM_CONFIG.styles[variant].indent,
-      };
-    }
-  }
-
-  if (has_any_style) {
-    result.styles = {
-      ...DEFAULT_FORM_CONFIG.styles,
-      ...parsed_styles,
-    } as HierarchicalStyleConfig;
-  }
-
-  // Remove undefined values
-  return Object.fromEntries(
-    Object.entries(result).filter(([, v]) => v !== undefined)
-  ) as PartialFormConfig;
-}
-
-/**
- * Parse INI text content
+ * Parse INI text content (client-side)
  */
 function parse_ini_text(text: string): PartialFormConfig {
   const result: Record<string, Record<string, string>> = {};

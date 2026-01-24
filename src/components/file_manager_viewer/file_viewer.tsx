@@ -267,6 +267,7 @@ export function FileViewer({
   on_delete,
   enable_file_conversion = false,
   on_convert_to_pdf,
+  logger,
 }: FileViewerProps) {
   // Dynamic PDF viewer loading
   const [DynamicPdfViewer, set_dynamic_pdf_viewer] =
@@ -420,25 +421,30 @@ export function FileViewer({
     }
 
     // Render PDF viewer
+    // Build props, conditionally adding logger if provided
+    const viewer_props: PdfViewerProps & { logger?: unknown } = {
+      url: file.url,
+      className: "h-full w-full",
+      default_scale: "page-width",
+      on_error: (error: Error) => {
+        console.error("PDF load error for", file.url, ":", error);
+        set_file_error(error.message);
+      },
+      on_save: on_pdf_save
+        ? (pdf_bytes: Uint8Array, filename: string) => {
+            on_pdf_save(pdf_bytes, filename, file.url);
+          }
+        : undefined,
+    };
+
+    // Add logger if provided (hazo_pdf supports logger prop)
+    if (logger) {
+      viewer_props.logger = logger;
+    }
+
     return (
       <div className="h-full w-full">
-        <PdfViewerComponent
-          key={file.url}
-          url={file.url}
-          className="h-full w-full"
-          default_scale="page-width"
-          on_error={(error: Error) => {
-            console.error("PDF load error for", file.url, ":", error);
-            set_file_error(error.message);
-          }}
-          on_save={
-            on_pdf_save
-              ? (pdf_bytes: Uint8Array, filename: string) => {
-                  on_pdf_save(pdf_bytes, filename, file.url);
-                }
-              : undefined
-          }
-        />
+        <PdfViewerComponent key={file.url} {...viewer_props} />
       </div>
     );
   }

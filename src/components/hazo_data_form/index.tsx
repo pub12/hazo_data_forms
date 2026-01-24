@@ -13,6 +13,7 @@ import {
   ResizableHandle,
 } from "../ui/resizable";
 import { useFormConfig } from "../../hooks/use_form_config";
+import { HazoServicesProvider } from "../../context";
 import { cn, evaluate_formula, get_uploads_key, get_field_uploads, uploads_to_doc_links } from "../../lib/utils";
 import type { DocLink, FormValues, FormField, FileUploadResult } from "../../lib/types";
 import type { HazoDataFormProps } from "./types";
@@ -79,6 +80,8 @@ export function HazoDataForm({
   enable_pdf_popout = false,
   pdf_popout_route,
   on_pdf_popout,
+  // Service injection
+  services,
 }: HazoDataFormProps) {
   // Load config from INI file
   const config = useFormConfig(config_path, config_override);
@@ -395,6 +398,18 @@ export function HazoDataForm({
   const pdf_panel_size = parse_width_to_percent(pdf_panel_width || config.pdf_panel_width);
   const form_panel_size = 100 - pdf_panel_size;
 
+  // Helper to conditionally wrap content with services provider
+  const wrap_with_services = (content: React.ReactNode): React.ReactNode => {
+    if (services) {
+      return (
+        <HazoServicesProvider services={services}>
+          {content}
+        </HazoServicesProvider>
+      );
+    }
+    return content;
+  };
+
   // Form content component (reused in both layouts)
   const form_content = (
     <FormProvider {...form_methods}>
@@ -439,7 +454,7 @@ export function HazoDataForm({
       ? { "doc-panel": pdf_panel_size, "form-panel": form_panel_size }
       : { "form-panel": form_panel_size, "doc-panel": pdf_panel_size };
 
-    return (
+    const sidebar_content = (
       <div className={cn("cls_hazo_data_form cls_hazo_data_form_with_pdf", class_name)}
         style={{ height: "calc(100vh - 200px)", minHeight: "500px" }}
       >
@@ -471,6 +486,7 @@ export function HazoDataForm({
                   on_popout={on_file_popout}
                   enable_file_conversion={enable_file_conversion}
                   on_file_convert={on_file_convert}
+                  logger={services?.logger}
                 />
               </ResizablePanel>
               <ResizableHandle withHandle={pdf_panel_resizable} />
@@ -512,6 +528,7 @@ export function HazoDataForm({
                   on_popout={on_file_popout}
                   enable_file_conversion={enable_file_conversion}
                   on_file_convert={on_file_convert}
+                  logger={services?.logger}
                 />
               </ResizablePanel>
             </>
@@ -519,11 +536,13 @@ export function HazoDataForm({
         </ResizablePanelGroup>
       </div>
     );
+
+    return wrap_with_services(sidebar_content) as React.ReactElement;
   }
 
   // When file manager is in DIALOG mode, render form normally with dialog overlay
   // Or when file manager is closed, render form normally
-  return (
+  const dialog_content = (
     <div className={cn("cls_hazo_data_form", class_name)}>
       {form_content}
 
@@ -544,10 +563,13 @@ export function HazoDataForm({
           on_popout={on_file_popout}
           enable_file_conversion={enable_file_conversion}
           on_file_convert={on_file_convert}
+          logger={services?.logger}
         />
       )}
     </div>
   );
+
+  return wrap_with_services(dialog_content) as React.ReactElement;
 }
 
 // Re-export types

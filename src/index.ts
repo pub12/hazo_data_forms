@@ -2,6 +2,21 @@
 
 // Main component
 export { HazoDataForm } from "./components/hazo_data_form";
+
+// Services context
+export {
+  HazoServicesProvider,
+  useHazoServices,
+  useHazoLogger,
+  useHazoDb,
+  useHazoCustomService,
+} from "./context";
+export type {
+  HazoServicesProviderProps,
+  HazoServices,
+  HazoConnectInstance,
+  Logger,
+} from "./context";
 export type {
   HazoDataFormProps,
   PdfViewerProps,

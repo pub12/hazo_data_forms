@@ -14,6 +14,7 @@ import type {
   UploadedFile,
 } from "../../lib/types";
 import type { FileManagerPopoutContext } from "../file_manager_viewer/types";
+import type { HazoServices } from "../../context";
 
 // ============================================================================
 // hazo_pdf Type Aliases
@@ -356,4 +357,22 @@ export interface HazoDataFormProps {
    * Receives context about the current viewer state
    */
   on_pdf_popout?: (context: HazoPdfPopoutContext) => void;
+
+  // ============================================================================
+  // Service Injection
+  // ============================================================================
+
+  /**
+   * Services to inject (db, logger, custom)
+   * Alternative to using HazoServicesProvider at app level
+   *
+   * Usage:
+   * ```tsx
+   * <HazoDataForm
+   *   schema={schema}
+   *   services={{ db, logger }}
+   * />
+   * ```
+   */
+  services?: HazoServices;
 }

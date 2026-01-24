@@ -32,6 +32,8 @@ export function FileManagerDialog({
   // hazo_pdf 1.3.2 features
   enable_file_conversion,
   on_file_convert,
+  // Service injection
+  logger,
 }: FileManagerDialogProps) {
   const fm_config = config.file_manager;
 
@@ -72,6 +74,7 @@ export function FileManagerDialog({
           class_name={class_name}
           enable_file_conversion={enable_file_conversion}
           on_file_convert={on_file_convert}
+          logger={logger}
         />
       </DialogContent>
     </Dialog>

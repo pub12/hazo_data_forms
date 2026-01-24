@@ -2,6 +2,7 @@
 
 import type { DocLink, DocLinkType, FormConfig, FileUploadResult } from "../../lib/types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
+import type { Logger } from "../../context";
 
 /**
  * Display mode for the file manager
@@ -104,6 +105,10 @@ export interface FileManagerProps {
   enable_file_conversion?: boolean;
   /** Callback when a file is converted to PDF */
   on_file_convert?: (converted_pdf: Uint8Array, original_filename: string) => void;
+
+  // Service injection
+  /** Logger instance (compatible with hazo_logs and hazo_pdf) */
+  logger?: Logger;
 }
 
 /**
@@ -202,6 +207,10 @@ export interface FileViewerProps {
    * The caller should handle storing/displaying the converted PDF
    */
   on_convert_to_pdf?: (converted_pdf: Uint8Array, original_filename: string) => void;
+
+  // Service injection
+  /** Logger instance (compatible with hazo_logs and hazo_pdf) */
+  logger?: Logger;
 }
 
 /**
