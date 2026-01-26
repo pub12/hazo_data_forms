@@ -241,8 +241,12 @@ export function TextField({
   // Stacked layout (default): label above field
   return (
     <div className="cls_field_container cls_text_field w-full">
-      <div style={{ marginBottom: config.label_field_gap }}>
+      <div
+        className="flex items-center justify-between"
+        style={{ marginBottom: config.label_field_gap }}
+      >
         {render_label()}
+        {render_file_column()}
       </div>
       {render_field()}
       {error && (

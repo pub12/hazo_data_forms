@@ -561,8 +561,12 @@ export function CurrencyField({
         boxSizing: "border-box",
       }}
     >
-      <div style={{ marginBottom: config.label_field_gap }}>
+      <div
+        className="flex items-center justify-between"
+        style={{ marginBottom: config.label_field_gap }}
+      >
         {render_label()}
+        {render_file_column()}
       </div>
       {render_field()}
       {error && (

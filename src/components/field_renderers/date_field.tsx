@@ -417,10 +417,11 @@ export function DateField({
   return (
     <div className="cls_field_container cls_date_field w-full">
       <div
-        className="cls_label_row flex items-center gap-2"
+        className="flex items-center justify-between"
         style={{ marginBottom: config.label_field_gap }}
       >
         {render_label()}
+        {render_file_column()}
       </div>
       {render_field()}
       {error && (
