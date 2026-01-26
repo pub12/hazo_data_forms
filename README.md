@@ -8,7 +8,7 @@ Dynamic form rendering from JSON schema with document link support and embedded 
 
 ### Key Features
 
-- **12 Field Types**: text, number, date, boolean, option, email, tel, currency, percentage, textarea, table, computed
+- **17 Field Types**: text, number, date, boolean, option, email, tel, currency, percentage, textarea, table, computed, masked, static_text, summary_row, abn, tfn
 - **Dual Mode Rendering**: Switch between edit mode (editable) and view mode (read-only display)
 - **Document Links**: Click inline doc links to open PDFs in resizable side panel
 - **Schema-Driven**: Define forms declaratively in JSON
@@ -22,10 +22,13 @@ Dynamic form rendering from JSON schema with document link support and embedded 
 ## Installation
 
 ```bash
-npm install hazo_data_forms react react-dom react-hook-form lucide-react hazo_config
+npm install hazo_data_forms react react-dom react-hook-form lucide-react
 
 # Optional: For PDF viewer support
 npm install hazo_pdf
+
+# Optional: For server-side config loading
+npm install hazo_config
 ```
 
 **Important:** This library requires Tailwind CSS to be configured in your project. See the Quick Start section for setup instructions.
@@ -314,11 +317,13 @@ Add inline document links that open PDFs in an embedded viewer:
   id: "contract_value",
   label: "Contract Value",
   field_info: { field_type: "currency" },
-  doc_link: {
-    type: "pdf",
-    url: "/documents/contract.pdf",
-    page: 3  // Optional: Open to specific page
-  }
+  doc_links: [
+    {
+      type: "pdf",
+      url: "/documents/contract.pdf",
+      page: 3  // Optional: Open to specific page
+    }
+  ]
 }
 ```
 
