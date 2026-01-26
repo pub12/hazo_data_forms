@@ -246,7 +246,7 @@ interface FormField {
   label: string;
   field_info: FieldInfo;
   value?: unknown;
-  doc_link?: DocLink;
+  doc_links?: DocLink[];  // Array of document links
 }
 ```
 
@@ -397,11 +397,19 @@ const field_with_doc: FormField = {
   id: "contract_value",
   label: "Contract Value",
   field_info: { field_type: "currency" },
-  doc_link: {
-    type: "pdf",
-    url: "/documents/contract.pdf",
-    page: 3  // Open to page 3
-  }
+  doc_links: [
+    {
+      type: "pdf",
+      url: "/documents/contract.pdf",
+      page: 3,  // Open to page 3
+      filename: "Main Contract"
+    },
+    {
+      type: "pdf",
+      url: "/documents/amendment.pdf",
+      filename: "Amendment 1"
+    }
+  ]
 };
 ```
 

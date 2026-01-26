@@ -24,7 +24,7 @@ export interface FieldRendererProps {
   on_blur?: () => void;
   on_doc_link_click?: () => void;
   /** Callback for row-level doc_links in table fields */
-  on_row_doc_link_click?: (field_id: string, doc_link: DocLink) => void;
+  on_row_doc_link_click?: (field_id: string, doc_links: DocLink[]) => void;
   /** Fixed width for badge column when badges should be aligned */
   badge_column_width?: string;
   /** Fixed width for value column when values should be aligned */

@@ -34,7 +34,7 @@ export function TfnField({
 }: FieldRendererProps) {
   const is_view = mode === "view";
   const is_required = field.field_info.required;
-  const has_doc_link = !!field.doc_link;
+  const has_doc_links = !!field.doc_links?.length;
   const string_value = value !== undefined && value !== null ? String(value) : "";
   const formatted_value = format_tfn(string_value);
 
@@ -87,7 +87,7 @@ export function TfnField({
             </span>
           )}
         </Label>
-        {has_doc_link && on_doc_link_click && (() => {
+        {has_doc_links && on_doc_link_click && (() => {
           const icon_size = parseInt(config.doc_link_icon_size, 10) || 20;
           const IconComponent = config.doc_link_icon_style === "solid" ? FaFileAlt : FaRegFileAlt;
           return (

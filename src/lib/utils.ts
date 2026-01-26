@@ -354,20 +354,10 @@ export function extract_filename_from_url(url: string): string {
 }
 
 /**
- * Normalize doc_link/doc_links to always return an array
- * Handles backward compatibility with single doc_link
+ * Normalize doc_links to always return an array (handles undefined)
  */
-export function normalize_doc_links(
-  doc_link?: DocLink,
-  doc_links?: DocLink[]
-): DocLink[] {
-  if (doc_links && doc_links.length > 0) {
-    return doc_links;
-  }
-  if (doc_link) {
-    return [doc_link];
-  }
-  return [];
+export function normalize_doc_links(doc_links?: DocLink[]): DocLink[] {
+  return doc_links ?? [];
 }
 
 /**

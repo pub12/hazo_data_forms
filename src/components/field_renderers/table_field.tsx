@@ -9,10 +9,10 @@ import type { FieldRendererProps } from "../../lib/field_registry";
 import type { TableColumn, DocLink } from "../../lib/types";
 
 /**
- * Table row data can optionally include a doc_link
+ * Table row data can optionally include doc_links
  */
 interface TableRowData extends Record<string, unknown> {
-  doc_link?: DocLink;
+  doc_links?: DocLink[];
 }
 
 /**
@@ -31,7 +31,7 @@ export function TableField({
 }: FieldRendererProps) {
   const is_view = mode === "view";
   const is_required = field.field_info.required;
-  const has_doc_link = !!field.doc_link;
+  const has_doc_links = !!field.doc_links?.length;
 
   const columns = field.field_info.table_columns || [];
   const min_rows = field.field_info.table_min_rows ?? 0;
@@ -44,8 +44,8 @@ export function TableField({
     ? [value as TableRowData]
     : [];
 
-  // Check if any row has a doc_link
-  const has_row_doc_links = rows.some((row) => row.doc_link);
+  // Check if any row has doc_links
+  const has_row_doc_links = rows.some((row) => row.doc_links?.length);
 
   // Check if any columns have subtotal enabled
   const has_subtotals = columns.some((col) => col.subtotal);
@@ -250,9 +250,9 @@ export function TableField({
               </span>
             )}
           </Label>
-          {has_doc_link && on_doc_link_click && (
+          {has_doc_links && on_doc_link_click && (
             <FileManagerButton
-              file_count={1}
+              file_count={field.doc_links!.length}
               has_files={true}
               on_click={on_doc_link_click}
               config={config}
@@ -317,13 +317,13 @@ export function TableField({
                   ))}
                   {has_row_doc_links && (
                     <td className="px-2 py-2">
-                      {row.doc_link && on_row_doc_link_click && (
+                      {row.doc_links?.length && on_row_doc_link_click && (
                         <FileManagerButton
-                          file_count={1}
+                          file_count={row.doc_links.length}
                           has_files={true}
-                          on_click={() => on_row_doc_link_click(`${field.id}_row_${row_index}`, row.doc_link!)}
+                          on_click={() => on_row_doc_link_click(`${field.id}_row_${row_index}`, row.doc_links!)}
                           config={config}
-                          tooltip_text={row.doc_link.page ? `View document page ${row.doc_link.page}` : "View document"}
+                          tooltip_text={row.doc_links.length === 1 && row.doc_links[0].page ? `View document page ${row.doc_links[0].page}` : "View documents"}
                         />
                       )}
                     </td>

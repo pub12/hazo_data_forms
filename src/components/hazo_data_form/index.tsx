@@ -262,18 +262,15 @@ export function HazoDataForm({
   }, [active_doc_links]);
 
 
-  // Handle doc_link click
+  // Handle doc_links click
   const handle_doc_link_click = React.useCallback(
-    (field_id: string, doc_link: DocLink, doc_links?: DocLink[], field_label?: string) => {
-      // Normalize to array
-      const all_links = doc_links || [doc_link];
-
+    (field_id: string, doc_links: DocLink[], field_label?: string) => {
       if (on_doc_link_click) {
-        on_doc_link_click({ field_id, doc_link, doc_links: all_links });
+        on_doc_link_click({ field_id, doc_links });
       }
 
       if (show_pdf_panel) {
-        set_active_doc_links(all_links);
+        set_active_doc_links(doc_links);
         set_is_doc_panel_open(true);
 
         // Also set field context if file upload is enabled, so user can add files

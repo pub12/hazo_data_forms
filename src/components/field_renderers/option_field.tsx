@@ -28,7 +28,7 @@ export function OptionField({
 }: FieldRendererProps) {
   const is_view = mode === "view";
   const is_required = field.field_info.required;
-  const has_doc_link = !!field.doc_link;
+  const has_doc_links = !!field.doc_links?.length;
   const is_inline = field.label_position === "inline";
   const options = field.field_info.options || [];
 
@@ -114,7 +114,7 @@ export function OptionField({
   // Render the file manager column (shows unified button with badge for total file count)
   const render_file_column = () => {
     // Calculate total file count from doc_links + uploads
-    const doc_links = normalize_doc_links(field.doc_link, field.doc_links);
+    const doc_links = normalize_doc_links(field.doc_links);
     const uploads = field_uploads || [];
     const total_count = doc_links.length + uploads.length;
     const has_files = total_count > 0;

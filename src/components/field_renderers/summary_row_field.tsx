@@ -20,7 +20,7 @@ export function SummaryRowField({
   badge_column_width,
   value_column_width,
 }: FieldRendererProps) {
-  const has_doc_link = !!field.doc_link;
+  const has_doc_links = !!field.doc_links?.length;
   const text_align = field.field_info.text_align || "right";
 
   // Get style_variant from field (e.g., "total_h1", "total_h2")
@@ -58,7 +58,7 @@ export function SummaryRowField({
         className="cls_doc_link_column flex-shrink-0 flex items-center justify-center"
         style={{ width: doc_link_col_width }}
       >
-        {has_doc_link && on_doc_link_click && (
+        {has_doc_links && on_doc_link_click && (
           <button
             type="button"
             onClick={on_doc_link_click}

@@ -31,7 +31,7 @@ export function TelField({
   // Render the file manager button (shows unified button with badge for total file count)
   const render_file_button = () => {
     // Calculate total file count from doc_links + uploads
-    const doc_links = normalize_doc_links(field.doc_link, field.doc_links);
+    const doc_links = normalize_doc_links(field.doc_links);
     const uploads = field_uploads || [];
     const total_count = doc_links.length + uploads.length;
     const has_files = total_count > 0;

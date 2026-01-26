@@ -13,7 +13,7 @@ export interface SectionRendererProps {
   show_sub_headers?: boolean;
   collapsible?: boolean;
   initially_collapsed?: boolean;
-  on_doc_link_click?: (field_id: string, doc_link: DocLink, doc_links?: DocLink[], field_label?: string) => void;
+  on_doc_link_click?: (field_id: string, doc_links: DocLink[], field_label?: string) => void;
   errors?: FormErrors;
   upload_enabled?: boolean;
   form_values?: FormValues;

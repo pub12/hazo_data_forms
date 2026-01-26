@@ -11,7 +11,7 @@ export interface SubSectionRendererProps {
   mode: FormMode;
   config: FormConfig;
   show_header?: boolean;
-  on_doc_link_click?: (field_id: string, doc_link: DocLink, doc_links?: DocLink[], field_label?: string) => void;
+  on_doc_link_click?: (field_id: string, doc_links: DocLink[], field_label?: string) => void;
   errors?: FormErrors;
   upload_enabled?: boolean;
   form_values?: FormValues;
@@ -108,11 +108,11 @@ export function SubSectionRenderer({
               on_change={form_field.onChange}
               on_blur={form_field.onBlur}
               on_doc_link_click={
-                (field.doc_link || field.doc_links?.length) && on_doc_link_click
+                field.doc_links?.length && on_doc_link_click
                   ? () => {
-                      const normalized = normalize_doc_links(field.doc_link, field.doc_links);
+                      const normalized = normalize_doc_links(field.doc_links);
                       if (normalized.length > 0) {
-                        on_doc_link_click(field.id, normalized[0], normalized, field.label);
+                        on_doc_link_click(field.id, normalized, field.label);
                       }
                     }
                   : undefined
@@ -147,11 +147,11 @@ export function SubSectionRenderer({
         config={config}
         on_change={() => {}}
         on_doc_link_click={
-          (field.doc_link || field.doc_links?.length) && on_doc_link_click
+          field.doc_links?.length && on_doc_link_click
             ? () => {
-                const normalized = normalize_doc_links(field.doc_link, field.doc_links);
+                const normalized = normalize_doc_links(field.doc_links);
                 if (normalized.length > 0) {
-                  on_doc_link_click(field.id, normalized[0], normalized, field.label);
+                  on_doc_link_click(field.id, normalized, field.label);
                 }
               }
             : undefined

@@ -456,8 +456,6 @@ export interface FormField {
   value?: unknown;
   /** Default value used when no value is provided (used for initial form state) */
   default_value?: unknown;
-  /** @deprecated Use doc_links instead for multiple files */
-  doc_link?: DocLink;
   /** Array of document links for this field */
   doc_links?: DocLink[];
   label_position?: LabelPosition;
@@ -542,12 +540,10 @@ export type FormMode = "edit" | "view";
 export type PdfPanelPosition = "right" | "left" | "bottom";
 
 /**
- * Callback event for doc_link click
+ * Callback event for doc_links click
  */
 export interface DocLinkClickEvent {
   field_id: string;
-  /** The clicked doc_link (first in array if multiple) */
-  doc_link?: DocLink;
   /** All doc_links for this field */
   doc_links: DocLink[];
 }
