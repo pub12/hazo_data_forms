@@ -416,14 +416,15 @@ export function DateField({
   // Stacked layout (default): label above field
   return (
     <div className="cls_field_container cls_date_field w-full">
-      <div
-        className="flex items-center justify-between"
-        style={{ marginBottom: config.label_field_gap }}
-      >
+      <div style={{ marginBottom: config.label_field_gap }}>
         {render_label()}
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="flex-grow min-w-0">
+          {render_field()}
+        </div>
         {render_file_column()}
       </div>
-      {render_field()}
       {error && (
         <p
           className="cls_error_message mt-1 text-sm"
