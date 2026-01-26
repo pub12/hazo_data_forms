@@ -73,19 +73,19 @@ export function FileListItem({
           "cls_file_list_item flex items-center gap-2 px-3 py-2 rounded-md text-sm",
           "border transition-colors whitespace-nowrap",
           is_selected
-            ? "bg-blue-50 border-blue-300 text-blue-700"
-            : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50",
+            ? "bg-primary/10 border-primary/50 text-primary"
+            : "bg-background border-border text-foreground hover:bg-muted",
           delete_in_progress && "opacity-50"
         )}
         title={filename}
       >
         <IconComponent
           size={16}
-          className={is_selected ? "text-blue-600" : "text-gray-500"}
+          className={is_selected ? "text-primary" : "text-muted-foreground"}
         />
         <span>{display_name}</span>
         {doc_link.page && (
-          <span className="text-xs text-gray-400">p.{doc_link.page}</span>
+          <span className="text-xs text-muted-foreground">p.{doc_link.page}</span>
         )}
       </button>
 
@@ -94,7 +94,7 @@ export function FileListItem({
         <button
           type="button"
           onClick={handle_delete}
-          className="cls_file_delete_btn absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors shadow-sm"
+          className="cls_file_delete_btn absolute -top-1 -right-1 w-5 h-5 bg-destructive text-destructive-foreground rounded-full flex items-center justify-center hover:bg-destructive/90 transition-colors shadow-sm"
           title="Remove file"
         >
           <FaTimes size={10} />
@@ -103,8 +103,8 @@ export function FileListItem({
 
       {/* Loading indicator during deletion */}
       {delete_in_progress && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/50 rounded-md">
-          <div className="w-4 h-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+        <div className="absolute inset-0 flex items-center justify-center bg-background/50 rounded-md">
+          <div className="w-4 h-4 border-2 border-border border-t-foreground rounded-full animate-spin" />
         </div>
       )}
     </div>

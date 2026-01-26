@@ -219,12 +219,12 @@ export function FileUploadDialog({
 
   const get_file_icon = (mime_type: string) => {
     if (mime_type === "application/pdf") {
-      return <FaFilePdf className="text-red-500" size={24} />;
+      return <FaFilePdf className="text-destructive" size={24} />;
     }
     if (mime_type.startsWith("image/")) {
-      return <FaFileImage className="text-blue-500" size={24} />;
+      return <FaFileImage className="text-primary" size={24} />;
     }
-    return <FaFile className="text-gray-500" size={24} />;
+    return <FaFile className="text-muted-foreground" size={24} />;
   };
 
   const allowed_extensions = upload_config.allowed_types
@@ -261,8 +261,8 @@ export function FileUploadDialog({
               className={cn(
                 "cls_upload_dropzone border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer",
                 is_dragging
-                  ? "border-blue-500 bg-blue-50"
-                  : "border-gray-300 hover:border-gray-400 hover:bg-gray-50"
+                  ? "border-primary bg-primary/10"
+                  : "border-border hover:border-input hover:bg-muted"
               )}
               onDragOver={handle_drag_over}
               onDragLeave={handle_drag_leave}
@@ -280,16 +280,16 @@ export function FileUploadDialog({
               <FaUpload
                 className={cn(
                   "mx-auto mb-4",
-                  is_dragging ? "text-blue-500" : "text-gray-400"
+                  is_dragging ? "text-primary" : "text-muted-foreground"
                 )}
                 size={32}
               />
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-foreground/80">
                 {is_dragging
                   ? "Drop files here..."
                   : "Drag and drop files here, or click to select"}
               </p>
-              <p className="text-xs text-gray-400 mt-2">
+              <p className="text-xs text-muted-foreground mt-2">
                 Max size: {format_file_size(upload_config.max_file_size)} |
                 Max files: {upload_config.max_files_per_field}
               </p>
@@ -303,9 +303,9 @@ export function FileUploadDialog({
                     key={`${progress.filename}-${index}`}
                     className={cn(
                       "p-2 rounded text-sm",
-                      progress.status === "uploading" && "bg-blue-50 text-blue-700",
-                      progress.status === "success" && "bg-green-50 text-green-700",
-                      progress.status === "error" && "bg-red-50 text-red-700"
+                      progress.status === "uploading" && "bg-primary/10 text-primary",
+                      progress.status === "success" && "bg-primary/10 text-primary",
+                      progress.status === "error" && "bg-destructive/10 text-destructive"
                     )}
                   >
                     <span className="font-medium">{progress.filename}</span>
@@ -320,7 +320,7 @@ export function FileUploadDialog({
             {/* Existing files list */}
             {existing_uploads.length > 0 && (
               <div className="cls_uploaded_files space-y-2">
-                <h4 className="text-sm font-medium text-gray-700">
+                <h4 className="text-sm font-medium text-foreground">
                   Uploaded Files ({existing_uploads.length})
                 </h4>
                 <div className="border rounded-lg divide-y">
@@ -334,7 +334,7 @@ export function FileUploadDialog({
                         <p className="text-sm font-medium truncate">
                           {file.filename}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted-foreground">
                           {format_file_size(file.size)} |{" "}
                           {new Date(file.uploaded_at).toLocaleDateString()}
                         </p>
@@ -354,7 +354,7 @@ export function FileUploadDialog({
                           onClick={() => handle_delete(file.file_id)}
                           disabled={delete_in_progress === file.file_id}
                           title="Delete file"
-                          className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                          className="text-destructive hover:text-destructive hover:bg-destructive/10"
                         >
                           <FaTrash className="h-4 w-4" />
                         </Button>
@@ -367,7 +367,7 @@ export function FileUploadDialog({
 
             {/* Empty state */}
             {existing_uploads.length === 0 && upload_progress.length === 0 && (
-              <p className="text-sm text-gray-500 text-center py-4">
+              <p className="text-sm text-muted-foreground text-center py-4">
                 No files uploaded yet. Drag and drop or click above to upload.
               </p>
             )}

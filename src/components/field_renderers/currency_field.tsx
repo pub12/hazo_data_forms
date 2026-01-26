@@ -130,7 +130,7 @@ export function CurrencyField({
     if (field.field_info.formula_label) {
       return (
         <span
-          className="cls_formula_label text-sm text-gray-500"
+          className="cls_formula_label text-sm text-muted-foreground"
           style={{
             fontFamily: config.field_font_family,
             whiteSpace: "nowrap",
@@ -285,7 +285,7 @@ export function CurrencyField({
       ) : (
         <div className="relative">
           <span
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
             style={{
               fontFamily: config.field_font_family,
               fontWeight: get_field_font_weight(),
@@ -307,7 +307,7 @@ export function CurrencyField({
             className={cn(
               "cls_currency_input pl-7",
               is_inline && "text-right",
-              error && "cls_input_error border-red-500"
+              error && "cls_input_error border-destructive"
             )}
             style={{
               fontFamily: config.field_font_family,
@@ -417,7 +417,7 @@ export function CurrencyField({
       return (
         <div className="relative">
           <span
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
             style={{
               fontFamily: config.field_font_family,
               fontWeight: get_field_font_weight(),
@@ -438,7 +438,7 @@ export function CurrencyField({
             step={Math.pow(10, -paired_decimal_places)}
             className={cn(
               "cls_currency_input pl-7 text-right",
-              paired_error && "cls_input_error border-red-500"
+              paired_error && "cls_input_error border-destructive"
             )}
             style={{
               fontFamily: config.field_font_family,

@@ -62,7 +62,7 @@ export function SummaryRowField({
           <button
             type="button"
             onClick={on_doc_link_click}
-            className="cls_doc_link_btn p-1 rounded hover:bg-gray-100 transition-colors"
+            className="cls_doc_link_btn p-1 rounded hover:bg-muted transition-colors"
             aria-label="View document"
           >
             <IconComponent
@@ -113,7 +113,7 @@ export function SummaryRowField({
           >
             {field.field_info.badge && (
               <span
-                className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-green-100 text-green-800"
+                className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-primary/20 text-primary"
               >
                 {field.field_info.badge}
               </span>
@@ -147,7 +147,7 @@ export function SummaryRowField({
         <div
           className={cn(
             "cls_summary_value py-2 px-4 rounded-md flex-shrink-0",
-            has_row_background ? "" : "bg-gray-100 border border-gray-300"
+            has_row_background ? "" : "bg-muted border border-border"
           )}
           style={{
             fontFamily: config.field_font_family,
@@ -170,7 +170,7 @@ export function SummaryRowField({
 
       {field.field_info.summary_fields && field.field_info.summary_fields.length > 0 && (
         <p
-          className="cls_summary_hint mt-1 text-xs text-gray-500"
+          className="cls_summary_hint mt-1 text-xs text-muted-foreground"
           style={{ fontFamily: config.field_font_family }}
         >
           Sum of: {field.field_info.summary_fields.join(" + ")}

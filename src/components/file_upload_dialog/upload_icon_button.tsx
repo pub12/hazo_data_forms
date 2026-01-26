@@ -45,7 +45,7 @@ export function UploadIconButton({
       onMouseEnter={() => set_is_hovered(true)}
       onMouseLeave={() => set_is_hovered(false)}
       className={cn(
-        "cls_upload_icon_btn relative p-1 rounded hover:bg-gray-100 transition-colors",
+        "cls_upload_icon_btn relative p-1 rounded hover:bg-muted transition-colors",
         class_name
       )}
       aria-label={has_uploads ? `View ${upload_count} uploaded file(s)` : "Upload file"}
@@ -59,7 +59,7 @@ export function UploadIconButton({
           />
           {upload_count > 0 && (
             <span
-              className="cls_upload_count_badge absolute -top-1 -right-1 min-w-[16px] h-[16px] flex items-center justify-center rounded-full text-[10px] font-bold text-white bg-blue-500"
+              className="cls_upload_count_badge absolute -top-1 -right-1 min-w-[16px] h-[16px] flex items-center justify-center rounded-full text-[10px] font-bold text-primary-foreground bg-primary"
             >
               {upload_count > 9 ? "9+" : upload_count}
             </span>

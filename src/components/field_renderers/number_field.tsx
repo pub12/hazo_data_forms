@@ -212,7 +212,7 @@ export function NumberField({
           className={cn(
             "cls_number_input",
             is_inline && "text-right",
-            error && "cls_input_error border-red-500"
+            error && "cls_input_error border-destructive"
           )}
           style={{
             fontFamily: config.field_font_family,

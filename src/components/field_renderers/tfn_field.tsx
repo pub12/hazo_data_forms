@@ -72,7 +72,7 @@ export function TfnField({
         >
           {field.field_info.badge && (
             <span
-              className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-purple-100 text-purple-800"
+              className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-primary/20 text-primary"
             >
               {field.field_info.badge}
             </span>
@@ -94,7 +94,7 @@ export function TfnField({
             <button
               type="button"
               onClick={on_doc_link_click}
-              className="cls_doc_link_btn p-1 rounded hover:bg-gray-100 transition-colors"
+              className="cls_doc_link_btn p-1 rounded hover:bg-muted transition-colors"
               aria-label="View document"
             >
               <IconComponent
@@ -131,7 +131,7 @@ export function TfnField({
           placeholder={field.field_info.placeholder || "XXX XXX XXX"}
           disabled={field.field_info.disabled}
           maxLength={11}
-          className={cn("cls_tfn_input font-mono", error && "cls_input_error border-red-500")}
+          className={cn("cls_tfn_input font-mono", error && "cls_input_error border-destructive")}
           style={{
             fontFamily: "monospace",
             fontSize: config.field_font_size,

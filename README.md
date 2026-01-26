@@ -46,7 +46,19 @@ npm install hazo_config
 
 ### 1. Configure Tailwind CSS
 
-This library uses Tailwind CSS classes. Add the library's source to your Tailwind config:
+This library uses Tailwind CSS classes with semantic CSS variables compatible with shadcn/ui theming.
+
+**Tailwind v4:** The library uses semantic color classes (`bg-muted`, `text-primary`, `border-destructive`, etc.) that work with Tailwind v4. If you experience missing utility class styles, add the package to your CSS source paths:
+
+```css
+/* app/globals.css */
+@import "tailwindcss";
+
+/* Include hazo_data_forms for Tailwind to scan utility classes */
+@source "../node_modules/hazo_data_forms/dist";
+```
+
+**Tailwind v3:** Add the library's source to your Tailwind config:
 
 ```javascript
 // tailwind.config.js
@@ -58,6 +70,8 @@ module.exports = {
   // ... rest of your config
 };
 ```
+
+**Note:** This library expects shadcn/ui CSS variables to be defined (e.g., `--background`, `--foreground`, `--primary`, `--muted`, `--destructive`, etc.). If you're using shadcn/ui, these are already configured. Otherwise, see the [shadcn/ui theming documentation](https://ui.shadcn.com/docs/theming) for the required CSS variables.
 
 ### 2. Import the component
 
@@ -540,7 +554,11 @@ import {
 
 ## Styling
 
-This library uses Tailwind CSS for styling. Make sure you've added the library to your Tailwind config's content array (see Quick Start section).
+This library uses Tailwind CSS with semantic CSS variables for styling, ensuring compatibility with both Tailwind v3 and v4. The library uses shadcn/ui-compatible color tokens:
+
+- **Background colors:** `bg-background`, `bg-muted`, `bg-primary/10`, `bg-destructive/10`
+- **Text colors:** `text-foreground`, `text-muted-foreground`, `text-primary`, `text-destructive`
+- **Border colors:** `border-border`, `border-input`, `border-primary`, `border-destructive`
 
 All CSS classes use the `cls_` prefix following hazo ecosystem conventions:
 

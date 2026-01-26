@@ -181,15 +181,15 @@ export function FileManager({
   const content = (
     <div
       className={cn(
-        "cls_file_manager bg-white flex flex-col h-full",
+        "cls_file_manager bg-background flex flex-col h-full",
         class_name
       )}
     >
       {/* TOP ROW: Header + File List */}
-      <div className="cls_file_manager_header border-b bg-gray-50 shrink-0">
+      <div className="cls_file_manager_header border-b bg-muted shrink-0">
         {/* Header with popout and close buttons */}
         <div className="flex items-center justify-between p-2 border-b">
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-foreground">
             {header_title}
           </span>
           <div className="flex items-center gap-1">

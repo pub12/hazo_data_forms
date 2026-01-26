@@ -103,16 +103,16 @@ export function FileManagerPage({
             strokeWidth="1"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="mx-auto mb-4 text-gray-400"
+            className="mx-auto mb-4 text-muted-foreground"
           >
             <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
             <polyline points="14 2 14 8 20 8" />
             <line x1="9" x2="15" y1="15" y2="15" />
           </svg>
-          <h2 className="text-lg font-semibold text-gray-900 mb-2">
+          <h2 className="text-lg font-semibold text-foreground mb-2">
             Unable to load files
           </h2>
-          <p className="text-gray-600">{error}</p>
+          <p className="text-foreground/80">{error}</p>
         </div>
       </div>
     );
@@ -125,7 +125,7 @@ export function FileManagerPage({
     }
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900" />
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground" />
       </div>
     );
   }

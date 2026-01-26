@@ -54,7 +54,7 @@ export function FileManagerButton({
       onMouseLeave={() => set_is_hovered(false)}
       disabled={disabled}
       className={cn(
-        "cls_file_manager_btn relative p-1 rounded hover:bg-gray-100 transition-colors",
+        "cls_file_manager_btn relative p-1 rounded hover:bg-muted transition-colors",
         disabled && "opacity-50 cursor-not-allowed",
         class_name
       )}

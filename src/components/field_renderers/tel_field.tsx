@@ -102,7 +102,7 @@ export function TelField({
           {string_value ? (
             <a
               href={`tel:${string_value.replace(/\s/g, "")}`}
-              className="text-blue-600 hover:underline"
+              className="text-primary hover:underline"
             >
               {string_value}
             </a>
@@ -119,7 +119,7 @@ export function TelField({
           onBlur={on_blur}
           placeholder={field.field_info.placeholder}
           disabled={field.field_info.disabled}
-          className={cn("cls_tel_input", error && "cls_input_error border-red-500")}
+          className={cn("cls_tel_input", error && "cls_input_error border-destructive")}
           style={{
             fontFamily: config.field_font_family,
             fontSize: config.field_font_size,

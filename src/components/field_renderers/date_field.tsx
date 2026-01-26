@@ -217,7 +217,7 @@ export function DateField({
           disabled={field.field_info.disabled}
           className={cn(
             "cls_date_input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            error && "cls_input_error border-red-500"
+            error && "cls_input_error border-destructive"
           )}
           style={{
             fontFamily: config.field_font_family,
@@ -291,7 +291,7 @@ export function DateField({
       return (
         <div className="relative">
           <span
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
             style={{ fontFamily: config.field_font_family }}
           >
             {paired_currency_symbol}
@@ -309,7 +309,7 @@ export function DateField({
             step={Math.pow(10, -paired_decimal_places)}
             className={cn(
               "cls_currency_input pl-7 text-right",
-              paired_error && "cls_input_error border-red-500"
+              paired_error && "cls_input_error border-destructive"
             )}
             style={{
               fontFamily: config.field_font_family,
@@ -333,7 +333,7 @@ export function DateField({
         onChange={(e) => paired_on_change?.(e.target.value)}
         onBlur={paired_on_blur}
         disabled={paired_field_info.disabled}
-        className={cn(paired_error && "cls_input_error border-red-500")}
+        className={cn(paired_error && "cls_input_error border-destructive")}
         style={{
           fontFamily: config.field_font_family,
           fontSize: config.field_font_size,

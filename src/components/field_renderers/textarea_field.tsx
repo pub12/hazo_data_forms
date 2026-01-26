@@ -115,7 +115,7 @@ export function TextareaField({
           rows={rows}
           className={cn(
             "cls_textarea_input",
-            error && "cls_input_error border-red-500"
+            error && "cls_input_error border-destructive"
           )}
           style={{
             fontFamily: config.field_font_family,

@@ -73,7 +73,7 @@ export function AbnField({
         >
           {field.field_info.badge && (
             <span
-              className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-purple-100 text-purple-800"
+              className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-primary/20 text-primary"
             >
               {field.field_info.badge}
             </span>
@@ -95,7 +95,7 @@ export function AbnField({
             <button
               type="button"
               onClick={on_doc_link_click}
-              className="cls_doc_link_btn p-1 rounded hover:bg-gray-100 transition-colors"
+              className="cls_doc_link_btn p-1 rounded hover:bg-muted transition-colors"
               aria-label="View document"
             >
               <IconComponent
@@ -132,7 +132,7 @@ export function AbnField({
           placeholder={field.field_info.placeholder || "XX XXX XXX XXX"}
           disabled={field.field_info.disabled}
           maxLength={14}
-          className={cn("cls_abn_input font-mono", error && "cls_input_error border-red-500")}
+          className={cn("cls_abn_input font-mono", error && "cls_input_error border-destructive")}
           style={{
             fontFamily: "monospace",
             fontSize: config.field_font_size,

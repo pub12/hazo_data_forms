@@ -192,7 +192,7 @@ export function BooleanField({
             disabled={field.field_info.disabled}
             className={cn(
               "cls_boolean_input",
-              error && "cls_input_error border-red-500"
+              error && "cls_input_error border-destructive"
             )}
           />
           <label

@@ -107,7 +107,7 @@ export function FieldRenderer(props: FieldRendererProps) {
   if (!Renderer) {
     console.warn(`No renderer found for field type: ${field_type}`);
     return (
-      <div className="cls_unsupported_field p-2 border border-red-200 bg-red-50 rounded text-sm text-red-600">
+      <div className="cls_unsupported_field p-2 border border-destructive/30 bg-destructive/10 rounded text-sm text-destructive">
         Unsupported field type: {field_type}
       </div>
     );

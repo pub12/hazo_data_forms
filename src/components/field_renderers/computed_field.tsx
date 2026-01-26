@@ -124,7 +124,7 @@ export function ComputedField({
 
       {field.field_info.computed_formula && (
         <p
-          className="cls_formula_hint mt-1 text-xs text-gray-500"
+          className="cls_formula_hint mt-1 text-xs text-muted-foreground"
           style={{ fontFamily: config.field_font_family }}
         >
           Calculated: {field.field_info.computed_formula}

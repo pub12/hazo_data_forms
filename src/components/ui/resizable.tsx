@@ -46,23 +46,23 @@ function ResizableHandle({
       data-slot="resizable-handle"
       className={cn(
         "cls_resizable_handle",
-        "relative flex w-2 items-center justify-center bg-gray-200",
+        "relative flex w-2 items-center justify-center bg-border",
         "cursor-col-resize select-none",
-        "hover:bg-blue-400 active:bg-blue-500 transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
+        "hover:bg-primary/80 active:bg-primary transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className
       )}
       {...props}
     >
       {withHandle && (
-        <div className="z-10 flex h-8 w-4 items-center justify-center rounded bg-gray-300 border border-gray-400 shadow-sm">
+        <div className="z-10 flex h-8 w-4 items-center justify-center rounded bg-muted border border-border shadow-sm">
           {/* Grip icon - 6 dots in 2 columns */}
           <svg
             width="8"
             height="14"
             viewBox="0 0 8 14"
             fill="currentColor"
-            className="text-gray-600"
+            className="text-muted-foreground"
           >
             <circle cx="2" cy="2" r="1.2" />
             <circle cx="6" cy="2" r="1.2" />

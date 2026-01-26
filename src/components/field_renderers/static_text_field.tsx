@@ -47,7 +47,7 @@ export function StaticTextField({
       >
         {field.field_info.badge && (
           <span
-            className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-blue-100 text-blue-800"
+            className="cls_field_badge inline-block px-2 py-0.5 mr-2 text-xs font-semibold rounded bg-primary/20 text-primary"
           >
             {field.field_info.badge}
           </span>

@@ -38,7 +38,7 @@ export function DocLinkButton({ doc_link, on_click, config }: DocLinkButtonProps
             onClick={on_click}
             onMouseEnter={() => set_is_hovered(true)}
             onMouseLeave={() => set_is_hovered(false)}
-            className="cls_doc_link_btn p-1 rounded hover:bg-gray-100 transition-colors"
+            className="cls_doc_link_btn p-1 rounded hover:bg-muted transition-colors"
             aria-label={`View document${doc_link.page ? ` page ${doc_link.page}` : ""}`}
           >
             <IconComponent

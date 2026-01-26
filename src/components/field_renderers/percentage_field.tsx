@@ -213,7 +213,7 @@ export function PercentageField({
             className={cn(
               "cls_percentage_input pr-7",
               is_inline && "text-right",
-              error && "cls_input_error border-red-500"
+              error && "cls_input_error border-destructive"
             )}
             style={{
               fontFamily: config.field_font_family,
@@ -225,7 +225,7 @@ export function PercentageField({
             }}
           />
           <span
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
             style={{ fontFamily: config.field_font_family }}
           >
             {percentage_suffix}

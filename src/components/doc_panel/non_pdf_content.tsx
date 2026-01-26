@@ -42,11 +42,11 @@ export function NonPdfContent({ doc_link, filename }: NonPdfContentProps) {
   // For documents and other files, show download prompt
   return (
     <div className="cls_non_pdf_download flex flex-col items-center justify-center h-full p-8 text-center">
-      <div className="w-16 h-16 mb-4 rounded-full bg-gray-100 flex items-center justify-center">
-        <FaDownload size={24} className="text-gray-400" />
+      <div className="w-16 h-16 mb-4 rounded-full bg-muted flex items-center justify-center">
+        <FaDownload size={24} className="text-muted-foreground" />
       </div>
-      <h3 className="text-lg font-medium text-gray-900 mb-2">{filename}</h3>
-      <p className="text-sm text-gray-500 mb-6">
+      <h3 className="text-lg font-medium text-foreground mb-2">{filename}</h3>
+      <p className="text-sm text-muted-foreground mb-6">
         This file type cannot be previewed. Click below to download or open.
       </p>
       <Button onClick={handle_download}>

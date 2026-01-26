@@ -156,7 +156,7 @@ export function MaskedField({
             <button
               type="button"
               onClick={on_doc_link_click}
-              className="cls_doc_link_btn p-1 rounded hover:bg-gray-100 transition-colors"
+              className="cls_doc_link_btn p-1 rounded hover:bg-muted transition-colors"
               aria-label="View document"
             >
               <IconComponent
@@ -193,7 +193,7 @@ export function MaskedField({
           placeholder={placeholder}
           disabled={field.field_info.disabled}
           maxLength={max_length}
-          className={cn("cls_masked_input", error && "cls_input_error border-red-500")}
+          className={cn("cls_masked_input", error && "cls_input_error border-destructive")}
           style={{
             fontFamily: field_style?.font_family || "monospace",
             fontSize: config.field_font_size,

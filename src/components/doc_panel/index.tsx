@@ -153,15 +153,15 @@ export function DocPanel({
   return (
     <div
       className={cn(
-        "cls_doc_panel bg-white flex flex-col h-full",
+        "cls_doc_panel bg-background flex flex-col h-full",
         class_name
       )}
     >
       {/* TOP ROW: Header + File List */}
-      <div className="cls_doc_panel_file_list border-b bg-gray-50 shrink-0">
+      <div className="cls_doc_panel_file_list border-b bg-muted shrink-0">
         {/* Header with close button */}
         <div className="flex items-center justify-between p-2 border-b">
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-foreground">
             {header_title}
           </span>
           <Button
@@ -211,8 +211,8 @@ export function DocPanel({
                 "cls_add_file_btn flex items-center gap-1 px-3 py-2 rounded-md text-sm",
                 "border border-dashed transition-colors whitespace-nowrap",
                 show_upload_zone
-                  ? "border-blue-400 bg-blue-50 text-blue-700"
-                  : "border-gray-300 text-gray-600 hover:border-gray-400 hover:bg-gray-50"
+                  ? "border-primary bg-primary/10 text-primary"
+                  : "border-border text-muted-foreground hover:border-input hover:bg-muted"
               )}
             >
               <FaPlus size={12} />
@@ -236,7 +236,7 @@ export function DocPanel({
       <div className="cls_doc_panel_viewer flex-1 overflow-hidden">
         {!has_files ? (
           /* Empty state */
-          <div className="flex items-center justify-center h-full p-4 text-center text-gray-500">
+          <div className="flex items-center justify-center h-full p-4 text-center text-muted-foreground">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -248,14 +248,14 @@ export function DocPanel({
                 strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mx-auto mb-4 text-gray-300"
+                className="mx-auto mb-4 text-muted-foreground/50"
               >
                 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                 <polyline points="14 2 14 8 20 8" />
               </svg>
-              <p className="text-sm text-gray-500">No files yet</p>
+              <p className="text-sm text-muted-foreground">No files yet</p>
               {upload_mode && (
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-muted-foreground/80 mt-1">
                   Click "Add file" to upload
                 </p>
               )}
@@ -266,7 +266,7 @@ export function DocPanel({
           <div className="h-full w-full">
             {hazo_pdf_error ? (
               /* hazo_pdf library failed to load */
-              <div className="flex items-center justify-center h-full p-4 text-center text-gray-500">
+              <div className="flex items-center justify-center h-full p-4 text-center text-muted-foreground">
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -278,21 +278,21 @@ export function DocPanel({
                     strokeWidth="1"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="mx-auto mb-4 text-gray-400"
+                    className="mx-auto mb-4 text-muted-foreground"
                   >
                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                     <polyline points="14 2 14 8 20 8" />
                     <line x1="9" x2="15" y1="15" y2="15" />
                   </svg>
                   <p className="text-sm">{hazo_pdf_error}</p>
-                  <p className="text-xs mt-2 text-gray-400">
+                  <p className="text-xs mt-2 text-muted-foreground/80">
                     Run: npm install hazo_pdf
                   </p>
                 </div>
               </div>
             ) : file_errors.has(selected_doc.url) ? (
               /* Specific file failed to load (e.g., 404) */
-              <div className="flex items-center justify-center h-full p-4 text-center text-gray-500">
+              <div className="flex items-center justify-center h-full p-4 text-center text-muted-foreground">
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -304,19 +304,19 @@ export function DocPanel({
                     strokeWidth="1"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="mx-auto mb-4 text-gray-400"
+                    className="mx-auto mb-4 text-muted-foreground"
                   >
                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                     <polyline points="14 2 14 8 20 8" />
                     <line x1="9" x2="15" y1="15" y2="15" />
                   </svg>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-foreground/80">
                     {file_errors.get(selected_doc.url)?.includes("404")
                       ? `Missing PDF "${selected_filename}".`
                       : file_errors.get(selected_doc.url)}
                   </p>
                   {file_errors.get(selected_doc.url)?.includes("404") && (
-                    <p className="text-xs mt-2 text-gray-400">
+                    <p className="text-xs mt-2 text-muted-foreground/80">
                       The file may have been deleted or moved.
                     </p>
                   )}
@@ -324,7 +324,7 @@ export function DocPanel({
                     <button
                       type="button"
                       onClick={() => handle_delete(selected_doc.file_id!)}
-                      className="mt-4 px-3 py-1.5 text-sm bg-red-100 text-red-700 rounded-md hover:bg-red-200 transition-colors"
+                      className="mt-4 px-3 py-1.5 text-sm bg-destructive/10 text-destructive rounded-md hover:bg-destructive/20 transition-colors"
                     >
                       Remove this file reference
                     </button>
@@ -333,7 +333,7 @@ export function DocPanel({
               </div>
             ) : !PdfViewerComponent ? (
               <div className="flex items-center justify-center h-full">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground"></div>
               </div>
             ) : (
               <PdfViewerComponent

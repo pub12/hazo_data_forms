@@ -12,7 +12,7 @@ import { is_potentially_convertible, get_hazo_pdf_conversion_utils } from "../..
  */
 function EmptyState({ upload_enabled }: { upload_enabled?: boolean }) {
   return (
-    <div className="flex items-center justify-center h-full p-4 text-center text-gray-500">
+    <div className="flex items-center justify-center h-full p-4 text-center text-muted-foreground">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,14 +24,14 @@ function EmptyState({ upload_enabled }: { upload_enabled?: boolean }) {
           strokeWidth="1"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="mx-auto mb-4 text-gray-300"
+          className="mx-auto mb-4 text-muted-foreground/50"
         >
           <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
           <polyline points="14 2 14 8 20 8" />
         </svg>
-        <p className="text-sm text-gray-500">No files yet</p>
+        <p className="text-sm text-muted-foreground">No files yet</p>
         {upload_enabled && (
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-muted-foreground/80 mt-1">
             Click "Add file" to upload
           </p>
         )}
@@ -57,7 +57,7 @@ function ErrorState({
   const is_404 = message.includes("404");
 
   return (
-    <div className="flex items-center justify-center h-full p-4 text-center text-gray-500">
+    <div className="flex items-center justify-center h-full p-4 text-center text-muted-foreground">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,17 +69,17 @@ function ErrorState({
           strokeWidth="1"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="mx-auto mb-4 text-gray-400"
+          className="mx-auto mb-4 text-muted-foreground"
         >
           <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
           <polyline points="14 2 14 8 20 8" />
           <line x1="9" x2="15" y1="15" y2="15" />
         </svg>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-foreground/80">
           {is_404 ? `Missing PDF "${filename}".` : message}
         </p>
         {is_404 && (
-          <p className="text-xs mt-2 text-gray-400">
+          <p className="text-xs mt-2 text-muted-foreground/80">
             The file may have been deleted or moved.
           </p>
         )}
@@ -87,7 +87,7 @@ function ErrorState({
           <button
             type="button"
             onClick={on_delete}
-            className="mt-4 px-3 py-1.5 text-sm bg-red-100 text-red-700 rounded-md hover:bg-red-200 transition-colors"
+            className="mt-4 px-3 py-1.5 text-sm bg-destructive/10 text-destructive rounded-md hover:bg-destructive/20 transition-colors"
           >
             Remove this file reference
           </button>
@@ -171,11 +171,11 @@ function DownloadViewer({
 
   return (
     <div className="cls_file_viewer_download flex flex-col items-center justify-center h-full p-8 text-center">
-      <div className="w-16 h-16 mb-4 rounded-full bg-gray-100 flex items-center justify-center">
-        <FaDownload size={24} className="text-gray-400" />
+      <div className="w-16 h-16 mb-4 rounded-full bg-muted flex items-center justify-center">
+        <FaDownload size={24} className="text-muted-foreground" />
       </div>
-      <h3 className="text-lg font-medium text-gray-900 mb-2">{file.filename}</h3>
-      <p className="text-sm text-gray-500 mb-6">
+      <h3 className="text-lg font-medium text-foreground mb-2">{file.filename}</h3>
+      <p className="text-sm text-muted-foreground mb-6">
         {enable_conversion
           ? "This file can be converted to PDF for viewing, or downloaded directly."
           : "This file type cannot be previewed. Click below to download or open."}
@@ -374,7 +374,7 @@ export function FileViewer({
     // hazo_pdf library error
     if (hazo_pdf_error) {
       return (
-        <div className="flex items-center justify-center h-full p-4 text-center text-gray-500">
+        <div className="flex items-center justify-center h-full p-4 text-center text-muted-foreground">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -386,14 +386,14 @@ export function FileViewer({
               strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="mx-auto mb-4 text-gray-400"
+              className="mx-auto mb-4 text-muted-foreground"
             >
               <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
               <polyline points="14 2 14 8 20 8" />
               <line x1="9" x2="15" y1="15" y2="15" />
             </svg>
             <p className="text-sm">{hazo_pdf_error}</p>
-            <p className="text-xs mt-2 text-gray-400">Run: npm install hazo_pdf</p>
+            <p className="text-xs mt-2 text-muted-foreground/80">Run: npm install hazo_pdf</p>
           </div>
         </div>
       );
@@ -415,7 +415,7 @@ export function FileViewer({
     if (!PdfViewerComponent) {
       return (
         <div className="flex items-center justify-center h-full">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground" />
         </div>
       );
     }
@@ -451,7 +451,7 @@ export function FileViewer({
 
   // Show conversion error if any
   const conversion_error_display = conversion_error && (
-    <div className="absolute bottom-4 left-4 right-4 bg-red-100 text-red-700 p-2 rounded text-sm">
+    <div className="absolute bottom-4 left-4 right-4 bg-destructive/10 text-destructive p-2 rounded text-sm">
       {conversion_error}
     </div>
   );

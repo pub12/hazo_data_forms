@@ -302,7 +302,7 @@ export function TableField({
               <tr>
                 <td
                   colSpan={columns.length + (has_row_doc_links ? 1 : 0) + (is_view ? 0 : 1)}
-                  className="px-3 py-4 text-center text-gray-500"
+                  className="px-3 py-4 text-center text-muted-foreground"
                 >
                   No data
                 </td>
@@ -334,7 +334,7 @@ export function TableField({
                         type="button"
                         onClick={() => handle_remove_row(row_index)}
                         disabled={rows.length <= min_rows}
-                        className="p-1 text-gray-400 hover:text-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="p-1 text-muted-foreground hover:text-destructive disabled:opacity-50 disabled:cursor-not-allowed"
                         aria-label="Remove row"
                       >
                         <svg
@@ -406,7 +406,7 @@ export function TableField({
           type="button"
           onClick={handle_add_row}
           disabled={rows.length >= max_rows}
-          className="mt-2 text-xs text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
+          className="mt-2 text-xs text-muted-foreground hover:text-foreground disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

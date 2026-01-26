@@ -183,7 +183,7 @@ export function OptionField({
           onChange={(e) => on_change(e.target.value)}
           onBlur={on_blur}
           disabled={field.field_info.disabled}
-          className={cn("cls_option_input", error && "cls_input_error border-red-500")}
+          className={cn("cls_option_input", error && "cls_input_error border-destructive")}
           style={{
             fontFamily: config.field_font_family,
             fontSize: config.field_font_size,

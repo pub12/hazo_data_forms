@@ -182,7 +182,7 @@ export function TextField({
           className={cn(
             "cls_text_input",
             is_inline && field.field_info.text_align !== "left" && "text-right",
-            error && "cls_input_error border-red-500"
+            error && "cls_input_error border-destructive"
           )}
           style={{
             fontFamily: config.field_font_family,

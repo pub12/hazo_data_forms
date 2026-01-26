@@ -163,14 +163,14 @@ export function UploadZone({
     .join(",");
 
   return (
-    <div className="cls_upload_zone p-3 border-t bg-gray-50">
+    <div className="cls_upload_zone p-3 border-t bg-muted">
       {/* Drag and drop zone */}
       <div
         className={cn(
           "cls_upload_dropzone border-2 border-dashed rounded-lg p-4 text-center transition-colors cursor-pointer",
           is_dragging
-            ? "border-blue-500 bg-blue-50"
-            : "border-gray-300 hover:border-gray-400 hover:bg-white"
+            ? "border-primary bg-primary/10"
+            : "border-border hover:border-input hover:bg-background"
         )}
         onDragOver={handle_drag_over}
         onDragLeave={handle_drag_leave}
@@ -188,16 +188,16 @@ export function UploadZone({
         <FaUpload
           className={cn(
             "mx-auto mb-2",
-            is_dragging ? "text-blue-500" : "text-gray-400"
+            is_dragging ? "text-primary" : "text-muted-foreground"
           )}
           size={24}
         />
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-foreground/80">
           {is_dragging
             ? "Drop files here..."
             : "Drag and drop files here, or click to select"}
         </p>
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs text-muted-foreground mt-1">
           Max size: {format_file_size(upload_config.max_file_size)} |
           Max files: {upload_config.max_files_per_field}
         </p>
@@ -211,9 +211,9 @@ export function UploadZone({
               key={`${progress.filename}-${index}`}
               className={cn(
                 "p-2 rounded text-xs",
-                progress.status === "uploading" && "bg-blue-50 text-blue-700",
-                progress.status === "success" && "bg-green-50 text-green-700",
-                progress.status === "error" && "bg-red-50 text-red-700"
+                progress.status === "uploading" && "bg-primary/10 text-primary",
+                progress.status === "success" && "bg-primary/10 text-primary",
+                progress.status === "error" && "bg-destructive/10 text-destructive"
               )}
             >
               <span className="font-medium">{progress.filename}</span>

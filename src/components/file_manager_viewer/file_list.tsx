@@ -85,19 +85,19 @@ function FileListItem({
           "cls_file_list_item flex items-center gap-2 px-3 py-2 rounded-md text-sm",
           "border transition-colors whitespace-nowrap",
           is_selected
-            ? "bg-blue-50 border-blue-300 text-blue-700"
-            : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50",
+            ? "bg-primary/10 border-primary/50 text-primary"
+            : "bg-background border-border text-foreground hover:bg-muted",
           delete_in_progress && "opacity-50"
         )}
         title={file.filename}
       >
         <IconComponent
           size={16}
-          className={is_selected ? "text-blue-600" : "text-gray-500"}
+          className={is_selected ? "text-primary" : "text-muted-foreground"}
         />
         <span>{display_name}</span>
         {file.page && (
-          <span className="text-xs text-gray-400">p.{file.page}</span>
+          <span className="text-xs text-muted-foreground">p.{file.page}</span>
         )}
       </button>
 
@@ -106,7 +106,7 @@ function FileListItem({
         <button
           type="button"
           onClick={handle_delete_click}
-          className="cls_file_delete_btn absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors shadow-sm"
+          className="cls_file_delete_btn absolute -top-1 -right-1 w-5 h-5 bg-destructive text-destructive-foreground rounded-full flex items-center justify-center hover:bg-destructive/90 transition-colors shadow-sm"
           title="Remove file"
         >
           <FaTimes size={10} />
@@ -133,8 +133,8 @@ function FileListItem({
 
       {/* Loading indicator during deletion */}
       {delete_in_progress && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/50 rounded-md">
-          <div className="w-4 h-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+        <div className="absolute inset-0 flex items-center justify-center bg-background/50 rounded-md">
+          <div className="w-4 h-4 border-2 border-border border-t-foreground rounded-full animate-spin" />
         </div>
       )}
     </div>
@@ -154,18 +154,18 @@ function UploadProgressDisplay({ progress }: { progress: UploadProgress[] }) {
           key={`${item.filename}-${index}`}
           className={cn(
             "flex items-center gap-2 px-2 py-1 rounded text-xs",
-            item.status === "uploading" && "bg-blue-50 text-blue-700",
-            item.status === "success" && "bg-green-50 text-green-700",
-            item.status === "error" && "bg-red-50 text-red-700"
+            item.status === "uploading" && "bg-primary/10 text-primary",
+            item.status === "success" && "bg-primary/10 text-primary",
+            item.status === "error" && "bg-destructive/10 text-destructive"
           )}
         >
           <span className="font-medium truncate flex-1">{item.filename}</span>
           {item.status === "uploading" && (
-            <span className="text-blue-500 animate-pulse">Uploading...</span>
+            <span className="text-primary animate-pulse">Uploading...</span>
           )}
           {item.status === "success" && <span>Uploaded</span>}
           {item.status === "error" && (
-            <span className="text-red-600">{item.error || "Failed"}</span>
+            <span className="text-destructive">{item.error || "Failed"}</span>
           )}
         </div>
       ))}
@@ -265,7 +265,7 @@ export function FileList({
     <div
       className={cn(
         "cls_file_list transition-all duration-200",
-        is_dragging && "bg-blue-50"
+        is_dragging && "bg-primary/10"
       )}
       onDragEnter={handle_drag_enter}
       onDragLeave={handle_drag_leave}
@@ -286,9 +286,9 @@ export function FileList({
 
       {/* Dropzone overlay when dragging */}
       {is_dragging ? (
-        <div className="cls_dropzone_overlay flex items-center justify-center gap-2 p-4 border-2 border-dashed border-blue-400 rounded-md m-2 bg-blue-50">
-          <FaUpload className="text-blue-500" size={20} />
-          <span className="text-sm text-blue-600 font-medium">
+        <div className="cls_dropzone_overlay flex items-center justify-center gap-2 p-4 border-2 border-dashed border-primary rounded-md m-2 bg-primary/10">
+          <FaUpload className="text-primary" size={20} />
+          <span className="text-sm text-primary font-medium">
             Drop files here...
           </span>
         </div>
@@ -317,7 +317,7 @@ export function FileList({
                 className={cn(
                   "cls_add_file_btn flex items-center gap-1 px-3 py-2 rounded-md text-sm",
                   "border border-dashed transition-colors whitespace-nowrap",
-                  "border-gray-300 text-gray-600 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-600",
+                  "border-border text-muted-foreground hover:border-primary hover:bg-primary/10 hover:text-primary",
                   is_uploading && "opacity-50 cursor-not-allowed"
                 )}
               >
