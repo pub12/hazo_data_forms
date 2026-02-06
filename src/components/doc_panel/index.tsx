@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { cn, extract_filename_from_url } from "../../lib/utils";
 import type { DocLink, FormConfig, FileUploadResult } from "../../lib/types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
+import type { HazoFileManagerInstance } from "../../context";
 import { FileListItem } from "./file_list_item";
 import { NonPdfContent } from "./non_pdf_content";
 import { UploadZone } from "./upload_zone";
@@ -26,12 +27,11 @@ export interface DocPanelProps {
   /** Optional PDF viewer component (from hazo_pdf or custom) */
   pdf_viewer_component?: React.ComponentType<PdfViewerProps>;
 
-  /** Callback when PDF is saved */
-  on_pdf_save?: (
-    pdf_bytes: Uint8Array,
-    filename: string,
-    original_url: string
-  ) => void;
+  /** File manager instance for save/load operations */
+  file_manager?: HazoFileManagerInstance;
+
+  /** Path where PDFs should be saved */
+  pdf_save_path?: string;
 
   /** Optional className for the panel container */
   class_name?: string;
@@ -61,7 +61,8 @@ export function DocPanel({
   on_close,
   config,
   pdf_viewer_component,
-  on_pdf_save,
+  file_manager,
+  pdf_save_path,
   class_name,
   upload_mode,
   field_label,
@@ -349,13 +350,8 @@ export function DocPanel({
                     return next;
                   });
                 }}
-                on_save={
-                  on_pdf_save
-                    ? (pdf_bytes: Uint8Array, filename: string) => {
-                        on_pdf_save(pdf_bytes, filename, selected_doc.url);
-                      }
-                    : undefined
-                }
+                file_manager={file_manager}
+                save_path={pdf_save_path}
               />
             )}
           </div>

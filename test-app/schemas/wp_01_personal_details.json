@@ -1,0 +1,390 @@
+[
+  {
+    "section_name": "YOUR NAME",
+    "sub_sections": [
+      {
+        "sub_section_id": "name_details",
+        "sub_section_label": "Name Details",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "title",
+              "label": "Title",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Mr, Ms, Dr, etc."
+              }
+            },
+            {
+              "id": "given_name",
+              "label": "Given Name",
+              "field_info": {
+                "field_type": "text",
+                "required": true
+              }
+            },
+            {
+              "id": "family_name",
+              "label": "Family Name",
+              "field_info": {
+                "field_type": "text",
+                "required": true
+              }
+            },
+            {
+              "id": "other_name",
+              "label": "Other Name",
+              "field_info": {
+                "field_type": "text"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "additional_name_info",
+        "sub_section_label": "Additional Information",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "suffix",
+              "label": "Suffix",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Jr, Sr, III, etc."
+              }
+            },
+            {
+              "id": "date_of_birth",
+              "label": "Date of Birth",
+              "field_info": {
+                "field_type": "date",
+                "required": true
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "residency",
+        "sub_section_label": "Australian Residency",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "australian_resident",
+              "label": "Are you an Australian Resident?",
+              "field_info": {
+                "field_type": "boolean",
+                "required": true
+              }
+            },
+            {
+              "id": "residency_start_date",
+              "label": "Australian residency start date",
+              "field_info": {
+                "field_type": "date"
+              }
+            },
+            {
+              "id": "residency_end_date",
+              "label": "Australian residency end date",
+              "field_info": {
+                "field_type": "date"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "name_change",
+        "sub_section_label": "Name Change",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "name_changed",
+              "label": "Has part of your name changed since completing your last tax return?",
+              "field_info": {
+                "field_type": "boolean"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "YOUR POSTAL ADDRESS",
+    "sub_sections": [
+      {
+        "sub_section_id": "postal_address",
+        "sub_section_label": "Postal Address",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "postal_address_line",
+              "label": "Address",
+              "field_info": {
+                "field_type": "text",
+                "required": true,
+                "placeholder": "Street address"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "postal_location",
+        "sub_section_label": "Location Details",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "postal_state",
+              "label": "State",
+              "field_info": {
+                "field_type": "text",
+                "required": true
+              }
+            },
+            {
+              "id": "postal_postcode",
+              "label": "Postcode",
+              "field_info": {
+                "field_type": "text",
+                "required": true,
+                "min_length": 4,
+                "max_length": 4
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "postal_country",
+        "sub_section_label": "Country",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "postal_country",
+              "label": "Country — if not Australia",
+              "field_info": {
+                "field_type": "text"
+              }
+            },
+            {
+              "id": "postal_address_changed",
+              "label": "Has your postal address changed since completing your last tax return?",
+              "field_info": {
+                "field_type": "boolean"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "YOUR HOME ADDRESS",
+    "sub_sections": [
+      {
+        "sub_section_id": "home_location",
+        "sub_section_label": "Home Location",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "home_state",
+              "label": "State",
+              "field_info": {
+                "field_type": "text"
+              }
+            },
+            {
+              "id": "home_postcode",
+              "label": "Postcode",
+              "field_info": {
+                "field_type": "text",
+                "min_length": 4,
+                "max_length": 4
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "home_country",
+        "sub_section_label": "Country",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "home_country",
+              "label": "Country — if not Australia",
+              "field_info": {
+                "field_type": "text"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "YOUR CONTACT DETAILS",
+    "sub_sections": [
+      {
+        "sub_section_id": "contact_info",
+        "sub_section_label": "Contact Information",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "mobile_number",
+              "label": "Mobile number",
+              "field_info": {
+                "field_type": "tel"
+              }
+            },
+            {
+              "id": "day_contact_number",
+              "label": "Day time contact number",
+              "field_info": {
+                "field_type": "tel"
+              }
+            },
+            {
+              "id": "email_address",
+              "label": "Email address",
+              "field_info": {
+                "field_type": "email"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "YOUR BANKING INFORMATION (EFT DETAILS)",
+    "sub_sections": [
+      {
+        "sub_section_id": "refund_options",
+        "sub_section_label": "Refund Options",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "deduct_fee_from_refund",
+              "label": "Deduct fee from refund",
+              "field_info": {
+                "field_type": "boolean"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "bank_details",
+        "sub_section_label": "Bank Account Details",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "bsb_number",
+              "label": "BSB Number",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "000-000",
+                "min_length": 6,
+                "max_length": 7
+              }
+            },
+            {
+              "id": "account_number",
+              "label": "Account Number",
+              "field_info": {
+                "field_type": "text"
+              }
+            },
+            {
+              "id": "account_name",
+              "label": "Account Name",
+              "field_info": {
+                "field_type": "text"
+              }
+            },
+            {
+              "id": "financial_institution_name",
+              "label": "Financial Institution Name",
+              "field_info": {
+                "field_type": "text"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "CONTACT NAME",
+    "sub_sections": [
+      {
+        "sub_section_id": "contact_person",
+        "sub_section_label": "Contact Person",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "contact_full_name",
+              "label": "Full Name",
+              "field_info": {
+                "field_type": "text"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "TAX AGENT CONTACT DETAILS",
+    "sub_sections": [
+      {
+        "sub_section_id": "tax_agent_details",
+        "sub_section_label": "Tax Agent Information",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "tax_contact",
+              "label": "Tax Contact",
+              "field_info": {
+                "field_type": "tel"
+              }
+            },
+            {
+              "id": "agent_ref_number",
+              "label": "Agent Ref Number",
+              "field_info": {
+                "field_type": "text"
+              }
+            },
+            {
+              "id": "agent_contact_number",
+              "label": "Contact Number",
+              "field_info": {
+                "field_type": "tel"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

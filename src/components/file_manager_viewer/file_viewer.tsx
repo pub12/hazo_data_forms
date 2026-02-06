@@ -262,7 +262,8 @@ export function FileViewer({
   file,
   config,
   pdf_viewer_component,
-  on_pdf_save,
+  file_manager,
+  pdf_save_path,
   deletable,
   on_delete,
   enable_file_conversion = false,
@@ -421,7 +422,7 @@ export function FileViewer({
     }
 
     // Render PDF viewer
-    // Build props, conditionally adding logger if provided
+    // Build props, conditionally adding logger, file_manager, save_path
     const viewer_props: PdfViewerProps & { logger?: unknown } = {
       url: file.url,
       className: "h-full w-full",
@@ -430,11 +431,9 @@ export function FileViewer({
         console.error("PDF load error for", file.url, ":", error);
         set_file_error(error.message);
       },
-      on_save: on_pdf_save
-        ? (pdf_bytes: Uint8Array, filename: string) => {
-            on_pdf_save(pdf_bytes, filename, file.url);
-          }
-        : undefined,
+      // Pass file_manager and save_path for hazo_pdf 1.6.0 integration
+      file_manager: file_manager,
+      save_path: pdf_save_path,
     };
 
     // Add logger if provided (hazo_pdf supports logger prop)

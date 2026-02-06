@@ -2,7 +2,7 @@
 
 import type { DocLink, DocLinkType, FormConfig, FileUploadResult } from "../../lib/types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
-import type { Logger } from "../../context";
+import type { Logger, HazoFileManagerInstance } from "../../context";
 
 /**
  * Display mode for the file manager
@@ -71,12 +71,11 @@ export interface FileManagerProps {
   /** Optional PDF viewer component */
   pdf_viewer_component?: React.ComponentType<PdfViewerProps>;
 
-  /** Callback when PDF is saved */
-  on_pdf_save?: (
-    pdf_bytes: Uint8Array,
-    filename: string,
-    original_url: string
-  ) => void;
+  /** File manager instance for save/load operations */
+  file_manager?: HazoFileManagerInstance;
+
+  /** Path where PDFs should be saved */
+  pdf_save_path?: string;
 
   // Upload functionality
   /** Enable upload UI */
@@ -188,12 +187,10 @@ export interface FileViewerProps {
   config: FormConfig;
   /** Optional PDF viewer component */
   pdf_viewer_component?: React.ComponentType<PdfViewerProps>;
-  /** Callback when PDF is saved */
-  on_pdf_save?: (
-    pdf_bytes: Uint8Array,
-    filename: string,
-    original_url: string
-  ) => void;
+  /** File manager instance for save/load operations */
+  file_manager?: HazoFileManagerInstance;
+  /** Path where PDFs should be saved */
+  pdf_save_path?: string;
   /** Whether this file can be deleted (upload mode + uploaded file) */
   deletable?: boolean;
   /** Delete handler */

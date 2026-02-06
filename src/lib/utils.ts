@@ -117,6 +117,18 @@ export function format_date(
 }
 
 /**
+ * Sanitize a filename for safe storage paths
+ * Removes or replaces characters that are unsafe in file paths
+ */
+export function sanitize_filename(filename: string): string {
+  return filename
+    .replace(/[<>:"/\\|?*\x00-\x1F]/g, "_") // Replace unsafe characters
+    .replace(/\.{2,}/g, ".") // Collapse multiple dots
+    .replace(/^[\s.]+|[\s.]+$/g, "") // Trim leading/trailing spaces and dots
+    .slice(0, 255); // Limit length
+}
+
+/**
  * Generate a unique ID
  */
 export function generate_id(): string {

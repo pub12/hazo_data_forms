@@ -305,11 +305,12 @@ export function CurrencyField({
             max={field.field_info.max}
             step={Math.pow(10, -decimal_places)}
             className={cn(
-              "cls_currency_input pl-7",
+              "cls_currency_input",
               is_inline && "text-right",
               error && "cls_input_error border-destructive"
             )}
             style={{
+              paddingLeft: "28px", // Space for currency symbol
               fontFamily: config.field_font_family,
               fontSize: get_field_font_size(),
               fontWeight: get_field_font_weight(),
@@ -437,10 +438,11 @@ export function CurrencyField({
             max={paired_field_info?.max}
             step={Math.pow(10, -paired_decimal_places)}
             className={cn(
-              "cls_currency_input pl-7 text-right",
+              "cls_currency_input text-right",
               paired_error && "cls_input_error border-destructive"
             )}
             style={{
+              paddingLeft: "28px", // Space for currency symbol
               fontFamily: config.field_font_family,
               fontSize: get_field_font_size(),
               fontWeight: get_field_font_weight(),

@@ -24,6 +24,9 @@ Dynamic form rendering from JSON schema with document link support and embedded 
 ```bash
 npm install hazo_data_forms react react-dom react-hook-form lucide-react
 
+# Optional: For file management (upload/delete/storage)
+npm install hazo_files
+
 # Optional: For PDF viewer support
 npm install hazo_pdf
 
@@ -35,12 +38,11 @@ npm install hazo_config
 
 ### Peer Dependencies
 
-### Required Versions
-
 - React: ^18.0.0 or ^19.0.0
 - react-hook-form: ^7.0.0
-- hazo_config: ^1.0.0
-- hazo_pdf: ^1.0.0 (optional)
+- hazo_config: ^1.0.0 (optional)
+- hazo_files: ^1.4.0 (optional - for file upload/storage)
+- hazo_pdf: ^1.6.0 (optional - for PDF viewer)
 
 ## Quick Start
 
@@ -353,6 +355,66 @@ Add inline document links that open PDFs in an embedded viewer:
 />
 ```
 
+## Services
+
+hazo_data_forms uses a service injection pattern for external integrations. Services can be passed via the `services` prop or via `HazoServicesProvider`.
+
+### File Manager Service
+
+File upload, deletion, and PDF save operations are handled through the `file_manager` service (compatible with `hazo_files`).
+
+```typescript
+import { HazoDataForm } from "hazo_data_forms";
+import type { HazoFileManagerInstance } from "hazo_data_forms";
+
+// Your file manager (e.g., from hazo_files, or a custom client adapter)
+const file_manager: HazoFileManagerInstance = {
+  uploadFile: async (data, path, options) => { /* ... */ },
+  downloadFile: async (path) => { /* ... */ },
+  deleteFile: async (path) => { /* ... */ },
+  isInitialized: () => true,
+  exists: async (path) => { /* ... */ },
+  ensureDirectory: async (path) => { /* ... */ },
+};
+
+<HazoDataForm
+  schema={schema}
+  services={{ file_manager }}
+  enable_file_upload={true}
+  file_save_path="/clients/acme/tax_2024/"
+  pdf_save_path="/clients/acme/tax_2024/pdfs/"
+/>
+```
+
+File upload is enabled when all three conditions are met:
+- `enable_file_upload={true}` prop is set
+- `config.file_upload.enabled` is true (from INI config)
+- `file_manager.isInitialized()` returns true
+
+### Using the Services Provider
+
+Wrap your app or form area with `HazoServicesProvider` to provide services via context:
+
+```typescript
+import { HazoServicesProvider } from "hazo_data_forms";
+
+<HazoServicesProvider services={{ file_manager, logger, db }}>
+  <HazoDataForm schema={schema} enable_file_upload={true} />
+</HazoServicesProvider>
+```
+
+### Accessing Services in Custom Components
+
+```typescript
+import { useHazoFileManager, useHazoLogger, useHazoDb } from "hazo_data_forms";
+
+function MyCustomComponent() {
+  const file_manager = useHazoFileManager();
+  const logger = useHazoLogger();
+  const db = useHazoDb();
+}
+```
+
 ## Form Modes
 
 ### Edit Mode (Editable)
@@ -464,6 +526,10 @@ Pass the path to your component:
 | `on_form_ready` | `(methods: UseFormReturn) => void` | - | Callback with react-hook-form methods |
 | `show_submit_button` | `boolean` | - | Show submit button at bottom of form |
 | `submit_button_text` | `string` | `"Submit"` | Text for submit button |
+| `services` | `HazoServices` | - | Service instances (file_manager, logger, db) |
+| `enable_file_upload` | `boolean` | `false` | Enable file upload UI |
+| `file_save_path` | `string` | - | Base storage path for uploaded files |
+| `pdf_save_path` | `string` | - | Separate path for PDF saves (falls back to `file_save_path`) |
 
 ## Custom Field Renderers
 
@@ -519,6 +585,12 @@ import type {
   FormConfig,
   PartialFormConfig,
 
+  // Services
+  HazoServices,
+  HazoFileManagerInstance,
+  HazoConnectInstance,
+  Logger,
+
   // Component props
   HazoDataFormProps,
   FieldRendererProps,
@@ -549,6 +621,16 @@ import {
   // Utilities
   generate_id,
   deep_merge,
+  sanitize_filename,
+
+  // Service hooks
+  useHazoFileManager,
+  useHazoLogger,
+  useHazoDb,
+  useHazoCustomService,
+
+  // Service provider
+  HazoServicesProvider,
 } from "hazo_data_forms";
 ```
 
@@ -621,6 +703,64 @@ function MyForm() {
     />
   );
 }
+```
+
+## Migrating to v2.0.0
+
+v2.0.0 replaces file operation callbacks with a `file_manager` service. This is a breaking change.
+
+### Removed Props
+
+- `on_file_upload` - replaced by `file_manager` service
+- `on_file_delete` - replaced by `file_manager` service
+- `on_pdf_save` - replaced by `file_manager` service
+
+### Migration Steps
+
+**Before (v1.x):**
+
+```typescript
+<HazoDataForm
+  schema={schema}
+  enable_file_upload={true}
+  on_file_upload={async (request) => {
+    const result = await my_api.upload(request.file);
+    return { success: true, uploaded_file: result };
+  }}
+  on_file_delete={async (field_id, file_id) => {
+    await my_api.delete(file_id);
+    return true;
+  }}
+  on_pdf_save={(pdf_bytes, filename, url) => {
+    my_api.save_pdf(pdf_bytes, filename);
+  }}
+/>
+```
+
+**After (v2.0.0):**
+
+```typescript
+const file_manager: HazoFileManagerInstance = {
+  uploadFile: async (data, path) => {
+    const result = await my_api.upload(data, path);
+    return { success: true, data: { id: result.id, name: result.name, path, size: result.size, mimeType: result.type } };
+  },
+  deleteFile: async (path) => {
+    await my_api.delete(path);
+    return { success: true };
+  },
+  downloadFile: async (path) => ({ success: true, data: await my_api.download(path) }),
+  isInitialized: () => true,
+  exists: async (path) => my_api.exists(path),
+  ensureDirectory: async (path) => { await my_api.mkdir(path); return { success: true }; },
+};
+
+<HazoDataForm
+  schema={schema}
+  services={{ file_manager }}
+  enable_file_upload={true}
+  file_save_path="/uploads/my_form/"
+/>
 ```
 
 ## License

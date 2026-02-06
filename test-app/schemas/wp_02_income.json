@@ -1,0 +1,1474 @@
+[
+  {
+    "section_name": "1. SALARY OR WAGES",
+    "sub_sections": [
+      {
+        "sub_section_id": "occupation_details",
+        "sub_section_label": "Your Main Salary and Wage Occupation",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "main_occupation",
+              "label": "Your main salary and wage occupation",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "e.g., Teacher, Engineer, Nurse"
+              }
+            },
+            {
+              "id": "occupation_code",
+              "label": "Occupation Code",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Enter occupation code"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "salary_summary",
+        "sub_section_label": "Salary Summary",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "salary_payers",
+              "label": "Salary Payers",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "payer_abn",
+                    "label": "Payer's ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "payer_name",
+                    "label": "Name",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "35%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "label_code",
+                    "label": "Code",
+                    "field_info": {
+                      "field_type": "text",
+                      "placeholder": "C, D, etc."
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "income",
+                    "label": "Income",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "20%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "salary_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "salary_worksheet",
+              "label": "Salary Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "type",
+                    "label": "Type",
+                    "field_info": {
+                      "field_type": "text",
+                      "placeholder": "H, etc."
+                    },
+                    "width": "25%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 20
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "2. ALLOWANCES, EARNINGS, TIPS, DIRECTORS FEES ETC",
+    "sub_sections": [
+      {
+        "sub_section_id": "allowances_summary",
+        "sub_section_label": "Allowances Summary",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "allowances_total",
+              "label": "Total Allowances",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "allowances_label_code",
+              "label": "Label Code",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "K"
+              }
+            },
+            {
+              "id": "allowances_amount",
+              "label": "Amount",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "allowances_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "allowances_worksheet",
+              "label": "Allowances Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "40%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "30%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 20
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "3. EMPLOYER LUMP SUM PAYMENTS",
+    "sub_sections": [
+      {
+        "sub_section_id": "lump_sum_amounts",
+        "sub_section_label": "Lump Sum Payment Amounts",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "lump_sum_a_total",
+              "label": "Amount A in lump sum",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "lump_sum_a_label",
+              "label": "Label Code (Amount A)",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "R"
+              }
+            },
+            {
+              "id": "lump_sum_a_amount",
+              "label": "Amount A Value",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "lump_sum_b_total",
+              "label": "Amount B in lump sum",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "lump_sum_b_label",
+              "label": "Label (Amount B)",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Amount B in lump sum"
+              }
+            },
+            {
+              "id": "lump_sum_b_amount",
+              "label": "Amount B Value",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "lump_sum_b_5_percent_label",
+              "label": "5% of amount B label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "H"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "lump_sum_worksheet_a",
+        "sub_section_label": "Worksheet - Lump Sum Payments A",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "lump_sum_a_worksheet",
+              "label": "Lump Sum Payments A",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "code",
+                    "label": "Code",
+                    "field_info": {
+                      "field_type": "text",
+                      "placeholder": "R"
+                    },
+                    "width": "15%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "lump_sum_worksheet_b",
+        "sub_section_label": "Worksheet - Lump Sum Payments B",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "lump_sum_b_worksheet",
+              "label": "Lump Sum Payments B",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "35%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "35%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "lump_sum_worksheet_5_percent",
+        "sub_section_label": "Worksheet - 5% of Lump Sum Payments B",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "lump_sum_5_percent_worksheet",
+              "label": "5% of Lump Sum Payments B",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "50%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "50%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "4. EMPLOYMENT TERMINATION PAYMENTS",
+    "sub_sections": [
+      {
+        "sub_section_id": "termination_payments",
+        "sub_section_label": "Employment Termination Payments",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "termination_total",
+              "label": "Total",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "termination_taxable_component_label",
+              "label": "Taxable component label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "I"
+              }
+            },
+            {
+              "id": "termination_taxable_component",
+              "label": "Taxable component",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "5. AUSTRALIAN GOVERNMENT ALLOWANCES AND PAYMENTS",
+    "sub_sections": [
+      {
+        "sub_section_id": "govt_allowances_summary",
+        "sub_section_label": "Government Allowances Summary",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "govt_allowances_total",
+              "label": "Total",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "govt_allowances_label",
+              "label": "Label Code",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "A"
+              }
+            },
+            {
+              "id": "govt_allowances_amount",
+              "label": "Amount",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "govt_allowances_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "govt_allowances_worksheet_abn",
+              "label": "ABN Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "50%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "50%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            },
+            {
+              "id": "govt_allowances_worksheet_details",
+              "label": "Details Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "adjustment_reason",
+                    "label": "Adjustment Reason",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "30%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "6. AUSTRALIAN GOVERNMENT PENSIONS AND ALLOWANCE",
+    "sub_sections": [
+      {
+        "sub_section_id": "govt_pensions_summary",
+        "sub_section_label": "Government Pensions Summary",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "govt_pensions_total",
+              "label": "Total",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "govt_pensions_label",
+              "label": "Label Code",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "B"
+              }
+            },
+            {
+              "id": "govt_pensions_amount",
+              "label": "Amount",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "govt_pensions_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "govt_pensions_worksheet",
+              "label": "Pensions Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "30%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "gross",
+                    "label": "Gross",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "adjustment_reason",
+                    "label": "Adjustment Reason",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "25%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "7. AUSTRALIAN ANNUITIES AND SUPERANNUATION INCOME STREAMS",
+    "sub_sections": [
+      {
+        "sub_section_id": "annuities_taxable_component",
+        "sub_section_label": "Taxable Component",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "annuities_taxable_component",
+              "label": "Taxable component",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "annuities_taxed_element_label",
+              "label": "Taxed element label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "J"
+              }
+            },
+            {
+              "id": "annuities_taxed_element",
+              "label": "Taxed element",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "annuities_untaxed_element_label",
+              "label": "Untaxed element label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "N"
+              }
+            },
+            {
+              "id": "annuities_untaxed_element",
+              "label": "Untaxed element",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "annuities_assessable_amount_label",
+              "label": "Assessable amount label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "M"
+              }
+            },
+            {
+              "id": "annuities_assessable_amount",
+              "label": "Assessable amount from capped defined benefit income stream",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "annuities_lump_sum",
+        "sub_section_label": "Lump Sum in Arrears",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "annuities_lump_sum_taxable",
+              "label": "Lump sum in arrears – taxable component",
+              "field_info": {
+                "field_type": "text"
+              }
+            },
+            {
+              "id": "annuities_lump_sum_taxed_label",
+              "label": "Taxed element label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Y"
+              }
+            },
+            {
+              "id": "annuities_lump_sum_taxed",
+              "label": "Taxed element",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "annuities_lump_sum_untaxed_label",
+              "label": "Untaxed element label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Z"
+              }
+            },
+            {
+              "id": "annuities_lump_sum_untaxed",
+              "label": "Untaxed element",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "annuities_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "annuities_worksheet",
+              "label": "Annuities Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "tax_withheld",
+                    "label": "Tax withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "14%"
+                  },
+                  {
+                    "id": "tc_taxed",
+                    "label": "TC – Taxed",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "14%"
+                  },
+                  {
+                    "id": "tc_untaxed",
+                    "label": "TC – Untaxed",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "14%"
+                  },
+                  {
+                    "id": "ls_taxed",
+                    "label": "LS – Taxed",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "14%"
+                  },
+                  {
+                    "id": "ls_untaxed",
+                    "label": "LS – Untaxed",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "14%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "8. AUSTRALIAN SUPERANNUATION LUMP SUM PAYMENTS",
+    "sub_sections": [
+      {
+        "sub_section_id": "super_lump_sum",
+        "sub_section_label": "Superannuation Lump Sum",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "super_lump_sum_taxable",
+              "label": "Taxable component",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "super_lump_sum_taxed_label",
+              "label": "Taxed element label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "Q"
+              }
+            },
+            {
+              "id": "super_lump_sum_taxed",
+              "label": "Taxed element",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "super_lump_sum_untaxed_label",
+              "label": "Untaxed element label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "P"
+              }
+            },
+            {
+              "id": "super_lump_sum_untaxed",
+              "label": "Untaxed element",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "9. ATTRIBUTED PERSONAL SERVICES INCOME",
+    "sub_sections": [
+      {
+        "sub_section_id": "personal_services_income",
+        "sub_section_label": "Personal Services Income",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "personal_services_income_label",
+              "label": "Label Code",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "O"
+              }
+            },
+            {
+              "id": "personal_services_income",
+              "label": "Amount",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "10. GROSS INTEREST",
+    "sub_sections": [
+      {
+        "sub_section_id": "gross_interest_summary",
+        "sub_section_label": "Gross Interest Summary",
+        "field_group": {
+          "orientation": "horizontal",
+          "fields": [
+            {
+              "id": "interest_tfn_withheld_label",
+              "label": "Tax file number amounts withheld from gross interest label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "M"
+              }
+            },
+            {
+              "id": "interest_tfn_withheld",
+              "label": "TFN withheld",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "interest_gross_label",
+              "label": "Gross interest label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "L"
+              }
+            },
+            {
+              "id": "interest_gross",
+              "label": "Gross interest",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "gross_interest_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "interest_worksheet",
+              "label": "Interest Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "financial_institution",
+                    "label": "Financial Institution",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "18%"
+                  },
+                  {
+                    "id": "num_account_holders",
+                    "label": "No. of Account Holders",
+                    "field_info": {
+                      "field_type": "number",
+                      "min": 1
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "percent",
+                    "label": "Percent",
+                    "field_info": {
+                      "field_type": "percentage"
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "gross_tax_withheld",
+                    "label": "Gross Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "gross_interest",
+                    "label": "Gross Interest",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "shared_tax_withheld",
+                    "label": "Shared Tax Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "16%"
+                  },
+                  {
+                    "id": "shared_interest",
+                    "label": "Shared Interest",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "16%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 20
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "11. DIVIDENDS",
+    "sub_sections": [
+      {
+        "sub_section_id": "dividends_summary",
+        "sub_section_label": "Dividends Summary",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "dividends_tfn_withheld_label",
+              "label": "Tax file number amounts withheld from dividends label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "V"
+              }
+            },
+            {
+              "id": "dividends_tfn_withheld",
+              "label": "TFN withheld",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "dividends_unfranked_label",
+              "label": "Unfranked amount label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "S"
+              }
+            },
+            {
+              "id": "dividends_unfranked",
+              "label": "Unfranked amount",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "dividends_franked_label",
+              "label": "Franked amount label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "T"
+              }
+            },
+            {
+              "id": "dividends_franked",
+              "label": "Franked amount",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "dividends_franking_credit_label",
+              "label": "Franking credit label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "U"
+              }
+            },
+            {
+              "id": "dividends_franking_credit",
+              "label": "Franking credit",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "dividends_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "dividends_worksheet",
+              "label": "Dividends Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "company_or_trust",
+                    "label": "Company or trust",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "num_account_holders",
+                    "label": "No. of Account Holders",
+                    "field_info": {
+                      "field_type": "number",
+                      "min": 1
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "percent",
+                    "label": "Percent",
+                    "field_info": {
+                      "field_type": "percentage"
+                    },
+                    "width": "10%"
+                  },
+                  {
+                    "id": "unfranked",
+                    "label": "Unfranked",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "franked",
+                    "label": "Franked",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "franking_credits",
+                    "label": "Franking Credits",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "tfn_withheld",
+                    "label": "TFN Withheld",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 20
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "12. EMPLOYEE SHARE SCHEMES",
+    "sub_sections": [
+      {
+        "sub_section_id": "share_schemes_summary",
+        "sub_section_label": "Employee Share Schemes Summary",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "share_schemes_upfront_eligible_label",
+              "label": "Discounts from taxed upfront schemes – eligible for reduction label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "D"
+              }
+            },
+            {
+              "id": "share_schemes_upfront_eligible",
+              "label": "Eligible for reduction",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "share_schemes_upfront_not_eligible_label",
+              "label": "Not eligible for reduction label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "E"
+              }
+            },
+            {
+              "id": "share_schemes_upfront_not_eligible",
+              "label": "Not eligible for reduction",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "share_schemes_deferral_label",
+              "label": "Discounts from deferral schemes label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "F"
+              }
+            },
+            {
+              "id": "share_schemes_deferral",
+              "label": "Discounts from deferral schemes",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "share_schemes_total_assessable_label",
+              "label": "Total Assessable discount amount label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "B"
+              }
+            },
+            {
+              "id": "share_schemes_total_assessable",
+              "label": "Total Assessable discount amount",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "share_schemes_tfn_withheld_label",
+              "label": "TFN amounts withheld from discounts label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "C"
+              }
+            },
+            {
+              "id": "share_schemes_tfn_withheld",
+              "label": "TFN amounts withheld",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "share_schemes_foreign_label",
+              "label": "Foreign source discounts label",
+              "field_info": {
+                "field_type": "text",
+                "placeholder": "A"
+              }
+            },
+            {
+              "id": "share_schemes_foreign",
+              "label": "Foreign source discounts",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "share_schemes_worksheet",
+        "sub_section_label": "Worksheet",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "share_schemes_worksheet",
+              "label": "Employee Share Schemes Worksheet",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "eligible",
+                    "label": "Eligible",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "not_eligible",
+                    "label": "Not Eligible",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "deferred",
+                    "label": "Deferred",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "tfn_amount",
+                    "label": "TFN Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "foreign",
+                    "label": "Foreign",
+                    "field_info": {
+                      "field_type": "currency",
+                      "currency_symbol": "$"
+                    },
+                    "width": "15%"
+                  }
+                ],
+                "table_min_rows": 0,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "section_name": "INCOME TOTALS",
+    "sub_sections": [
+      {
+        "sub_section_id": "income_totals",
+        "sub_section_label": "Total Income Summary",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "total_tax_withheld",
+              "label": "TOTAL TAX WITHHELD",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "total_supplement_income",
+              "label": "TOTAL SUPPLEMENT INCOME",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            },
+            {
+              "id": "total_income",
+              "label": "TOTAL INCOME",
+              "field_info": {
+                "field_type": "currency",
+                "currency_symbol": "$"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

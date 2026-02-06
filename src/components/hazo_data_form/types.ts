@@ -9,12 +9,10 @@ import type {
   FormErrors,
   PdfPanelPosition,
   PartialFormConfig,
-  FileUploadRequest,
-  FileUploadResult,
   UploadedFile,
 } from "../../lib/types";
 import type { FileManagerPopoutContext } from "../file_manager_viewer/types";
-import type { HazoServices } from "../../context";
+import type { HazoServices, HazoFileManagerInstance } from "../../context";
 
 // ============================================================================
 // hazo_pdf Type Aliases
@@ -97,6 +95,12 @@ export interface PdfViewerProps {
   default_scale?: "page-width" | "page-fit" | "auto" | number;
   /** Callback when PDF is saved/annotated */
   on_save?: (pdf_bytes: Uint8Array, filename: string) => void;
+
+  // hazo_pdf 1.6.0 - file_manager integration
+  /** File manager instance for save/load operations (compatible with hazo_files) */
+  file_manager?: HazoFileManagerInstance;
+  /** Path where PDFs should be saved */
+  save_path?: string;
 
   // Multi-file mode (new in hazo_pdf 1.3.2)
   /** Array of files for multi-file mode */
@@ -204,11 +208,17 @@ export interface HazoDataFormProps {
   pdf_viewer_component?: ComponentType<PdfViewerProps>;
 
   /**
-   * Callback when PDF is saved from the PDF viewer
-   * Receives the PDF bytes, suggested filename, and original URL
-   * Use this to save the PDF back to the server or trigger a download
+   * Base storage path for uploaded files (e.g., "/clients/acme/tax_2024/")
+   * Used with file_manager service for file upload operations
    */
-  on_pdf_save?: (pdf_bytes: Uint8Array, filename: string, original_url: string) => void;
+  file_save_path?: string;
+
+  /**
+   * Optional separate path for PDF saves (e.g., "/clients/acme/tax_2024/pdfs/")
+   * If not provided, falls back to file_save_path
+   * Used with file_manager service for PDF save operations
+   */
+  pdf_save_path?: string;
 
   /**
    * Path to config INI file
@@ -294,19 +304,6 @@ export interface HazoDataFormProps {
    * @default false
    */
   enable_file_upload?: boolean;
-
-  /**
-   * Callback when a file is uploaded
-   * Should handle saving the file and return the result with URL
-   */
-  on_file_upload?: (request: FileUploadRequest) => Promise<FileUploadResult>;
-
-  /**
-   * Callback when an uploaded file is deleted
-   * Should handle removing the file from storage
-   * Returns true if deletion was successful
-   */
-  on_file_delete?: (field_id: string, file_id: string) => Promise<boolean>;
 
   /**
    * Callback when an uploaded file is viewed

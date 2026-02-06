@@ -20,7 +20,8 @@ export function FileManager({
   display_mode,
   config,
   pdf_viewer_component,
-  on_pdf_save,
+  file_manager,
+  pdf_save_path,
   upload_enabled,
   field_label,
   field_id,
@@ -260,7 +261,8 @@ export function FileManager({
           file={selected_file}
           config={config}
           pdf_viewer_component={pdf_viewer_component}
-          on_pdf_save={on_pdf_save}
+          file_manager={file_manager}
+          pdf_save_path={pdf_save_path}
           deletable={selected_deletable}
           on_delete={handle_delete_selected}
           enable_file_conversion={enable_file_conversion}

@@ -10,11 +10,13 @@ export {
   useHazoLogger,
   useHazoDb,
   useHazoCustomService,
+  useHazoFileManager,
 } from "./context";
 export type {
   HazoServicesProviderProps,
   HazoServices,
   HazoConnectInstance,
+  HazoFileManagerInstance,
   Logger,
 } from "./context";
 export type {
@@ -185,6 +187,7 @@ export {
   generate_id,
   deep_merge,
   // File upload utilities
+  sanitize_filename,
   get_uploads_key,
   get_field_uploads,
   has_field_uploads,

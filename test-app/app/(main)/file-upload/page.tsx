@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   HazoDataForm,
   type FormSchema,
   type FormValues,
-  type FileUploadRequest,
-  type FileUploadResult,
   type UploadedFile,
 } from "hazo_data_forms";
 import default_schema from "../../schemas/file-upload.schema.json";
+import { create_client_file_manager } from "../../../lib/client_file_manager";
 
 export default function FileUploadPage() {
   const [schema, set_schema] = useState<FormSchema>(default_schema as FormSchema);
@@ -18,6 +17,9 @@ export default function FileUploadPage() {
   const [schema_text, set_schema_text] = useState(() => JSON.stringify(default_schema, null, 2));
   const [schema_error, set_schema_error] = useState<string | null>(null);
   const [form_key, set_form_key] = useState(0);
+
+  // Create file_manager adapter (memoized)
+  const file_manager = useMemo(() => create_client_file_manager(), []);
 
   const handle_schema_save = () => {
     try {
@@ -33,62 +35,6 @@ export default function FileUploadPage() {
   const handle_schema_reset = () => {
     set_schema_text(JSON.stringify(schema, null, 2));
     set_schema_error(null);
-  };
-
-  // Handle file upload
-  const handle_file_upload = async (request: FileUploadRequest): Promise<FileUploadResult> => {
-    try {
-      const form_data = new FormData();
-      form_data.append("file", request.file);
-      form_data.append("field_id", request.field_id);
-      form_data.append("field_label", request.field_label);
-      if (request.section_name) {
-        form_data.append("section_name", request.section_name);
-      }
-      if (request.sub_section_id) {
-        form_data.append("sub_section_id", request.sub_section_id);
-      }
-
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: form_data,
-      });
-
-      const result = await response.json();
-      return result;
-    } catch (error) {
-      console.error("Upload error:", error);
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : "Upload failed",
-      };
-    }
-  };
-
-  // Handle file deletion
-  const handle_file_delete = async (field_id: string, file_id: string): Promise<boolean> => {
-    try {
-      // Find the uploaded file to get its filename
-      const uploads_key = `${field_id}__uploads`;
-      const uploads = (values[uploads_key] as UploadedFile[]) || [];
-      const file = uploads.find((u) => u.file_id === file_id);
-
-      const params = new URLSearchParams({
-        field_id,
-        file_id,
-        ...(file?.filename && { filename: file.filename }),
-      });
-
-      const response = await fetch(`/api/upload?${params}`, {
-        method: "DELETE",
-      });
-
-      const result = await response.json();
-      return result.success;
-    } catch (error) {
-      console.error("Delete error:", error);
-      return false;
-    }
   };
 
   // Handle file view
@@ -201,9 +147,9 @@ export default function FileUploadPage() {
           submit_button_text="Submit Form"
           show_pdf_panel={true}
           enable_file_upload={true}
-          on_file_upload={handle_file_upload}
-          on_file_delete={handle_file_delete}
           on_file_view={handle_file_view}
+          file_save_path="/uploads"
+          services={{ file_manager }}
           config_override={{
             file_upload: {
               enabled: true,

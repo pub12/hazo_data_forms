@@ -1,6 +1,6 @@
 {
   "name": "hazo_data_forms",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Dynamic form rendering from JSON schema with document link support and PDF viewer integration",
   "keywords": [
     "forms",
@@ -23,9 +23,7 @@
   "author": "Pubs Abayasiri",
   "sideEffects": [
     "dist/index.js",
-    "dist/index.cjs",
-    "src/components/field_renderers/index.tsx",
-    "./src/components/field_renderers/index.tsx"
+    "dist/index.cjs"
   ],
   "type": "module",
   "main": "./dist/index.cjs",
@@ -80,7 +78,8 @@
     "hazo_config": "^1.0.0",
     "hazo_connect": "^1.0.0",
     "hazo_logs": "^1.0.0",
-    "hazo_pdf": "^1.4.0",
+    "hazo_files": "^1.4.0",
+    "hazo_pdf": "^1.6.0",
     "lucide-react": ">=0.400.0",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
@@ -95,6 +94,9 @@
       "optional": true
     },
     "hazo_logs": {
+      "optional": true
+    },
+    "hazo_files": {
       "optional": true
     },
     "hazo_pdf": {

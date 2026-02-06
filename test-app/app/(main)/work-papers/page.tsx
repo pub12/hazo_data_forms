@@ -13,42 +13,18 @@ import { PdfViewer } from "hazo_pdf";
 import "hazo_pdf/styles.css";
 import { create_client_file_manager } from "../../../lib/client_file_manager";
 
-// Import all tax form schemas
-import page_01 from "../../../schemas/tax_form_page_01.json";
-import page_02 from "../../../schemas/tax_form_page_02.json";
-import page_03 from "../../../schemas/tax_form_page_03.json";
-import page_04 from "../../../schemas/tax_form_page_04.json";
-import page_05 from "../../../schemas/tax_form_page_05.json";
-import page_06 from "../../../schemas/tax_form_page_06.json";
-import page_07 from "../../../schemas/tax_form_page_07.json";
-import page_08 from "../../../schemas/tax_form_page_08.json";
-import page_09 from "../../../schemas/tax_form_page_09.json";
-import page_10 from "../../../schemas/tax_form_page_10.json";
-import page_11 from "../../../schemas/tax_form_page_11.json";
-import page_12 from "../../../schemas/tax_form_page_12.json";
-import page_13 from "../../../schemas/tax_form_page_13.json";
-import page_14 from "../../../schemas/tax_form_page_14.json";
-import page_15 from "../../../schemas/tax_form_page_15.json";
+// Import all work paper schemas
+import wp_01_personal_details from "../../../schemas/wp_01_personal_details.json";
+import wp_02_income from "../../../schemas/wp_02_income.json";
+import wp_03_deductions from "../../../schemas/wp_03_deductions.json";
 
-const TAX_FORM_PAGES = [
-  { num: 1, label: "Your Details", schema: page_01 },
-  { num: 2, label: "Residency & Spouse", schema: page_02 },
-  { num: 3, label: "Income", schema: page_03 },
-  { num: 4, label: "Deductions", schema: page_04 },
-  { num: 5, label: "Losses", schema: page_05 },
-  { num: 6, label: "Income Tests", schema: page_06 },
-  { num: 7, label: "Tax Offsets", schema: page_07 },
-  { num: 8, label: "Medicare Levy", schema: page_08 },
-  { num: 9, label: "Adjustments", schema: page_09 },
-  { num: 10, label: "Spouse Details", schema: page_10 },
-  { num: 11, label: "Supplementary", schema: page_11 },
-  { num: 12, label: "Capital Gains Tax Schedule", schema: page_12 },
-  { num: 13, label: "Rental Schedule", schema: page_13 },
-  { num: 14, label: "Capital Gains Tax Worksheet", schema: page_14 },
-  { num: 15, label: "Managed Fund Worksheet", schema: page_15 },
+const WORK_PAPER_PAGES = [
+  { num: 1, label: "Personal Details", schema: wp_01_personal_details },
+  { num: 2, label: "Income", schema: wp_02_income },
+  { num: 3, label: "Deductions", schema: wp_03_deductions },
 ];
 
-export default function TaxFormsPage() {
+export default function WorkPapersPage() {
   const [current_page, set_current_page] = useState(1);
   const [mode, set_mode] = useState<FormMode>("edit");
   const [all_values, set_all_values] = useState<FormValues>({});
@@ -57,8 +33,8 @@ export default function TaxFormsPage() {
   // Create file_manager adapter (memoized)
   const file_manager = useMemo(() => create_client_file_manager(), []);
 
-  const current_page_data = TAX_FORM_PAGES.find((p) => p.num === current_page);
-  const schema = (current_page_data?.schema || page_01) as FormSchema;
+  const current_page_data = WORK_PAPER_PAGES.find((p) => p.num === current_page);
+  const schema = (current_page_data?.schema || wp_01_personal_details) as FormSchema;
   const schema_text = useMemo(() => JSON.stringify(schema, null, 2), [schema]);
 
   const handle_page_change = (page_num: number) => {
@@ -89,9 +65,9 @@ export default function TaxFormsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">Australian Individual Tax Return 2024</h1>
+        <h1 className="text-2xl font-bold">Work Papers</h1>
         <p className="text-muted-foreground mt-2">
-          Complete tax return form. Navigate between pages using the pagination below.
+          Complete work paper forms. Navigate between pages using the pagination below.
         </p>
       </div>
 
@@ -124,9 +100,9 @@ export default function TaxFormsPage() {
 
       {/* Page Navigation */}
       <div className="border rounded-lg p-4 bg-muted/30">
-        <h3 className="font-semibold mb-3">Pages</h3>
+        <h3 className="font-semibold mb-3">Work Papers</h3>
         <div className="flex flex-wrap gap-2">
-          {TAX_FORM_PAGES.map((page) => (
+          {WORK_PAPER_PAGES.map((page) => (
             <button
               key={page.num}
               onClick={() => handle_page_change(page.num)}
@@ -137,12 +113,12 @@ export default function TaxFormsPage() {
               }`}
               title={page.label}
             >
-              {page.num}
+              WP {page.num}
             </button>
           ))}
         </div>
         <p className="mt-3 text-sm text-muted-foreground">
-          Current: Page {current_page} - {current_page_data?.label}
+          Current: WP {current_page} - {current_page_data?.label}
         </p>
       </div>
 
@@ -161,7 +137,7 @@ export default function TaxFormsPage() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            Schema Viewer (Page {current_page})
+            Schema Viewer (WP {current_page})
           </span>
           <span className="text-sm text-muted-foreground">
             {is_schema_open ? "Click to collapse" : "Click to expand"}
@@ -171,7 +147,7 @@ export default function TaxFormsPage() {
         {is_schema_open && (
           <div className="p-4 border-t space-y-3">
             <p className="text-sm text-muted-foreground">
-              View the schema JSON for the current page. Schema files are located in test-app/schemas/tax_form_page_*.json
+              View the schema JSON for the current work paper. Schema files are located in test-app/schemas/wp_*.json
             </p>
             <textarea
               value={schema_text}
@@ -187,7 +163,7 @@ export default function TaxFormsPage() {
       <div className="border rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold">
-            Page {current_page}: {current_page_data?.label}
+            WP {current_page}: {current_page_data?.label}
           </h2>
           <div className="flex gap-2">
             <button
@@ -198,8 +174,8 @@ export default function TaxFormsPage() {
               Previous
             </button>
             <button
-              onClick={() => handle_page_change(Math.min(TAX_FORM_PAGES.length, current_page + 1))}
-              disabled={current_page === TAX_FORM_PAGES.length}
+              onClick={() => handle_page_change(Math.min(WORK_PAPER_PAGES.length, current_page + 1))}
+              disabled={current_page === WORK_PAPER_PAGES.length}
               className="px-3 py-1 text-sm border rounded-md hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Next
@@ -208,20 +184,20 @@ export default function TaxFormsPage() {
         </div>
 
         <HazoDataForm
-          key={`page-${current_page}-${mode}`}
+          key={`wp-${current_page}-${mode}`}
           schema={schema}
           mode={mode}
           values={all_values}
           on_change={handle_values_change}
           collapsible_sections={true}
-          show_submit_button={current_page === TAX_FORM_PAGES.length && mode === "edit"}
-          submit_button_text="Submit Tax Return"
+          show_submit_button={current_page === WORK_PAPER_PAGES.length && mode === "edit"}
+          submit_button_text="Submit Work Papers"
           pdf_viewer_component={PdfViewer}
           enable_file_upload={true}
           on_file_view={handle_file_view}
           on_file_popout={handle_file_popout}
-          file_save_path="/uploads/tax-forms"
-          pdf_save_path="/uploads/tax-forms/pdfs"
+          file_save_path="/uploads/work-papers"
+          pdf_save_path="/uploads/work-papers/pdfs"
           services={{ file_manager }}
           config_override={{
             pdf_panel_width: "50vw",
@@ -238,8 +214,8 @@ export default function TaxFormsPage() {
             },
           }}
           on_submit={(vals) => {
-            console.log("Tax return submitted:", vals);
-            alert("Tax return submitted! Check console for all values.");
+            console.log("Work papers submitted:", vals);
+            alert("Work papers submitted! Check console for all values.");
           }}
         />
       </div>

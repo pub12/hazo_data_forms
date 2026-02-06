@@ -1,8 +1,10 @@
 "use client";
 
+import { useMemo } from "react";
 import { FileManagerPage, DEFAULT_FORM_CONFIG } from "hazo_data_forms";
 import { PdfViewer } from "hazo_pdf";
 import "hazo_pdf/styles.css";
+import { create_client_file_manager } from "../../../lib/client_file_manager";
 
 /**
  * File Viewer Popout Page
@@ -11,6 +13,8 @@ import "hazo_pdf/styles.css";
  * with custom header/footer/navbar around the FileManagerPage component.
  */
 export default function FileViewerPage() {
+  const file_manager = useMemo(() => create_client_file_manager(), []);
+
   return (
     <div className="flex flex-col h-screen">
       {/* App's custom header - consuming apps can customize this */}
@@ -24,18 +28,8 @@ export default function FileViewerPage() {
         <FileManagerPage
           config={DEFAULT_FORM_CONFIG}
           pdf_viewer_component={PdfViewer}
-          on_pdf_save={(pdf_bytes, filename, original_url) => {
-            // Example: Download the edited PDF
-            // Create a new Uint8Array copy to ensure it's not backed by SharedArrayBuffer
-            const safe_bytes = new Uint8Array(pdf_bytes);
-            const blob = new Blob([safe_bytes as BlobPart], { type: "application/pdf" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = filename;
-            a.click();
-            URL.revokeObjectURL(url);
-          }}
+          file_manager={file_manager}
+          pdf_save_path="/uploads/pdfs"
         />
       </div>
     </div>

@@ -12,6 +12,7 @@ import {
   Calculator,
   Upload,
   Files,
+  Briefcase,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -24,6 +25,7 @@ const nav_items = [
   { href: "/multi-file-conversion", label: "Multi-File & Conversion", icon: Files },
   { href: "/edit-vs-view", label: "Edit vs View Mode", icon: Eye },
   { href: "/tax-forms", label: "Tax Forms", icon: Calculator },
+  { href: "/work-papers", label: "Work Papers", icon: Briefcase },
   { href: "/file-upload", label: "File Upload", icon: Upload },
 ];
 

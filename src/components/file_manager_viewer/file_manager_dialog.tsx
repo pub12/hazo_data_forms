@@ -20,7 +20,8 @@ export function FileManagerDialog({
   on_close,
   config,
   pdf_viewer_component,
-  on_pdf_save,
+  file_manager,
+  pdf_save_path,
   upload_enabled,
   field_label,
   field_id,
@@ -64,7 +65,8 @@ export function FileManagerDialog({
           display_mode="dialog"
           config={config}
           pdf_viewer_component={pdf_viewer_component}
-          on_pdf_save={on_pdf_save}
+          file_manager={file_manager}
+          pdf_save_path={pdf_save_path}
           upload_enabled={upload_enabled}
           field_label={field_label}
           field_id={field_id}

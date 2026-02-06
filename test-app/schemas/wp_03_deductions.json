@@ -1,0 +1,530 @@
+[
+  {
+    "section_name": "Deductions",
+    "sub_sections": [
+      {
+        "sub_section_id": "d1_car_expenses",
+        "sub_section_label": "D1 - WORK-RELATED CAR EXPENSES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d1_car_expenses_amount",
+              "label": "Work-Related Car Expenses (A)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d2_travel_expenses",
+        "sub_section_label": "D2 - WORK-RELATED TRAVEL EXPENSES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d2_travel_expenses_amount",
+              "label": "Work-Related Travel Expenses (B)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d2_other_expenses",
+              "label": "Other Expenses",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d2_motor_vehicle_worksheet",
+              "label": "Motor Vehicle Expense Worksheet",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d3_clothing_expenses",
+        "sub_section_label": "D3 - WORK-RELATED CLOTHING, LAUNDRY AND DRY CLEANING EXPENSES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d3_clothing_expenses_amount",
+              "label": "Clothing, Laundry and Dry Cleaning Expenses (C)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d4_education_expenses",
+        "sub_section_label": "D4 - WORK-RELATED SELF-EDUCATION EXPENSES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d4_education_expenses_amount",
+              "label": "Self-Education Expenses (D)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d4_other_expenses",
+              "label": "Other Expenses",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d4_depreciable_expenses",
+              "label": "Depreciable Expenses",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d4_motor_vehicle_worksheet",
+              "label": "Motor Vehicle Expense Worksheet",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d5_other_work_expenses",
+        "sub_section_label": "D5 - OTHER WORK-RELATED EXPENSES",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d5_other_work_expenses_amount",
+              "label": "Other Work-Related Expenses (E)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 467.00
+            },
+            {
+              "id": "d5_other_expenses",
+              "label": "Other Expenses",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d5_payment_summary",
+              "label": "Payment Summary Worksheet - Other Work-Related Expenses (D5)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 467.00
+            },
+            {
+              "id": "d5_worksheet",
+              "label": "WORKSHEET",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "50%"
+                  },
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "claim_amount",
+                    "label": "Claim Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "25%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 50
+              },
+              "value": [
+                {
+                  "description": "payer 1",
+                  "abn": "12",
+                  "claim_amount": 11.00
+                },
+                {
+                  "description": "tyhe",
+                  "abn": "567",
+                  "claim_amount": 456.00
+                }
+              ]
+            },
+            {
+              "id": "d5_depreciable_expenses",
+              "label": "Depreciable Expenses",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d6_low_value_pool",
+        "sub_section_label": "D6 - LOW-VALUE POOL DEDUCTION",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d6_low_value_pool_amount",
+              "label": "Low-Value Pool Deduction (K)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d6_business",
+              "label": "Low Value Pool Deductions Relating to Business",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d6_financial_investments",
+              "label": "Low-Value Pool Deductions Relating to Financial Investments",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d6_rental_properties",
+              "label": "Low-Value Pool Deductions Relating to Rental Properties",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d6_other",
+              "label": "Other Low-Value Pool Deductions",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d7_interest_deductions",
+        "sub_section_label": "D7 - INTEREST DEDUCTIONS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d7_interest_deductions_amount",
+              "label": "Interest Deductions (I)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d7_depreciable_expenses",
+              "label": "Depreciable Expenses",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d8_dividend_deductions",
+        "sub_section_label": "D8 - DIVIDEND DEDUCTIONS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d8_dividend_deductions_amount",
+              "label": "Dividend Deductions (H)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "d8_lic_capital_gains",
+              "label": "LIC Capital Gains Deduction Transferred from Dividend Worksheet",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.33
+            },
+            {
+              "id": "d8_worksheet",
+              "label": "WORKSHEET",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "company_or_trust",
+                    "label": "Company or Trust",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "percent",
+                    "label": "Percent",
+                    "field_info": {
+                      "field_type": "percentage",
+                      "decimal_places": 2
+                    },
+                    "width": "20%"
+                  },
+                  {
+                    "id": "gross_deduction",
+                    "label": "Gross Deduction",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  },
+                  {
+                    "id": "my_share",
+                    "label": "My Share",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "15%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 50
+              },
+              "value": [
+                {
+                  "company_or_trust": "co1",
+                  "description": "co1",
+                  "percent": 33.33,
+                  "gross_deduction": 1.00,
+                  "my_share": 0.33
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d9_gifts_donations",
+        "sub_section_label": "D9 - GIFTS OR DONATIONS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d9_gifts_donations_amount",
+              "label": "Gifts or Donations (J)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 78.00
+            },
+            {
+              "id": "d9_gifts_or_donations",
+              "label": "Gifts or Donations",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d9_payment_summary",
+              "label": "Payment Summary Worksheet - Donations (Workplace Giving)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d9_worksheet",
+              "label": "WORKSHEET",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "50%"
+                  },
+                  {
+                    "id": "abn",
+                    "label": "ABN",
+                    "field_info": {
+                      "field_type": "text"
+                    },
+                    "width": "25%"
+                  },
+                  {
+                    "id": "claim_amount",
+                    "label": "Claim Amount",
+                    "field_info": {
+                      "field_type": "currency",
+                      "decimal_places": 2
+                    },
+                    "width": "25%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 50
+              },
+              "value": [
+                {
+                  "description": "payer 1",
+                  "abn": "12",
+                  "claim_amount": 11.00
+                },
+                {
+                  "description": "tyhe",
+                  "abn": "567",
+                  "claim_amount": 67.00
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "d10_tax_affairs",
+        "sub_section_label": "D10 - COST OF MANAGING TAX AFFAIRS",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "d10_interest_charged_ato",
+              "label": "Interest Charged by the ATO (N)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d10_litigation_costs",
+              "label": "Litigation Costs (L)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            },
+            {
+              "id": "d10_other_expenses",
+              "label": "Other Expenses Incurred in Managing Your Tax Affairs (M)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "totals",
+        "sub_section_label": "Summary",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "total_supplement_deductions",
+              "label": "TOTAL SUPPLEMENT DEDUCTIONS (Items D11 to D15)",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 0.00
+            },
+            {
+              "id": "total_deductions",
+              "label": "TOTAL DEDUCTIONS",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 545.00
+            },
+            {
+              "id": "subtotal",
+              "label": "SUBTOTAL - TOTAL INCOME less TOTAL DEDUCTIONS",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 17050.00
+            },
+            {
+              "id": "taxable_income",
+              "label": "Taxable Income",
+              "field_info": {
+                "field_type": "currency",
+                "decimal_places": 2
+              },
+              "value": 17050.00
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

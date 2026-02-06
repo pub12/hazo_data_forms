@@ -14,7 +14,7 @@ import {
 } from "../ui/resizable";
 import { useFormConfig } from "../../hooks/use_form_config";
 import { HazoServicesProvider } from "../../context";
-import { cn, evaluate_formula, get_uploads_key, get_field_uploads, uploads_to_doc_links } from "../../lib/utils";
+import { cn, evaluate_formula, get_uploads_key, get_field_uploads, uploads_to_doc_links, sanitize_filename, generate_file_id } from "../../lib/utils";
 import type { DocLink, FormValues, FormField, FileUploadResult } from "../../lib/types";
 import type { HazoDataFormProps } from "./types";
 
@@ -54,7 +54,8 @@ export function HazoDataForm({
   pdf_panel_width,
   pdf_panel_resizable = true,
   pdf_viewer_component,
-  on_pdf_save,
+  file_save_path,
+  pdf_save_path,
   config_path,
   config_override,
   errors: external_errors,
@@ -70,8 +71,6 @@ export function HazoDataForm({
   show_submit_button,
   submit_button_text = "Submit",
   enable_file_upload = false,
-  on_file_upload,
-  on_file_delete,
   on_file_view,
   on_file_popout,
   // hazo_pdf 1.3.2 features
@@ -250,8 +249,11 @@ export function HazoDataForm({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Check if upload is enabled (both prop and config)
-  const is_upload_enabled = enable_file_upload && config.file_upload.enabled;
+  // Get file_manager from services
+  const file_manager = services?.file_manager;
+
+  // Check if upload is enabled (prop + config + file_manager available and initialized)
+  const is_upload_enabled = enable_file_upload && config.file_upload.enabled && !!file_manager?.isInitialized();
 
   // Get display mode from config
   const file_manager_display_mode = config.file_manager.display_mode;
@@ -301,64 +303,109 @@ export function HazoDataForm({
     [form_methods]
   );
 
-  // Handle file upload completion (from DocPanel)
+  // Handle file upload completion (from DocPanel) - uses file_manager service
   const handle_panel_upload = React.useCallback(
     async (files: File[]): Promise<FileUploadResult[]> => {
-      if (!on_file_upload || !active_field_id) {
-        return files.map(() => ({ success: false, error: "Upload not configured" }));
+      if (!file_manager || !active_field_id) {
+        return files.map(() => ({ success: false, error: "File manager not configured" }));
       }
 
+      const base_path = file_save_path || "/uploads";
       const results: FileUploadResult[] = [];
 
+      // Ensure the directory exists
+      await file_manager.ensureDirectory(base_path);
+
       for (const file of files) {
-        const result = await on_file_upload({
-          field_id: active_field_id,
-          field_label: active_field_label,
-          file,
-        });
+        try {
+          const safe_filename = sanitize_filename(file.name);
+          const file_id = generate_file_id();
+          const remote_path = `${base_path}/${file_id}_${safe_filename}`;
 
-        results.push(result);
+          // Read file as ArrayBuffer and convert to Uint8Array
+          const array_buffer = await file.arrayBuffer();
+          const file_data = new Uint8Array(array_buffer);
 
-        // If upload successful, add to form values and update doc_links
-        if (result.success && result.uploaded_file) {
-          const uploads_key = get_uploads_key(active_field_id);
-          const current_uploads = get_field_uploads(form_methods.getValues(), active_field_id);
-          const new_uploads = [...current_uploads, result.uploaded_file];
-          form_methods.setValue(uploads_key, new_uploads);
+          const upload_result = await file_manager.uploadFile(file_data, remote_path);
 
-          // Update active_doc_links to include the new file
-          const new_doc_links = uploads_to_doc_links(new_uploads);
-          set_active_doc_links(new_doc_links);
+          if (upload_result.success && upload_result.data) {
+            const uploaded_file = {
+              file_id: upload_result.data.id || file_id,
+              filename: file.name,
+              url: upload_result.data.path || remote_path,
+              mime_type: file.type,
+              size: file.size,
+              uploaded_at: new Date().toISOString(),
+            };
+
+            const result: FileUploadResult = {
+              success: true,
+              uploaded_file,
+            };
+            results.push(result);
+
+            // Add to form values and update doc_links
+            const uploads_key = get_uploads_key(active_field_id);
+            const current_uploads = get_field_uploads(form_methods.getValues(), active_field_id);
+            const new_uploads = [...current_uploads, uploaded_file];
+            form_methods.setValue(uploads_key, new_uploads);
+
+            // Update active_doc_links to include the new file
+            const new_doc_links = uploads_to_doc_links(new_uploads);
+            set_active_doc_links(new_doc_links);
+          } else {
+            results.push({
+              success: false,
+              error: upload_result.error || "Upload failed",
+            });
+          }
+        } catch (error) {
+          results.push({
+            success: false,
+            error: error instanceof Error ? error.message : "Upload failed",
+          });
         }
       }
 
       return results;
     },
-    [on_file_upload, active_field_id, active_field_label, form_methods]
+    [file_manager, active_field_id, file_save_path, form_methods]
   );
 
-  // Handle file deletion (from DocPanel)
+  // Handle file deletion (from DocPanel) - uses file_manager service
   const handle_panel_delete = React.useCallback(
     async (file_id: string): Promise<boolean> => {
-      if (!on_file_delete || !active_field_id) return false;
+      if (!file_manager || !active_field_id) return false;
 
-      const success = await on_file_delete(active_field_id, file_id);
+      try {
+        // Find the file to get its path
+        const current_uploads = get_field_uploads(form_methods.getValues(), active_field_id);
+        const file_to_delete = current_uploads.find((u) => u.file_id === file_id);
 
-      if (success) {
+        if (file_to_delete?.url) {
+          const delete_result = await file_manager.deleteFile(file_to_delete.url);
+          if (!delete_result.success) {
+            console.warn("File deletion failed:", delete_result.error);
+            return false;
+          }
+        }
+
         // Remove from form values
         const uploads_key = get_uploads_key(active_field_id);
-        const current_uploads = get_field_uploads(form_methods.getValues(), active_field_id);
         const new_uploads = current_uploads.filter((u) => u.file_id !== file_id);
         form_methods.setValue(uploads_key, new_uploads);
 
         // Update active_doc_links to reflect deletion
         const new_doc_links = uploads_to_doc_links(new_uploads);
         set_active_doc_links(new_doc_links);
-      }
 
-      return success;
+        return true;
+      } catch (error) {
+        console.warn("File deletion error:", error);
+        return false;
+      }
     },
-    [on_file_delete, active_field_id, form_methods]
+    [file_manager, active_field_id, form_methods]
   );
 
   // Handle DocPanel close - reset upload mode state
@@ -474,7 +521,8 @@ export function HazoDataForm({
                   display_mode="sidebar"
                   config={config}
                   pdf_viewer_component={pdf_viewer_component}
-                  on_pdf_save={on_pdf_save}
+                  file_manager={file_manager}
+                  pdf_save_path={pdf_save_path || file_save_path}
                   upload_enabled={doc_panel_upload_mode}
                   field_label={active_field_label}
                   field_id={active_field_id || undefined}
@@ -516,7 +564,8 @@ export function HazoDataForm({
                   display_mode="sidebar"
                   config={config}
                   pdf_viewer_component={pdf_viewer_component}
-                  on_pdf_save={on_pdf_save}
+                  file_manager={file_manager}
+                  pdf_save_path={pdf_save_path || file_save_path}
                   upload_enabled={doc_panel_upload_mode}
                   field_label={active_field_label}
                   field_id={active_field_id || undefined}
@@ -551,7 +600,8 @@ export function HazoDataForm({
           on_close={handle_doc_panel_close}
           config={config}
           pdf_viewer_component={pdf_viewer_component}
-          on_pdf_save={on_pdf_save}
+          file_manager={file_manager}
+          pdf_save_path={pdf_save_path || file_save_path}
           upload_enabled={doc_panel_upload_mode}
           field_label={active_field_label}
           field_id={active_field_id || undefined}

@@ -5,6 +5,7 @@ import { FileManager } from "./index";
 import type { FileManagerPopoutContext } from "./types";
 import type { FormConfig } from "../../lib/types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
+import type { HazoFileManagerInstance } from "../../context";
 
 /**
  * Props for the FileManagerPage component
@@ -22,12 +23,11 @@ export interface FileManagerPageProps {
   /** PDF viewer component */
   pdf_viewer_component?: React.ComponentType<PdfViewerProps>;
 
-  /** Callback when PDF is saved */
-  on_pdf_save?: (
-    pdf_bytes: Uint8Array,
-    filename: string,
-    original_url: string
-  ) => void;
+  /** File manager instance for save/load operations */
+  file_manager?: HazoFileManagerInstance;
+
+  /** Path where PDFs should be saved */
+  pdf_save_path?: string;
 
   /** Callback when close button is clicked (default: window.close()) */
   on_close?: () => void;
@@ -53,7 +53,8 @@ export function FileManagerPage({
   context: provided_context,
   config,
   pdf_viewer_component,
-  on_pdf_save,
+  file_manager,
+  pdf_save_path,
   on_close,
   render_error,
   render_loading,
@@ -140,7 +141,8 @@ export function FileManagerPage({
         display_mode="sidebar"
         config={config}
         pdf_viewer_component={pdf_viewer_component}
-        on_pdf_save={on_pdf_save}
+        file_manager={file_manager}
+        pdf_save_path={pdf_save_path}
         field_label={context.field_label}
         field_id={context.field_id}
       />

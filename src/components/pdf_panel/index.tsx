@@ -4,6 +4,7 @@ import * as React from "react";
 import { DocPanel } from "../doc_panel";
 import type { DocLink, FormConfig } from "../../lib/types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
+import type { HazoFileManagerInstance } from "../../context";
 
 export interface PdfPanelProps {
   /** Currently active doc_link */
@@ -21,8 +22,11 @@ export interface PdfPanelProps {
   /** Optional PDF viewer component (from hazo_pdf or custom) */
   pdf_viewer_component?: React.ComponentType<PdfViewerProps>;
 
-  /** Callback when PDF is saved - receives the PDF bytes, filename, and original URL */
-  on_pdf_save?: (pdf_bytes: Uint8Array, filename: string, original_url: string) => void;
+  /** File manager instance for save/load operations */
+  file_manager?: HazoFileManagerInstance;
+
+  /** Path where PDFs should be saved */
+  pdf_save_path?: string;
 
   /** Optional className for the panel container */
   class_name?: string;
@@ -39,7 +43,8 @@ export function PdfPanel({
   on_close,
   config,
   pdf_viewer_component,
-  on_pdf_save,
+  file_manager,
+  pdf_save_path,
   class_name,
 }: PdfPanelProps) {
   // Convert single doc_link to array for DocPanel
@@ -52,7 +57,8 @@ export function PdfPanel({
       on_close={on_close}
       config={config}
       pdf_viewer_component={pdf_viewer_component}
-      on_pdf_save={on_pdf_save}
+      file_manager={file_manager}
+      pdf_save_path={pdf_save_path}
       class_name={class_name}
     />
   );
