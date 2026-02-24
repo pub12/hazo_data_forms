@@ -126,7 +126,7 @@ const schema: FormSchema = [
 ];
 ```
 
-### 3. Render the form
+### 4. Render the form
 
 ```typescript
 function MyForm() {
@@ -339,7 +339,37 @@ Add reference annotations below fields to show prior-year values, benchmarks, or
 
 The `reference_value` displays below the field input as italic, smaller text with a grey background. It appears in both edit and view modes. Fields without `reference_value` render normally with no extra space.
 
-Supported on all field types except table fields.
+Supported on all field types including table columns.
+
+### Reference Values in Tables
+
+Table columns support `reference_value` for a static annotation on every row. For per-row/per-cell annotations, include `_reference_values` in your row data:
+
+```typescript
+// Column-level (same reference for every row)
+{
+  id: "amount",
+  label: "Amount",
+  field_info: { field_type: "currency" },
+  reference_value: "$10,000 (benchmark)"
+}
+
+// Row-level (different reference per row)
+const table_data = [
+  {
+    description: "Office Rent",
+    amount: 14000,
+    _reference_values: { amount: "$12,500.00 (FY2024)" }
+  },
+  {
+    description: "Travel",
+    amount: 5600,
+    _reference_values: { amount: "$4,800.00 (FY2024)" }
+  }
+];
+```
+
+Row-level `_reference_values` take priority over column-level `reference_value`.
 
 ## Document Links
 
@@ -708,6 +738,10 @@ See the `test-app` directory in the repository for a complete Next.js example wi
 ### Accessing Form Methods
 
 ```tsx
+import React from "react";
+import type { UseFormReturn } from "react-hook-form";
+import { HazoDataForm } from "hazo_data_forms";
+
 function MyForm() {
   const formMethodsRef = React.useRef<UseFormReturn | null>(null);
 

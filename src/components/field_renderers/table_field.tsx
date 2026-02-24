@@ -7,12 +7,15 @@ import { cn, normalize_doc_links } from "../../lib/utils";
 import { FileManagerButton } from "../file_manager_viewer";
 import type { FieldRendererProps } from "../../lib/field_registry";
 import type { TableColumn, DocLink } from "../../lib/types";
+import { ReferenceValue } from "./shared/reference_value";
 
 /**
- * Table row data can optionally include doc_links
+ * Table row data can optionally include doc_links and per-cell reference values
  */
 interface TableRowData extends Record<string, unknown> {
   doc_links?: DocLink[];
+  /** Per-cell reference values keyed by column id */
+  _reference_values?: Record<string, string>;
 }
 
 /**
@@ -310,13 +313,17 @@ export function TableField({
             ) : (
               rows.map((row, row_index) => (
                 <tr key={row_index} className="border-b last:border-b-0">
-                  {columns.map((col) => (
-                    <td key={col.id} className="px-3 py-2">
-                      {render_cell(row, row_index, col)}
-                    </td>
-                  ))}
+                  {columns.map((col) => {
+                    const ref_val = row._reference_values?.[col.id] ?? col.reference_value;
+                    return (
+                      <td key={col.id} className="px-3 py-2 align-top">
+                        {render_cell(row, row_index, col)}
+                        {ref_val && <ReferenceValue value={ref_val} />}
+                      </td>
+                    );
+                  })}
                   {has_row_doc_links && (
-                    <td className="px-2 py-2">
+                    <td className="px-2 py-2 align-top">
                       {row.doc_links?.length && on_row_doc_link_click && (
                         <FileManagerButton
                           file_count={row.doc_links.length}
@@ -329,7 +336,7 @@ export function TableField({
                     </td>
                   )}
                   {!is_view && (
-                    <td className="px-2 py-2">
+                    <td className="px-2 py-2 align-top">
                       <button
                         type="button"
                         onClick={() => handle_remove_row(row_index)}

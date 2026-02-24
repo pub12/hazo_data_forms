@@ -399,6 +399,8 @@ export interface TableColumn {
   subtotal?: boolean;
   /** Default value for this column when adding new rows */
   default_value?: unknown;
+  /** Optional reference value displayed below cell inputs (e.g., prior-year value, benchmark) */
+  reference_value?: string;
 }
 
 /**

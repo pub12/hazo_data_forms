@@ -122,6 +122,45 @@
             }
           ]
         }
+      },
+      {
+        "sub_section_id": "table_ref",
+        "sub_section_label": "Table with Reference Values",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "expense_items",
+              "label": "Expense Line Items",
+              "field_info": {
+                "field_type": "table",
+                "table_columns": [
+                  {
+                    "id": "description",
+                    "label": "Description",
+                    "field_info": { "field_type": "text", "placeholder": "Expense description" },
+                    "width": "40%"
+                  },
+                  {
+                    "id": "current_amount",
+                    "label": "Current Year",
+                    "field_info": { "field_type": "currency", "decimal_places": 2 },
+                    "width": "30%",
+                    "subtotal": true
+                  },
+                  {
+                    "id": "variance_pct",
+                    "label": "Variance %",
+                    "field_info": { "field_type": "percentage", "decimal_places": 1 },
+                    "width": "30%"
+                  }
+                ],
+                "table_min_rows": 1,
+                "table_max_rows": 10
+              }
+            }
+          ]
+        }
       }
     ]
   }

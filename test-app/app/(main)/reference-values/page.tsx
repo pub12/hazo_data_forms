@@ -5,7 +5,28 @@ import { HazoDataForm, type FormSchema, type FormValues } from "hazo_data_forms"
 import default_schema from "@/schemas/reference-values.schema.json";
 
 export default function ReferenceValuesPage() {
-  const [values, set_values] = useState<FormValues>({});
+  const [values, set_values] = useState<FormValues>({
+    expense_items: [
+      {
+        description: "Office Rent",
+        current_amount: 14000,
+        variance_pct: 12,
+        _reference_values: { current_amount: "$12,500.00 (FY2024)", variance_pct: "8.0% (FY2024)" },
+      },
+      {
+        description: "Software Licenses",
+        current_amount: 8200,
+        variance_pct: -3.5,
+        _reference_values: { current_amount: "$8,500.00 (FY2024)", variance_pct: "-1.2% (FY2024)" },
+      },
+      {
+        description: "Travel",
+        current_amount: 5600,
+        variance_pct: 8.1,
+        _reference_values: { current_amount: "$4,800.00 (FY2024)", variance_pct: "6.5% (FY2024)" },
+      },
+    ],
+  });
   const [mode, set_mode] = useState<"edit" | "view">("edit");
 
   return (
