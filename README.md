@@ -22,7 +22,7 @@ Dynamic form rendering from JSON schema with document link support and embedded 
 ## Installation
 
 ```bash
-npm install hazo_data_forms react react-dom react-hook-form lucide-react
+npm install hazo_data_forms react react-dom react-hook-form react-icons
 
 # Optional: For file management (upload/delete/storage)
 npm install hazo_files
@@ -323,6 +323,23 @@ function MyForm() {
   }
 }
 ```
+
+## Reference Values
+
+Add reference annotations below fields to show prior-year values, benchmarks, or expected values:
+
+```typescript
+{
+  id: "annual_revenue",
+  label: "Annual Revenue",
+  field_info: { field_type: "currency", decimal_places: 2 },
+  reference_value: "$1,250,000.00 (FY2024)"
+}
+```
+
+The `reference_value` displays below the field input as italic, smaller text with a grey background. It appears in both edit and view modes. Fields without `reference_value` render normally with no extra space.
+
+Supported on all field types except table fields.
 
 ## Document Links
 

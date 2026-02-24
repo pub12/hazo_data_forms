@@ -465,6 +465,8 @@ export interface FormField {
   value_width?: string;
   /** Row variant for special row styling (e.g., highlight row) */
   row_variant?: "highlight" | "normal";
+  /** Optional reference value displayed below the field (e.g., prior-year value, benchmark) */
+  reference_value?: string;
   /**
    * Paired field for dual-column layouts (e.g., Capital gains / Capital losses)
    * When present, renders both fields on the same row with their own badge+value

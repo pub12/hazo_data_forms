@@ -1,0 +1,128 @@
+[
+  {
+    "section_name": "Reference Values Demo",
+    "sub_sections": [
+      {
+        "sub_section_id": "basic_ref",
+        "sub_section_label": "Basic Fields with Reference Values",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "company_name",
+              "label": "Company Name",
+              "field_info": { "field_type": "text", "placeholder": "Enter company name" },
+              "reference_value": "Acme Corp (prior year)"
+            },
+            {
+              "id": "annual_revenue",
+              "label": "Annual Revenue",
+              "field_info": { "field_type": "currency", "decimal_places": 2 },
+              "reference_value": "$1,250,000.00 (FY2024)"
+            },
+            {
+              "id": "employee_count",
+              "label": "Number of Employees",
+              "field_info": { "field_type": "number", "min": 0 },
+              "reference_value": "42 (prior year)"
+            },
+            {
+              "id": "fiscal_year_end",
+              "label": "Fiscal Year End",
+              "field_info": { "field_type": "date" },
+              "reference_value": "2024-12-31 (prior year)"
+            },
+            {
+              "id": "tax_rate",
+              "label": "Effective Tax Rate",
+              "field_info": { "field_type": "percentage", "decimal_places": 1 },
+              "reference_value": "21.5% (benchmark)"
+            },
+            {
+              "id": "industry",
+              "label": "Industry",
+              "field_info": {
+                "field_type": "option",
+                "options": [
+                  { "value": "tech", "label": "Technology" },
+                  { "value": "finance", "label": "Finance" },
+                  { "value": "healthcare", "label": "Healthcare" },
+                  { "value": "manufacturing", "label": "Manufacturing" }
+                ]
+              },
+              "reference_value": "Technology (prior year)"
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "more_types",
+        "sub_section_label": "Additional Field Types",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "is_public",
+              "label": "Publicly Traded",
+              "field_info": { "field_type": "boolean" },
+              "reference_value": "Yes (prior year)"
+            },
+            {
+              "id": "contact_email",
+              "label": "Contact Email",
+              "field_info": { "field_type": "email", "placeholder": "email@example.com" },
+              "reference_value": "old-contact@acme.com (prior year)"
+            },
+            {
+              "id": "phone",
+              "label": "Phone Number",
+              "field_info": { "field_type": "tel" },
+              "reference_value": "+1 (555) 123-4567 (prior year)"
+            },
+            {
+              "id": "notes",
+              "label": "Notes",
+              "field_info": { "field_type": "textarea", "rows": 3 },
+              "reference_value": "Audit completed without findings (prior year)"
+            },
+            {
+              "id": "no_ref",
+              "label": "Field Without Reference",
+              "field_info": { "field_type": "text", "placeholder": "This field has no reference_value" }
+            }
+          ]
+        }
+      },
+      {
+        "sub_section_id": "inline_ref",
+        "sub_section_label": "Inline Layout with Reference Values",
+        "field_group": {
+          "orientation": "vertical",
+          "fields": [
+            {
+              "id": "gross_revenue",
+              "label": "Gross Revenue",
+              "label_position": "inline",
+              "field_info": { "field_type": "currency", "decimal_places": 2 },
+              "reference_value": "$980,000.00 (FY2024)"
+            },
+            {
+              "id": "operating_expenses",
+              "label": "Operating Expenses",
+              "label_position": "inline",
+              "field_info": { "field_type": "currency", "decimal_places": 2 },
+              "reference_value": "$650,000.00 (FY2024)"
+            },
+            {
+              "id": "headcount",
+              "label": "Headcount",
+              "label_position": "inline",
+              "field_info": { "field_type": "number", "min": 0 },
+              "reference_value": "38 (prior year)"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

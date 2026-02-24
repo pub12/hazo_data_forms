@@ -6,6 +6,7 @@ import { Label } from "../ui/label";
 import { FileManagerButton } from "../file_manager_viewer/file_manager_button";
 import { cn, normalize_doc_links } from "../../lib/utils";
 import type { FieldRendererProps } from "../../lib/field_registry";
+import { ReferenceValue } from "./shared/reference_value";
 
 /**
  * Option Field Renderer
@@ -241,6 +242,7 @@ export function OptionField({
             {error}
           </p>
         )}
+        {field.reference_value && <ReferenceValue value={field.reference_value} />}
       </div>
     );
   }
@@ -265,6 +267,7 @@ export function OptionField({
           {error}
         </p>
       )}
+      {field.reference_value && <ReferenceValue value={field.reference_value} />}
     </div>
   );
 }

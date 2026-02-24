@@ -13,6 +13,7 @@ import {
   Upload,
   Files,
   Briefcase,
+  BookMarked,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +28,7 @@ const nav_items = [
   { href: "/tax-forms", label: "Tax Forms", icon: Calculator },
   { href: "/work-papers", label: "Work Papers", icon: Briefcase },
   { href: "/file-upload", label: "File Upload", icon: Upload },
+  { href: "/reference-values", label: "Reference Values", icon: BookMarked },
 ];
 
 export function Sidebar() {
