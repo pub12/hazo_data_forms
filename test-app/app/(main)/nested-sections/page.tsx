@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { HazoDataForm, type FormSchema } from "hazo_data_forms";
-import default_schema from "../../schemas/nested-sections.schema.json";
+import default_schema from "@/schemas/nested-sections.schema.json";
 
 export default function NestedSectionsPage() {
   const [schema, set_schema] = useState<FormSchema>(default_schema as FormSchema);

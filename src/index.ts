@@ -16,7 +16,7 @@ export type {
   HazoServicesProviderProps,
   HazoServices,
   HazoConnectInstance,
-  HazoFileManagerInstance,
+  HazoFilesFileManager,
   Logger,
 } from "./context";
 export type {

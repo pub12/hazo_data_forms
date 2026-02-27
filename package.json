@@ -68,7 +68,10 @@
     "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
+    "hazo_files": "file:../hazo_files",
+    "hazo_pdf": "file:../hazo_pdf",
     "postcss": "^8.4.49",
+    "react-hook-form": "^7.71.2",
     "react-icons": "^5.5.0",
     "tailwindcss": "^3.4.17",
     "tsup": "^8.3.5",
@@ -85,9 +88,6 @@
   },
   "peerDependenciesMeta": {
     "hazo_config": {
-      "optional": true
-    },
-    "hazo_files": {
       "optional": true
     },
     "hazo_pdf": {

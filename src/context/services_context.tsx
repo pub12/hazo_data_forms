@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import type { FileManager as HazoFilesFileManager } from "hazo_files";
 
 // ============================================================================
 // Type Definitions
@@ -15,42 +16,6 @@ export interface Logger {
   debug: (message: string, data?: Record<string, unknown>) => void;
   warn: (message: string, data?: Record<string, unknown>) => void;
   error: (message: string, data?: Record<string, unknown>) => void;
-}
-
-/**
- * File manager interface for hazo_files
- * Compatible with both hazo_files' FileManager and hazo_pdf's FileAccessProvider
- * Consumers can pass hazo_files' FileManager directly, or a client-side adapter
- * that calls API routes for browser environments.
- */
-export interface HazoFileManagerInstance {
-  /** Upload a file to remote storage */
-  uploadFile(
-    source: Buffer | Uint8Array | string,
-    remotePath: string,
-    options?: { overwrite?: boolean }
-  ): Promise<{
-    success: boolean;
-    data?: { id: string; name: string; path: string; size: number; mimeType: string };
-    error?: string;
-  }>;
-  /** Download a file from remote storage */
-  downloadFile(
-    remotePath: string,
-    localPath?: string
-  ): Promise<{
-    success: boolean;
-    data?: Buffer | ArrayBuffer | Uint8Array | string;
-    error?: string;
-  }>;
-  /** Delete a file from remote storage */
-  deleteFile(path: string): Promise<{ success: boolean; error?: string }>;
-  /** Check if the file manager is initialized and ready */
-  isInitialized(): boolean;
-  /** Check if a file exists at the given path */
-  exists(path: string): Promise<boolean>;
-  /** Ensure a directory exists, creating it if necessary */
-  ensureDirectory(path: string): Promise<{ success: boolean; error?: string }>;
 }
 
 /**
@@ -72,8 +37,8 @@ export interface HazoServices {
   db?: HazoConnectInstance;
   /** Logger from hazo_logs (compatible with hazo_pdf's Logger) */
   logger?: Logger;
-  /** File manager from hazo_files (compatible with hazo_pdf's FileAccessProvider) */
-  file_manager?: HazoFileManagerInstance;
+  /** File manager from hazo_files */
+  file_manager: HazoFilesFileManager;
   /** Custom services for extensibility */
   custom?: Record<string, unknown>;
 }
@@ -224,7 +189,7 @@ export function useHazoCustomService<T>(key: string): T | undefined {
  * }
  * ```
  */
-export function useHazoFileManager(): HazoFileManagerInstance | undefined {
+export function useHazoFileManager(): HazoFilesFileManager | undefined {
   const services = React.useContext(HazoServicesContext);
   return services?.file_manager;
 }

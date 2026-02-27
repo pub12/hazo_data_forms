@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { HazoDataForm, type FormSchema, type FormMode } from "hazo_data_forms";
-import default_schema from "../../../schemas/edit-vs-view.schema.json";
+import default_schema from "@/schemas/edit-vs-view.schema.json";
 
 export default function EditVsViewPage() {
   const [schema, set_schema] = useState<FormSchema>(default_schema as FormSchema);

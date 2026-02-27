@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import { cn, extract_filename_from_url } from "../../lib/utils";
 import type { DocLink, FormConfig, FileUploadResult } from "../../lib/types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
-import type { HazoFileManagerInstance } from "../../context";
+import type { FileManager as HazoFilesFileManager } from "hazo_files";
 import { FileListItem } from "./file_list_item";
 import { NonPdfContent } from "./non_pdf_content";
 import { UploadZone } from "./upload_zone";
@@ -28,7 +28,7 @@ export interface DocPanelProps {
   pdf_viewer_component?: React.ComponentType<PdfViewerProps>;
 
   /** File manager instance for save/load operations */
-  file_manager?: HazoFileManagerInstance;
+  file_manager?: HazoFilesFileManager;
 
   /** Path where PDFs should be saved */
   pdf_save_path?: string;

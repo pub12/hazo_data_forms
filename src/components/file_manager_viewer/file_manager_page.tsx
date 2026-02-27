@@ -5,7 +5,7 @@ import { FileManager } from "./index";
 import type { FileManagerPopoutContext } from "./types";
 import type { FormConfig } from "../../lib/types";
 import type { PdfViewerProps } from "../hazo_data_form/types";
-import type { HazoFileManagerInstance } from "../../context";
+import type { FileManager as HazoFilesFileManager } from "hazo_files";
 
 /**
  * Props for the FileManagerPage component
@@ -24,7 +24,7 @@ export interface FileManagerPageProps {
   pdf_viewer_component?: React.ComponentType<PdfViewerProps>;
 
   /** File manager instance for save/load operations */
-  file_manager?: HazoFileManagerInstance;
+  file_manager?: HazoFilesFileManager;
 
   /** Path where PDFs should be saved */
   pdf_save_path?: string;

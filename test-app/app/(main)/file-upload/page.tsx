@@ -7,8 +7,8 @@ import {
   type FormValues,
   type UploadedFile,
 } from "hazo_data_forms";
-import default_schema from "../../schemas/file-upload.schema.json";
-import { create_client_file_manager } from "../../../lib/client_file_manager";
+import default_schema from "@/schemas/file-upload.schema.json";
+import { create_client_file_manager } from "@/lib/client_file_manager";
 
 export default function FileUploadPage() {
   const [schema, set_schema] = useState<FormSchema>(default_schema as FormSchema);

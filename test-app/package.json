@@ -12,6 +12,7 @@
     "clsx": "^2.1.1",
     "hazo_config": "^1.0.0",
     "hazo_data_forms": "file:..",
+    "hazo_files": "file:../../hazo_files",
     "hazo_pdf": "file:../../hazo_pdf",
     "lucide-react": "^0.469.0",
     "next": "^15.1.3",

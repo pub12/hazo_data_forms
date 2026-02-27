@@ -324,7 +324,7 @@ export function HazoDataForm({
 
           // Read file as ArrayBuffer and convert to Uint8Array
           const array_buffer = await file.arrayBuffer();
-          const file_data = new Uint8Array(array_buffer);
+          const file_data = Buffer.from(array_buffer);
 
           const upload_result = await file_manager.uploadFile(file_data, remote_path);
 
@@ -442,7 +442,7 @@ export function HazoDataForm({
   const pdf_panel_size = parse_width_to_percent(pdf_panel_width || config.pdf_panel_width);
   const form_panel_size = 100 - pdf_panel_size;
 
-  // Helper to conditionally wrap content with services provider
+  // Wrap content with services provider (guard for runtime safety)
   const wrap_with_services = (content: React.ReactNode): React.ReactNode => {
     if (services) {
       return (

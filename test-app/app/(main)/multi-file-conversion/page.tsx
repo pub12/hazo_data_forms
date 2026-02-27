@@ -47,12 +47,12 @@ const demo_schema: FormSchema = [
                 field_type: "currency",
                 required: true,
               },
-              doc_link: {
+              doc_links: [{
                 type: "pdf",
                 url: "/sample.pdf",
                 page: 3,
                 filename: "Pricing Page.pdf",
-              },
+              }],
             },
             {
               id: "contract_date",
@@ -83,11 +83,11 @@ const demo_schema: FormSchema = [
                 field_type: "text",
                 placeholder: "Excel file with financial projections",
               },
-              doc_link: {
+              doc_links: [{
                 type: "other",
                 url: "/files/financials.xlsx",
                 filename: "Financial Projections.xlsx",
-              },
+              }],
             },
             {
               id: "notes",
@@ -96,11 +96,11 @@ const demo_schema: FormSchema = [
                 field_type: "text",
                 placeholder: "Text file with notes",
               },
-              doc_link: {
+              doc_links: [{
                 type: "other",
                 url: "/files/notes.txt",
                 filename: "Meeting Notes.txt",
-              },
+              }],
             },
           ],
         },
@@ -123,7 +123,7 @@ export default function MultiFileConversionPage() {
     // 1. Display the converted PDF in a viewer
     // 2. Save it to the server
     // 3. Download it to the user's computer
-    const blob = new Blob([pdf_bytes.buffer], { type: "application/pdf" });
+    const blob = new Blob([pdf_bytes as BlobPart], { type: "application/pdf" });
     const url = URL.createObjectURL(blob);
     window.open(url, "_blank");
   };

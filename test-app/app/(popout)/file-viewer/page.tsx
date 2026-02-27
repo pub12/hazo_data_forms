@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { FileManagerPage, DEFAULT_FORM_CONFIG } from "hazo_data_forms";
 import { PdfViewer } from "hazo_pdf";
 import "hazo_pdf/styles.css";
-import { create_client_file_manager } from "../../../lib/client_file_manager";
+import { create_client_file_manager } from "@/lib/client_file_manager";
 
 /**
  * File Viewer Popout Page
@@ -27,7 +27,7 @@ export default function FileViewerPage() {
       <div className="flex-1 overflow-hidden">
         <FileManagerPage
           config={DEFAULT_FORM_CONFIG}
-          pdf_viewer_component={PdfViewer}
+          pdf_viewer_component={PdfViewer as any}
           file_manager={file_manager}
           pdf_save_path="/uploads/pdfs"
         />

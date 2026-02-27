@@ -11,12 +11,12 @@ import {
 } from "hazo_data_forms";
 import { PdfViewer } from "hazo_pdf";
 import "hazo_pdf/styles.css";
-import { create_client_file_manager } from "../../../lib/client_file_manager";
+import { create_client_file_manager } from "@/lib/client_file_manager";
 
 // Import all work paper schemas
-import wp_01_personal_details from "../../../schemas/wp_01_personal_details.json";
-import wp_02_income from "../../../schemas/wp_02_income.json";
-import wp_03_deductions from "../../../schemas/wp_03_deductions.json";
+import wp_01_personal_details from "@/schemas/wp_01_personal_details.json";
+import wp_02_income from "@/schemas/wp_02_income.json";
+import wp_03_deductions from "@/schemas/wp_03_deductions.json";
 
 const WORK_PAPER_PAGES = [
   { num: 1, label: "Personal Details", schema: wp_01_personal_details },
@@ -192,7 +192,7 @@ export default function WorkPapersPage() {
           collapsible_sections={true}
           show_submit_button={current_page === WORK_PAPER_PAGES.length && mode === "edit"}
           submit_button_text="Submit Work Papers"
-          pdf_viewer_component={PdfViewer}
+          pdf_viewer_component={PdfViewer as any}
           enable_file_upload={true}
           on_file_view={handle_file_view}
           on_file_popout={handle_file_popout}

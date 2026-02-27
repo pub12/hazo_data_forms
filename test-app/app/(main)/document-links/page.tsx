@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { HazoDataForm, type FormSchema, type FormValues, type DocLinkClickEvent } from "hazo_data_forms";
-import default_schema from "../../schemas/document-links.schema.json";
+import default_schema from "@/schemas/document-links.schema.json";
 
 export default function DocumentLinksPage() {
   const [schema, set_schema] = useState<FormSchema>(default_schema as FormSchema);
@@ -135,8 +135,8 @@ export default function DocumentLinksPage() {
           <ul className="text-sm space-y-1">
             {click_log.map((event, i) => (
               <li key={i} className="font-mono">
-                Field: {event.field_id}, URL: {event.doc_link?.url ?? event.doc_links[0]?.url}
-                {event.doc_link?.page && `, Page: ${event.doc_link.page}`}
+                Field: {event.field_id}, URL: {event.doc_links[0]?.url}
+                {event.doc_links[0]?.page && `, Page: ${event.doc_links[0].page}`}
               </li>
             ))}
           </ul>

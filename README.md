@@ -24,7 +24,7 @@ Dynamic form rendering from JSON schema with document link support and embedded 
 ```bash
 npm install hazo_data_forms react react-dom react-hook-form react-icons
 
-# Optional: For file management (upload/delete/storage)
+# Required: For file management (upload/delete/storage)
 npm install hazo_files
 
 # Optional: For PDF viewer support
@@ -40,8 +40,8 @@ npm install hazo_config
 
 - React: ^18.0.0 or ^19.0.0
 - react-hook-form: ^7.0.0
+- hazo_files: ^1.4.0 (required - file management service)
 - hazo_config: ^1.0.0 (optional)
-- hazo_files: ^1.4.0 (optional - for file upload/storage)
 - hazo_pdf: ^1.6.0 (optional - for PDF viewer)
 
 ## Quick Start
@@ -408,21 +408,18 @@ hazo_data_forms uses a service injection pattern for external integrations. Serv
 
 ### File Manager Service
 
-File upload, deletion, and PDF save operations are handled through the `file_manager` service (compatible with `hazo_files`).
+File upload, deletion, and PDF save operations are handled through the `file_manager` service from `hazo_files`.
 
 ```typescript
 import { HazoDataForm } from "hazo_data_forms";
-import type { HazoFileManagerInstance } from "hazo_data_forms";
+import { createFileManager } from "hazo_files";
 
-// Your file manager (e.g., from hazo_files, or a custom client adapter)
-const file_manager: HazoFileManagerInstance = {
-  uploadFile: async (data, path, options) => { /* ... */ },
-  downloadFile: async (path) => { /* ... */ },
-  deleteFile: async (path) => { /* ... */ },
-  isInitialized: () => true,
-  exists: async (path) => { /* ... */ },
-  ensureDirectory: async (path) => { /* ... */ },
-};
+// Server-side: use hazo_files FileManager directly
+const file_manager = createFileManager({ configPath: "./hazo_files.ini" });
+await file_manager.initialize();
+
+// Client-side: create an adapter that calls API routes
+// (see test-app/lib/client_file_manager.ts for an example)
 
 <HazoDataForm
   schema={schema}
@@ -634,7 +631,7 @@ import type {
 
   // Services
   HazoServices,
-  HazoFileManagerInstance,
+  HazoFilesFileManager,  // Re-exported from hazo_files
   HazoConnectInstance,
   Logger,
 
@@ -791,7 +788,7 @@ v2.0.0 replaces file operation callbacks with a `file_manager` service. This is 
 **After (v2.0.0):**
 
 ```typescript
-const file_manager: HazoFileManagerInstance = {
+const file_manager: HazoFilesFileManager = {
   uploadFile: async (data, path) => {
     const result = await my_api.upload(data, path);
     return { success: true, data: { id: result.id, name: result.name, path, size: result.size, mimeType: result.type } };
@@ -812,6 +809,44 @@ const file_manager: HazoFileManagerInstance = {
   enable_file_upload={true}
   file_save_path="/uploads/my_form/"
 />
+```
+
+## Migrating to v2.1.0
+
+v2.1.0 replaces the local `HazoFileManagerInstance` interface with the `FileManager` class imported directly from `hazo_files`. This is a breaking change.
+
+### What Changed
+
+- **`hazo_files` is now a required peer dependency** (was optional)
+- **`HazoFileManagerInstance` is removed** — use `HazoFilesFileManager` (re-exported from `hazo_files`)
+- **`HazoServices.file_manager` is typed as required** — the runtime still handles missing services gracefully
+
+### Migration Steps
+
+1. Install `hazo_files`:
+
+```bash
+npm install hazo_files
+```
+
+2. Update type imports:
+
+```typescript
+// Before
+import type { HazoFileManagerInstance } from "hazo_data_forms";
+
+// After
+import type { HazoFilesFileManager } from "hazo_data_forms";
+// Or import directly:
+import type { FileManager } from "hazo_files";
+```
+
+3. If using a client-side adapter (plain object), add a type assertion:
+
+```typescript
+// Client adapters that implement a subset of FileManager methods
+// need a type assertion since FileManager is a class
+return { uploadFile, deleteFile, ... } as unknown as HazoFilesFileManager;
 ```
 
 ## License

@@ -11,24 +11,24 @@ import {
 } from "hazo_data_forms";
 import { PdfViewer } from "hazo_pdf";
 import "hazo_pdf/styles.css";
-import { create_client_file_manager } from "../../../lib/client_file_manager";
+import { create_client_file_manager } from "@/lib/client_file_manager";
 
 // Import all tax form schemas
-import page_01 from "../../../schemas/tax_form_page_01.json";
-import page_02 from "../../../schemas/tax_form_page_02.json";
-import page_03 from "../../../schemas/tax_form_page_03.json";
-import page_04 from "../../../schemas/tax_form_page_04.json";
-import page_05 from "../../../schemas/tax_form_page_05.json";
-import page_06 from "../../../schemas/tax_form_page_06.json";
-import page_07 from "../../../schemas/tax_form_page_07.json";
-import page_08 from "../../../schemas/tax_form_page_08.json";
-import page_09 from "../../../schemas/tax_form_page_09.json";
-import page_10 from "../../../schemas/tax_form_page_10.json";
-import page_11 from "../../../schemas/tax_form_page_11.json";
-import page_12 from "../../../schemas/tax_form_page_12.json";
-import page_13 from "../../../schemas/tax_form_page_13.json";
-import page_14 from "../../../schemas/tax_form_page_14.json";
-import page_15 from "../../../schemas/tax_form_page_15.json";
+import page_01 from "@/schemas/tax_form_page_01.json";
+import page_02 from "@/schemas/tax_form_page_02.json";
+import page_03 from "@/schemas/tax_form_page_03.json";
+import page_04 from "@/schemas/tax_form_page_04.json";
+import page_05 from "@/schemas/tax_form_page_05.json";
+import page_06 from "@/schemas/tax_form_page_06.json";
+import page_07 from "@/schemas/tax_form_page_07.json";
+import page_08 from "@/schemas/tax_form_page_08.json";
+import page_09 from "@/schemas/tax_form_page_09.json";
+import page_10 from "@/schemas/tax_form_page_10.json";
+import page_11 from "@/schemas/tax_form_page_11.json";
+import page_12 from "@/schemas/tax_form_page_12.json";
+import page_13 from "@/schemas/tax_form_page_13.json";
+import page_14 from "@/schemas/tax_form_page_14.json";
+import page_15 from "@/schemas/tax_form_page_15.json";
 
 const TAX_FORM_PAGES = [
   { num: 1, label: "Your Details", schema: page_01 },
@@ -216,7 +216,7 @@ export default function TaxFormsPage() {
           collapsible_sections={true}
           show_submit_button={current_page === TAX_FORM_PAGES.length && mode === "edit"}
           submit_button_text="Submit Tax Return"
-          pdf_viewer_component={PdfViewer}
+          pdf_viewer_component={PdfViewer as any}
           enable_file_upload={true}
           on_file_view={handle_file_view}
           on_file_popout={handle_file_popout}

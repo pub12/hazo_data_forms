@@ -34,7 +34,14 @@ export default defineConfig({
       if (fs.existsSync(file)) {
         const content = fs.readFileSync(file, "utf8");
         if (!content.startsWith('"use client"')) {
-          fs.writeFileSync(file, directive + content, "utf8");
+          // Strip any duplicate trailing sourceMappingURL comments before prepending.
+          // tsup may append sourceMappingURL after onSuccess, causing duplicates.
+          const deduped = content.replace(/(\/\/#\s*sourceMappingURL=.*\n?)+$/, (match) => {
+            const lines = match.trim().split("\n");
+            const unique = [...new Set(lines)];
+            return unique.join("\n") + "\n";
+          });
+          fs.writeFileSync(file, directive + deduped, "utf8");
           console.log(`Added "use client" directive to ${path.basename(file)}`);
         }
       }

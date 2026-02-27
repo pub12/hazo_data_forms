@@ -12,7 +12,8 @@ import type {
   UploadedFile,
 } from "../../lib/types";
 import type { FileManagerPopoutContext } from "../file_manager_viewer/types";
-import type { HazoServices, HazoFileManagerInstance } from "../../context";
+import type { HazoServices } from "../../context";
+import type { FileManager as HazoFilesFileManager } from "hazo_files";
 
 // ============================================================================
 // hazo_pdf Type Aliases
@@ -97,8 +98,8 @@ export interface PdfViewerProps {
   on_save?: (pdf_bytes: Uint8Array, filename: string) => void;
 
   // hazo_pdf 1.6.0 - file_manager integration
-  /** File manager instance for save/load operations (compatible with hazo_files) */
-  file_manager?: HazoFileManagerInstance;
+  /** File manager instance for save/load operations */
+  file_manager?: HazoFilesFileManager;
   /** Path where PDFs should be saved */
   save_path?: string;
 

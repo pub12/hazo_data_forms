@@ -1,11 +1,13 @@
 /**
  * Client-side file manager adapter for test-app
- * Implements HazoFileManagerInstance by calling API routes
+ * Implements FileManager interface by calling API routes
  * since hazo_files' FileManager uses Node.js fs module (server-only)
  */
-import type { HazoFileManagerInstance } from "hazo_data_forms";
+import type { HazoFilesFileManager } from "hazo_data_forms";
 
-export function create_client_file_manager(): HazoFileManagerInstance {
+export function create_client_file_manager(): HazoFilesFileManager {
+  // Client adapter only implements the methods used by HazoDataForm.
+  // Full FileManager class requires Node.js; this is a browser-side shim.
   return {
     async uploadFile(
       source: Buffer | Uint8Array | string,
@@ -107,5 +109,5 @@ export function create_client_file_manager(): HazoFileManagerInstance {
         };
       }
     },
-  };
+  } as unknown as HazoFilesFileManager;
 }

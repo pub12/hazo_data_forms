@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { HazoDataForm, type FormSchema, type FormValues } from "hazo_data_forms";
-import default_schema from "../../schemas/tables-worksheets.schema.json";
+import default_schema from "@/schemas/tables-worksheets.schema.json";
 
 export default function TablesWorksheetsPage() {
   const [schema, set_schema] = useState<FormSchema>(default_schema as FormSchema);
